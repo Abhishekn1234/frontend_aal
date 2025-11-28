@@ -10,15 +10,15 @@ export default function Navbar() {
   const [logoHovered, setLogoHovered] = useState(false);
 
   const navigate = useNavigate();
-const handleServiceScroll = (title: string) => {
-  const elementId = title.replace(/\s+/g, "-").toLowerCase();
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-  setOpen(false);
-  setServicesOpen(false);
-};
+// const handleServiceScroll = (title: string) => {
+//   const elementId = title.replace(/\s+/g, "-").toLowerCase();
+//   const element = document.getElementById(elementId);
+//   if (element) {
+//     element.scrollIntoView({ behavior: "smooth", block: "start" });
+//   }
+//   setOpen(false);
+//   setServicesOpen(false);
+// };
 
   // Handle scroll for navbar styling
   useEffect(() => {
@@ -47,11 +47,12 @@ const handleServiceScroll = (title: string) => {
   };
 
   // Navigate to Services page and close menus
-  const handleServiceNavigation = () => {
-    navigate("/services");
-    setOpen(false);
-    setServicesOpen(false);
-  };
+ const handleServiceNavigationClick = (title: string) => {
+  navigate("/services");
+  console.log(title)
+  setOpen(false);
+  setServicesOpen(false);
+};
 
   // const handleServiceItemClick = () => {
   //   if (window.innerWidth < 768) {
@@ -61,8 +62,8 @@ const handleServiceScroll = (title: string) => {
   // };
 
   const logoStyle = {
-    width: "78px",
-    height: "78px",
+    width: "58px",
+    height: "58px",
     borderRadius: "12px",
     // objectFit: "cover",
     boxShadow: logoHovered
@@ -151,31 +152,49 @@ const handleServiceScroll = (title: string) => {
                   overflow-hidden`}
                 style={{ zIndex: 2000 }}
               >
-                <div className="p-6 md:p-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
- {servicesData.map((category, idx) => (
-  <button
-    key={idx}
-    className="cursor-pointer p-2 rounded-lg transition-all duration-200 block text-left"
-    onClick={() => handleServiceScroll(category.title)}
-  >
-    <h3 className="font-semibold text-gray-900 text-sm leading-tight mb-3">
-      {category.title}
-    </h3>
-  </button>
-))}
+<div className="p-6 md:p-8">
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+    {servicesData.map((category, idx) => (
+      <div
+        key={idx}
+        className="cursor-pointer"
+        onClick={() => handleServiceNavigationClick(category.title)}
+      >
+        {/* Title */}
+        <h3 className="font-bold text-yellow-400 text-sm mb-1 text-center">
+          {category.title}
+        </h3>
 
+        {/* Horizontal line */}
+        <hr className="border-yellow-400 mb-1" />
+
+        {/* Items as bullet points */}
+        <ul className="list-disc list-inside text-gray-700 text-xs leading-snug space-y-1">
+          {category.items.map((item: string, index: number) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
 </div>
 
 
+
+
+
+
+
+
                 {/* Mobile "View All" Button */}
-                <div className="mt-6 md:hidden">
+                {/* <div className="mt-6 md:hidden">
                   <button
-                    onClick={handleServiceNavigation}
+                    onClick={handleServiceNavigationClick(category.title)}
                     className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
                   >
                     View All Services
                   </button>
-                </div>
+                </div> */}
               </div>
             </li>
 

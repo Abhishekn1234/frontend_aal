@@ -3,6 +3,7 @@ export const servicesData = [
     title: "Website & App Development",
     icon: "💻",
     image: "/webdesign&app1.jpg",
+
     items: [
       "Website design & development",
       "E-commerce website development",
@@ -109,18 +110,18 @@ export const servicesData = [
       "Outsourced social media & marketing team",
     ],
   },
-  {
-    title: "E-Commerce / Online Business Solutions",
-    icon: "🛒",
-    image: "/e commerce.jpg",
-    items: [
-      "E-commerce website",
-      "Online payment integration",
-      "Marketplace management",
-      "Dropshipping store setup",
-      "Product photoshoot & catalogue creation",
-    ],
-  },
+  // {
+  //   title: "E-Commerce / Online Business Solutions",
+  //   icon: "🛒",
+  //   image: "/e commerce.jpg",
+  //   items: [
+  //     "E-commerce website",
+  //     "Online payment integration",
+  //     "Marketplace management",
+  //     "Dropshipping store setup",
+  //     "Product photoshoot & catalogue creation",
+  //   ],
+  // },
   {
     title: "PR Media And Relations",
     icon: "📰",
