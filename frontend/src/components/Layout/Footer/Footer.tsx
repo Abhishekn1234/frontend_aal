@@ -25,7 +25,7 @@ export default function Footer() {
 const [newsletterEmail, setNewsletterEmail] = useState("");
 const [isSendingNews, setIsSendingNews] = useState(false);
 
-const handleNewsletterSubmit = async (e) => {
+const handleNewsletterSubmit = async (e:any) => {
   e.preventDefault();
   if (!newsletterEmail) return alert("Please enter an email.");
 
