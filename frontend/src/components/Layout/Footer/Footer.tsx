@@ -184,9 +184,7 @@ const handleNewsletterSubmit = async (e:any) => {
 
             {/* Contact Section */}
             <motion.div variants={fadeUp}>
-              <h4 className="text-xl font-semibold mb-6 text-cyan-300">
-                Get In Touch
-              </h4>
+             
 
               <motion.div
                 whileHover={{ translateX: 5 }}
@@ -203,6 +201,7 @@ const handleNewsletterSubmit = async (e:any) => {
               >
                 <Phone size={20} className="text-cyan-400" />
                 <span>+971-502037669</span>
+                <span>0551084366</span>
               </motion.a>
 
               <motion.a
