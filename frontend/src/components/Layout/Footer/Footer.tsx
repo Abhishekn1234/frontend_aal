@@ -6,7 +6,7 @@ import {
   // Linkedin,
   Mail,
   Phone,
-  MapPin,
+  // MapPin,
   ArrowUp,
   Heart,
 } from "lucide-react";
@@ -186,13 +186,13 @@ const handleNewsletterSubmit = async (e:any) => {
             <motion.div variants={fadeUp}>
              
 
-              <motion.div
+              {/* <motion.div
                 whileHover={{ translateX: 5 }}
                 className="flex items-start space-x-3 text-white/80"
               >
                 <MapPin size={20} className="text-cyan-400 mt-1" />
                 <span>123 Tech Park, Innovation Road<br />Digital City, DC 12345</span>
-              </motion.div>
+              </motion.div> */}
 
               <motion.a
                 whileHover={{ translateX: 5 }}
