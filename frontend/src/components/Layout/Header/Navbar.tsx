@@ -10,6 +10,15 @@ export default function Navbar() {
   const [logoHovered, setLogoHovered] = useState(false);
 
   const navigate = useNavigate();
+const handleServiceScroll = (title: string) => {
+  const elementId = title.replace(/\s+/g, "-").toLowerCase();
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  setOpen(false);
+  setServicesOpen(false);
+};
 
   // Handle scroll for navbar styling
   useEffect(() => {
@@ -44,12 +53,12 @@ export default function Navbar() {
     setServicesOpen(false);
   };
 
-  const handleServiceItemClick = () => {
-    if (window.innerWidth < 768) {
-      setOpen(false);
-      setServicesOpen(false);
-    }
-  };
+  // const handleServiceItemClick = () => {
+  //   if (window.innerWidth < 768) {
+  //     setOpen(false);
+  //     setServicesOpen(false);
+  //   }
+  // };
 
   const logoStyle = {
     width: "78px",
@@ -143,19 +152,18 @@ export default function Navbar() {
                 style={{ zIndex: 2000 }}
               >
                 <div className="p-6 md:p-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
-  {servicesData.map((category, idx) => (
-    <Link
-      key={idx}
-      to="/services"
-      className="cursor-pointer p-2 rounded-lg transition-all duration-200 block"
-      onClick={handleServiceItemClick} // closes menu on mobile
-    >
-      <h3 className="font-semibold text-gray-900 text-sm leading-tight mb-3">
-        {category.title}
-      </h3>
-      
-    </Link>
-  ))}
+ {servicesData.map((category, idx) => (
+  <button
+    key={idx}
+    className="cursor-pointer p-2 rounded-lg transition-all duration-200 block text-left"
+    onClick={() => handleServiceScroll(category.title)}
+  >
+    <h3 className="font-semibold text-gray-900 text-sm leading-tight mb-3">
+      {category.title}
+    </h3>
+  </button>
+))}
+
 </div>
 
 

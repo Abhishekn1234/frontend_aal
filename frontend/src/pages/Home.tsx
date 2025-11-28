@@ -15,6 +15,7 @@ import { ScrollRevealSection } from "../components/Home/ScrollReveal";
 import { ServiceCard } from "../components/Home/ServiceCard";
 import './global.css';
 import { Link } from "react-router-dom";
+import { servicesData } from "../components/Services/servicesData";
 // import emailjs from "emailjs-com";
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -426,67 +427,36 @@ export default function Home() {
               }}
             />
 
-            <div className="relative z-10 max-w-7xl mx-auto">
-              {/* Title */}
-              <motion.h2
-                variants={fadeUp}
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-14 md:mb-20 text-white"
-              >
-                What <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">We Provide</span>
-              </motion.h2>
+         <div className="relative z-10 max-w-7xl mx-auto">
+  {/* Title */}
+  <motion.h2
+    variants={fadeUp}
+    className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-14 md:mb-20 text-white"
+  >
+    What <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">We Provide</span>
+  </motion.h2>
 
-              {/* SERVICES GRID */}
-              <motion.div
-                variants={staggerContainer}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 md:gap-10 mb-16"
-              >
-                <ServiceCard
-                  title="Website Development"
-                  description="Custom websites that drive results and enhance user experience"
-                  onSpeakClick={() => setIsModalOpen(true)}
-                />
-                <ServiceCard
-                  title="Mobile App Development"
-                  description="Native and cross-platform applications for iOS & Android"
-                  onSpeakClick={() => setIsModalOpen(true)}
-                />
-                <ServiceCard
-                  title="Social Media Marketing"
-                  description="Strategic campaigns to grow your brand and reach"
-                  onSpeakClick={() => setIsModalOpen(true)}
-                />
-                <ServiceCard
-                  title="Branding & Logo Design"
-                  description="Visual identities that define and elevate your business"
-                  onSpeakClick={() => setIsModalOpen(true)}
-                />
-                <ServiceCard
-                  title="Digital Marketing"
-                  description="SEO, SEM & digital campaigns for measurable growth"
-                  onSpeakClick={() => setIsModalOpen(true)}
-                />
-                <ServiceCard
-                  title="IT Support & AMC"
-                  description="End-to-end IT support & annual maintenance contracts"
-                  onSpeakClick={() => setIsModalOpen(true)}
-                />
-                <ServiceCard
-                  title="Cloud Solutions"
-                  description="Scalable cloud infrastructure & migration services"
-                  onSpeakClick={() => setIsModalOpen(true)}
-                />
-                <ServiceCard
-                  title="ERP & CRM Solutions"
-                  description="Complete enterprise automation & workflow management"
-                  onSpeakClick={() => setIsModalOpen(true)}
-                />
-                <ServiceCard
-                  title="PR & Media Actions"
-                  description="Public relations, media outreach, press releases & brand storytelling"
-                  onSpeakClick={() => setIsModalOpen(true)}
-                />
-              </motion.div>
-            </div>
+  {/* SERVICES GRID */}
+  <motion.div
+  variants={staggerContainer}
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mb-16"
+>
+  {servicesData.map((service, idx) => (
+    <div key={idx} id={service.title.replace(/\s+/g, "-").toLowerCase()}>
+      <ServiceCard
+        title={service.title}
+        icon={service.icon}
+        image={service.image}
+        items={service.items}
+        // description={service.description}
+        onSpeakClick={() => setIsModalOpen(true)}
+      />
+    </div>
+  ))}
+</motion.div>
+
+</div>
+
 
             {/* Enhanced Modal */}
             {isModalOpen && (

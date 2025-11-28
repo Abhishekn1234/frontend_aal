@@ -6,9 +6,11 @@ export interface ScrollRevealSectionProps {
 
 
 
- export interface ServiceCardProps {
- 
+export interface ServiceCardProps {
   title: string;
-  description: string;
-  onSpeakClick: () => void;
+  icon?: string; // optional emoji/icon
+  image: string; // required image path
+  items?: string[]; // optional list of service points
+  description?: string; // optional, in case you want a short description
+  onSpeakClick: () => void; // click handler
 }

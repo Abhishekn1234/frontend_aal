@@ -1,35 +1,54 @@
+import { motion } from "framer-motion";
 import type { ServiceCardProps } from "../../types/Home/scroll";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useState } from "react";
 
-/* ENHANCED SERVICE CARD COMPONENT */
-export function ServiceCard({ title, description, onSpeakClick }: ServiceCardProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  const hoverBgColor = "rgba(49, 130, 246, 0.5)"; // Tailwind blue-500 with opacity
+export function ServiceCard({ title, icon,  image, items, onSpeakClick }: ServiceCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl text-left border border-white/20 shadow-lg transition-all duration-300 cursor-pointer"
-      whileHover={{
-        scale: 1.05,
-        y: -5,
-        backgroundColor: hoverBgColor,
-      }}
+      className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden cursor-pointer"
+      onClick={onSpeakClick}
+      whileHover={{ scale: 1.03 }}
+      transition={{ type: "spring", stiffness: 300 }}
     >
-      <h3 className="font-semibold text-cyan-300 mb-2">{title}</h3>
-      <p className="text-white/80 mb-4">{description}</p>
-      <button
-        onClick={onSpeakClick}
-        className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors duration-300"
-      >
-        Speak to Us
-      </button>
+      {/* Image */}
+      <motion.img
+        src={image}
+        alt={title}
+        className="w-full h-48 object-cover"
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+      />
+
+      {/* Content */}
+      <div className="p-6">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-2xl">{icon}</span>
+          <h3 className="text-xl font-semibold">{title}</h3>
+        </div>
+
+        {/* Items List (Expandable) */}
+        {items && (
+          <ul className={`text-gray-600 dark:text-gray-300 text-sm space-y-1 ${!isExpanded ? "max-h-20 overflow-hidden" : ""}`}>
+            {items.map((item, idx) => (
+              <li key={idx}>• {item}</li>
+            ))}
+          </ul>
+        )}
+
+        {items && items.length > 3 && (
+          <button
+            className="text-blue-500 mt-2 text-sm"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsExpanded(!isExpanded);
+            }}
+          >
+            {isExpanded ? "Show Less" : "Show More"}
+          </button>
+        )}
+      </div>
     </motion.div>
   );
 }
