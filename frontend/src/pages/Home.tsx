@@ -320,11 +320,12 @@ export default function Home() {
         "/11.svg",
         "/12.svg",
       ].map((img, i) => (
-        <img
-          key={i}
-          src={img}
-          className="h-24 md:h-28 object-contain"
-        />
+       <img
+  key={i}
+  src={img}
+  className="h-32 md:h-36 object-contain"
+/>
+
       ))}
     </motion.div>
   </div>

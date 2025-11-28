@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import { staggerContainer, fadeUp } from "./variant";
 import { Link } from "react-router-dom";
 import emailjs from "emailjs-com";
-import { servicesData } from "../../Services/servicesData";
+// import { servicesData } from "../../Services/servicesData";
 
 
 
@@ -247,7 +247,7 @@ const handleNewsletterSubmit = async (e:any) => {
           </motion.div>
 
           {/* Services */}
-          <motion.div
+          {/* <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
@@ -272,7 +272,7 @@ const handleNewsletterSubmit = async (e:any) => {
   ))}
 </div>
 
-          </motion.div>
+          </motion.div> */}
 
           {/* Bottom Bar */}
           <motion.div
