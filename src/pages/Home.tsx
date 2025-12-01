@@ -441,7 +441,8 @@ export default function Home() {
   variants={staggerContainer}
   className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mb-16"
 >
-  {servicesData.map((service, idx) => (
+  {servicesData.slice
+  (0,6).map((service, idx) => (
     <div key={idx} id={service.title.replace(/\s+/g, "-").toLowerCase()}>
       <ServiceCard
         title={service.title}

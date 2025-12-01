@@ -6,6 +6,8 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Career from "./pages/Carrer";
 import Contact from "./pages/Contact";
+import ServiceItemPage from "./pages/ServiceItemPage";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+            <Route path="/services/:categorySlug" element={<CategoryPage />} />
+        <Route path="/services/:categorySlug/:itemSlug" element={<ServiceItemPage />} />
           <Route path="/about" element={<About/>}/>
           <Route path="/services" element={<Services/>}/>
           <Route path="/career" element={<Career/>}/>

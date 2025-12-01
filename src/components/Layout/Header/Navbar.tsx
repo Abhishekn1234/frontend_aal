@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { servicesData } from "../../Services/servicesData";
 import { PhoneCallIcon, ChevronDown } from "lucide-react";
+import { slugify } from "../../Services/slug";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -10,15 +11,6 @@ export default function Navbar() {
   const [logoHovered, setLogoHovered] = useState(false);
 
   const navigate = useNavigate();
-// const handleServiceScroll = (title: string) => {
-//   const elementId = title.replace(/\s+/g, "-").toLowerCase();
-//   const element = document.getElementById(elementId);
-//   if (element) {
-//     element.scrollIntoView({ behavior: "smooth", block: "start" });
-//   }
-//   setOpen(false);
-//   setServicesOpen(false);
-// };
 
   // Handle scroll for navbar styling
   useEffect(() => {
@@ -39,33 +31,34 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Toggle services dropdown (mobile only)
+  // Toggle services dropdown (mobile)
   const handleServicesClick = () => {
     if (window.innerWidth < 768) {
       setServicesOpen(!servicesOpen);
     }
   };
 
-  // Navigate to Services page and close menus
- const handleServiceNavigationClick = (title: string) => {
-  navigate("/services");
-  console.log(title)
-  setOpen(false);
-  setServicesOpen(false);
-};
-
-  // const handleServiceItemClick = () => {
-  //   if (window.innerWidth < 768) {
-  //     setOpen(false);
-  //     setServicesOpen(false);
-  //   }
+  // Navigate to category
+  // const handleCategoryClick = (categoryTitle: string) => {
+  //   const categorySlug = slugify(categoryTitle);
+  //   navigate(`/services/${categorySlug}`);
+  //   setOpen(false);
+  //   setServicesOpen(false);
   // };
+
+  // Navigate to item inside category
+  const handleItemClick = (categoryTitle: string, itemName: string) => {
+    const categorySlug = slugify(categoryTitle);
+    const itemSlug = slugify(itemName);
+    navigate(`/services/${categorySlug}/${itemSlug}`);
+    setOpen(false);
+    setServicesOpen(false);
+  };
 
   const logoStyle = {
     width: "58px",
     height: "58px",
     borderRadius: "12px",
-    // objectFit: "cover",
     boxShadow: logoHovered
       ? "0 6px 12px rgba(0, 0, 0, 0.2)"
       : "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -84,20 +77,19 @@ export default function Navbar() {
       >
         {/* Logo */}
         <Link
-  to="/"
-  className="flex items-center gap-3"
-  onMouseEnter={() => setLogoHovered(true)}
-  onMouseLeave={() => setLogoHovered(false)}
-  onClick={() => setOpen(false)}
->
-  <img src="3.svg" style={logoStyle} alt="Aalizah Technology Logo" />
-</Link>
+          to="/"
+          className="flex items-center gap-3"
+          onMouseEnter={() => setLogoHovered(true)}
+          onMouseLeave={() => setLogoHovered(false)}
+          onClick={() => setOpen(false)}
+        >
+          <img src="3.svg" style={logoStyle} alt="Aalizah Technology Logo" />
+        </Link>
 
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-2xl text-white hover:text-blue-300 transition-transform active:scale-90"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
         >
           {open ? "✕" : "☰"}
         </button>
@@ -107,33 +99,33 @@ export default function Navbar() {
           className={`md:flex md:items-center md:gap-2
             absolute md:static top-full left-0 right-0
             transition-all duration-300 ease-in-out z-50
-            ${open ? "max-h-screen opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none md:opacity-100 md:max-h-none md:pointer-events-auto"}
+            ${open ? "max-h-screen opacity-100" : "max-h-0 opacity-0 md:opacity-100 md:max-h-none"}
             overflow-hidden md:overflow-visible
             bg-black/95 md:bg-transparent backdrop-blur-lg md:backdrop-blur-none
             rounded-b-2xl md:rounded-none`}
         >
           <ul className="flex flex-col md:flex-row md:items-center md:gap-2 font-semibold text-white py-4 md:py-0">
+
             {/* About */}
             <li>
               <Link
                 to="/about"
-                className="block px-6 py-3 text-lg hover:text-blue-300 transition-all hover:tracking-wide"
+                className="block px-6 py-3 text-lg hover:text-blue-300 transition-all"
                 onClick={() => setOpen(false)}
               >
                 About
               </Link>
             </li>
 
-            {/* Services Dropdown */}
+            {/* SERVICES DROPDOWN */}
             <li
               className="relative"
               onMouseEnter={() => window.innerWidth >= 768 && setServicesOpen(true)}
               onMouseLeave={() => window.innerWidth >= 768 && setServicesOpen(false)}
             >
               <button
-                className="flex items-center gap-1 px-6 py-3 text-lg hover:text-blue-300 transition-all hover:tracking-wide w-full md:w-auto"
+                className="flex items-center gap-1 px-6 py-3 text-lg hover:text-blue-300 transition-all"
                 onClick={handleServicesClick}
-                aria-expanded={servicesOpen}
               >
                 Services
                 <ChevronDown
@@ -142,59 +134,45 @@ export default function Navbar() {
                 />
               </button>
 
-              {/* Dropdown Menu */}
+              {/* DROPDOWN CONTENT */}
               <div
-                className={`bg-white text-black rounded-2xl shadow-2xl border border-blue-200
+                className={`bg-white text-black rounded-2xl shadow-2xl 
                   transition-all duration-300 ease-in-out
                   ${servicesOpen ? "opacity-100 visible scale-100 max-h-[1000px]" : "opacity-0 invisible scale-95 max-h-0"}
                   md:absolute md:top-full md:left-1/2 md:-translate-x-1/2 md:mt-2
-                  md:w-[95vw] md:max-w-6xl md:mx-4
-                  overflow-hidden`}
+                  md:w-[95vw] md:max-w-6xl overflow-hidden`}
                 style={{ zIndex: 2000 }}
               >
-<div className="p-6 md:p-8">
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-    {servicesData.map((category, idx) => (
-      <div
-        key={idx}
-        className="cursor-pointer"
-        onClick={() => handleServiceNavigationClick(category.title)}
-      >
-        {/* Title */}
-        <h3 className="font-bold text-yellow-400 text-sm mb-1 text-center">
-          {category.title}
-        </h3>
+                <div className="p-6 md:p-8 bg-gray-50">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 
-        {/* Horizontal line */}
-        <hr className="border-yellow-400 mb-1" />
+                    {servicesData.map((category, idx) => (
+                      <div key={idx} className="">
+                        <h3
+                          className="font-extrabold text-yellow-500 text-sm md:text-base mb-2 tracking-wide"
+                          // onClick={() => handleCategoryClick(category.title)}
+                        >
+                          {category.title}
+                        </h3>
 
-        {/* Items as bullet points */}
-        <ul className="list-disc list-inside text-gray-700 text-xs leading-snug space-y-1">
-          {category.items.map((item: string, index: number) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
-    ))}
-  </div>
-</div>
+                        <hr className="border-yellow-500 mb-3" />
 
+                        <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm leading-snug space-y-1">
+                          {category.items.map((item, i) => (
+                            <div
+                              key={i}
+                              className="cursor-pointer hover:text-blue-600"
+                              onClick={() => handleItemClick(category.title, item)}
+                            >
+                              {item}
+                            </div>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
 
-
-
-
-
-
-
-                {/* Mobile "View All" Button */}
-                {/* <div className="mt-6 md:hidden">
-                  <button
-                    onClick={handleServiceNavigationClick(category.title)}
-                    className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                  >
-                    View All Services
-                  </button>
-                </div> */}
+                  </div>
+                </div>
               </div>
             </li>
 
@@ -202,7 +180,7 @@ export default function Navbar() {
             <li>
               <Link
                 to="/career"
-                className="block px-6 py-3 text-lg hover:text-blue-300 transition-all hover:tracking-wide"
+                className="block px-6 py-3 text-lg hover:text-blue-300 transition-all"
                 onClick={() => setOpen(false)}
               >
                 Career
@@ -213,34 +191,31 @@ export default function Navbar() {
             <li>
               <Link
                 to="/contact"
-                className="block px-6 py-3 text-lg hover:text-blue-300 transition-all hover:tracking-wide"
+                className="block px-6 py-3 text-lg hover:text-blue-300 transition-all"
                 onClick={() => setOpen(false)}
               >
                 Contact
               </Link>
             </li>
 
-            {/* Speak Now Button */}
-           <li className="px-4 py-2 md:py-0">
-  <a
-    href="https://wa.me/971502037669"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center gap-2 w-full md:w-auto px-5 py-2.5 
-      rounded-xl bg-green-500 text-white text-sm font-semibold
-      shadow-md hover:bg-green-600 hover:shadow-lg 
-      active:scale-95 transition-all border border-green-600"
-  >
-    <PhoneCallIcon size={16} />
-    Speak to Us
-  </a>
-</li>
+            {/* Speak Now */}
+            <li className="px-4 py-2 md:py-0">
+              <a
+                href="https://wa.me/971502037669"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-green-500 text-white text-sm font-semibold shadow-md hover:bg-green-600"
+              >
+                <PhoneCallIcon size={16} />
+                Speak to Us
+              </a>
+            </li>
 
           </ul>
         </div>
       </div>
 
-      {/* Mobile overlay */}
+      {/* Mobile dim overlay */}
       {open && (
         <div
           className="fixed inset-0 bg-black/20 z-40 md:hidden"
