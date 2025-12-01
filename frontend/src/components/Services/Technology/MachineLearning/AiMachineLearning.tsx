@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import Links from "../../../Layout/Links";
 
 export default function AiMachineLearning() {
   const [isVisible, setIsVisible] = useState(false);
@@ -132,49 +133,49 @@ export default function AiMachineLearning() {
               description: "Harness your data to forecast trends, optimize processes, and make informed business decisions with 95% accuracy.",
               icon: "📊",
               gradient: "from-blue-500 to-cyan-500",
-              image: "https://i.pinimg.com/736x/3a/7d/76/3a7d76f8e5e5e5e5e5e5e5e5e5e5e5e5.jpg"
+              image: "/deng-xiang--WXQm_NTK0U-unsplash.jpg"
             },
             {
               title: "Natural Language Processing",
               description: "Intelligent chatbots, sentiment analysis, and language translation for seamless human-computer interaction.",
               icon: "💬",
               gradient: "from-purple-500 to-pink-500",
-              image: "https://i.pinimg.com/736x/8b/8f/8b/8b8f8b8b8b8b8b8b8b8b8b8b8b8b8b8b.jpg"
+              image: "/istockphoto-2050481773-1024x1024.jpg"
             },
             {
               title: "Computer Vision",
               description: "Facial recognition, object detection, and automation solutions for retail, healthcare, and security sectors.",
               icon: "👁️",
               gradient: "from-green-500 to-teal-500",
-              image: "https://i.pinimg.com/736x/9a/8b/9a/9a8b9a9a9a9a9a9a9a9a9a9a9a9a9a9a.jpg"
+              image: "/istockphoto-2192972011-1024x1024.jpg"
             },
             {
               title: "Deep Learning",
               description: "Neural networks that learn from massive datasets to recognize patterns and make intelligent decisions.",
               icon: "🧠",
               gradient: "from-orange-500 to-red-500",
-              image: "https://i.pinimg.com/736x/7c/8f/8b/7c8f8b8b8b8b8b8b8b8b8b8b8b8b8b8b.jpg"
+              image: "/ali-shah-lakhani-sp1BZ1atp7M-unsplash.jpg"
             },
             {
               title: "AI Automation",
               description: "Streamline operations with intelligent process automation and robotic process automation solutions.",
               icon: "⚡",
               gradient: "from-yellow-500 to-amber-500",
-              image: "https://i.pinimg.com/736x/6d/8b/8b/6d8b8b8b8b8b8b8b8b8b8b8b8b8b8b8b.jpg"
+              image: "/andrea-de-santis-zwd435-ewb4-unsplash.jpg"
             },
             {
               title: "Custom AI Models",
               description: "Tailored AI solutions built specifically for your unique business challenges and objectives.",
               icon: "🎯",
               gradient: "from-indigo-500 to-blue-500",
-              image: "https://i.pinimg.com/736x/5c/8f/8b/5c8f8b8b8b8b8b8b8b8b8b8b8b8b8b8b.jpg"
+              image: "/istockphoto-2238014041-1024x1024.jpg"
             }
           ].map((service, index) => (
             <motion.div
               key={index}
               className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0f1e33] to-[#1a2d42] border border-gray-800 hover:border-blue-500/50 shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 cursor-pointer"
               initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 7, y: 0 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ 
                 scale: 1.03,
@@ -184,7 +185,7 @@ export default function AiMachineLearning() {
             >
               {/* Background Image */}
               <div 
-                className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500 bg-cover bg-center"
+                className="absolute inset-0 opacity-10 group-hover:opacity-10 transition-opacity duration-500 bg-cover bg-center"
                 style={{ backgroundImage: `url(${service.image})` }}
               ></div>
               
@@ -308,36 +309,7 @@ export default function AiMachineLearning() {
           Let's build intelligent solutions that will revolutionize your business operations and drive unprecedented growth.
         </motion.p>
 
-        <motion.div 
-          className="flex flex-wrap justify-center gap-6 mt-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          {[
-            { name: "Instagram", icon: "📸", color: "from-pink-500 to-purple-500" },
-            { name: "TikTok", icon: "🎵", color: "from-black to-gray-800" },
-            { name: "Facebook", icon: "👥", color: "from-blue-600 to-blue-800" },
-            { name: "YouTube", icon: "🎥", color: "from-red-500 to-red-700" },
-            { name: "LinkedIn", icon: "💼", color: "from-blue-500 to-blue-700" },
-            { name: "Twitter", icon: "🐦", color: "from-blue-400 to-cyan-500" }
-          ].map((platform, index:number) => (
-            <motion.a
-            
-              key={platform.name}
-              href="#"
-              className={`px-6 py-4 bg-gradient-to-r ${platform.color} rounded-xl font-semibold text-white shadow-2xl hover:shadow-xl transition-all duration-300 flex items-center gap-3 min-w-[140px] justify-center`}
-              whileHover={{ 
-                scale: 1.1,
-                y: -3
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-xl">{platform.icon} {index}</span>
-              {platform.name}
-            </motion.a>
-          ))}
-        </motion.div>
+         <Links/>
 
         {/* Floating Contact Elements */}
         <motion.div

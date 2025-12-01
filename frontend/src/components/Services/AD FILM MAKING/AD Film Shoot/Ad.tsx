@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 type SectionBlockProps = {
   title: string;
@@ -41,29 +42,44 @@ export default function Ad() {
       </section>
 
       {/* -------- FULL SCREEN SECTION 2 -------- */}
-      <section className="h-screen flex flex-col justify-center px-10 md:px-40">
-        <motion.h2
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl font-bold mb-6"
-        >
-          Ad Film Shoot Expertise
-        </motion.h2>
+     <section className="h-screen flex flex-col md:flex-row items-center justify-center px-10 md:px-40 gap-10">
+  {/* LEFT — TEXT */}
+  <div className="md:w-1/2">
+    <motion.h2
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="text-4xl font-bold mb-6"
+    >
+      Ad Film Shoot Expertise
+    </motion.h2>
 
-        <motion.ul
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="space-y-4 text-xl"
-        >
-          <li>• Creative concept development</li>
-          <li>• Professional filming & direction</li>
-          <li>• Post-production & editing</li>
-        </motion.ul>
-      </section>
+    <motion.ul
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.2, duration: 0.8 }}
+      className="space-y-4 text-xl"
+    >
+      <li>• Creative concept development</li>
+      <li>• Professional filming & direction</li>
+      <li>• Post-production & editing</li>
+    </motion.ul>
+  </div>
+
+  {/* RIGHT — IMAGE */}
+  <motion.img
+    initial={{ opacity: 0, x: 40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    src="/brands-people-br2HgQuvq6I-unsplash.jpg"
+    alt="Ad Film Shoot"
+    className="md:w-1/2 w-full rounded-2xl shadow-lg object-cover h-80"
+  />
+</section>
+
 
       {/* -------- SECTION 3 -------- */}
       <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-12">
@@ -90,18 +106,7 @@ export default function Ad() {
 
       {/* -------- SECTION 4 -------- */}
       <section className="h-screen flex flex-col justify-center items-center text-center space-y-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex gap-8 text-xl font-semibold"
-        >
-          <span>Instagram</span>
-          <span>TikTok</span>
-          <span>Facebook</span>
-          <span>YouTube</span>
-        </motion.div>
+        <Links/>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}

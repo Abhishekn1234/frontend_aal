@@ -1,5 +1,6 @@
 // import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Links from "../../../Layout/Links";
 
 interface MousePosition {
   x: number;
@@ -84,27 +85,40 @@ export default function GraphicDesign() {
         </section>
 
         {/* 2️⃣ EXPERTISE INTRO */}
-        <section
-          ref={addToRefs}
-          className="h-screen flex flex-col items-center justify-center 
-          opacity-0 translate-y-10 transition-all duration-700 text-center px-6"
-        >
-          <h2 className="text-4xl md:text-6xl font-bold">Graphic Design</h2>
-          <h3 className="text-2xl md:text-4xl font-semibold text-pink-400 mt-2">
-            Graphic Design Expertise
-          </h3>
+       <section
+  ref={addToRefs}
+  className="h-screen flex flex-col md:flex-row items-center justify-center 
+             opacity-0 translate-y-10 transition-all duration-700 px-6 gap-16"
+>
+  {/* Left: Text */}
+  <div className="md:w-1/2 space-y-6">
+    <h2 className="text-4xl md:text-6xl font-bold">Graphic Design</h2>
+    <h3 className="text-2xl md:text-4xl font-semibold text-pink-400 mt-2">
+      Graphic Design Expertise
+    </h3>
 
-          <p className="mt-6 text-gray-300 max-w-3xl text-lg">
-            We craft visually compelling designs that communicate your brand’s message
-            with clarity, creativity, and impact.
-          </p>
+    <p className="mt-6 text-gray-300 max-w-xl text-lg">
+      We craft visually compelling designs that communicate your brand’s message
+      with clarity, creativity, and impact.
+    </p>
 
-          <ul className="mt-6 space-y-3 text-gray-300 text-lg">
-            <li>• Brand-focused visuals</li>
-            <li>• Creative and unique concepts</li>
-            <li>• Print & digital design expertise</li>
-          </ul>
-        </section>
+    <ul className="mt-6 space-y-3 text-gray-300 text-lg list-disc list-inside">
+      <li>Brand-focused visuals</li>
+      <li>Creative and unique concepts</li>
+      <li>Print & digital design expertise</li>
+    </ul>
+  </div>
+
+  {/* Right: Image */}
+  <div className="md:w-1/2 relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+    <img
+      src="/tran-mau-tri-tam-g-pKprPg5yw-unsplash.jpg"
+      alt="Graphic Design"
+      className="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110"
+    />
+  </div>
+</section>
+
 
         {/* 3️⃣ DESCRIPTION */}
         <section
@@ -169,17 +183,7 @@ export default function GraphicDesign() {
           </div>
         </section>
 
-        {/* 5️⃣ SOCIAL LABELS */}
-        <section
-          ref={addToRefs}
-          className="h-screen flex flex-col items-center justify-center gap-6
-          opacity-0 translate-y-10 transition-all duration-700 text-center"
-        >
-          <span className="text-3xl text-pink-300">Instagram</span>
-          <span className="text-3xl text-pink-300">TikTok</span>
-          <span className="text-3xl text-pink-300">Facebook</span>
-          <span className="text-3xl text-pink-300">YouTube</span>
-        </section>
+       <Links/>
 
         {/* 6️⃣ FINAL CTA */}
         <section

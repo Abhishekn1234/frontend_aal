@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Portfolio() {
   return (
@@ -29,29 +30,44 @@ export default function Portfolio() {
       </section>
 
       {/* -------- SECTION 2 : EXPERTISE -------- */}
-      <section className="h-screen flex flex-col justify-center px-10 md:px-40">
-        <motion.h2
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl font-bold mb-6"
-        >
-          Portfolio Expertise
-        </motion.h2>
+   <section className="h-screen flex flex-col md:flex-row items-center justify-center px-10 md:px-40 gap-10">
+  {/* LEFT — TEXT */}
+  <div className="md:w-1/2">
+    <motion.h2
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="text-4xl font-bold mb-6"
+    >
+      Portfolio Expertise
+    </motion.h2>
 
-        <motion.ul
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="space-y-4 text-xl"
-        >
-          <li>• Custom portfolio layouts</li>
-          <li>• High-quality visuals</li>
-          <li>• Interactive & engaging presentation</li>
-        </motion.ul>
-      </section>
+    <motion.ul
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.2, duration: 0.8 }}
+      className="space-y-4 text-xl"
+    >
+      <li>• Custom portfolio layouts</li>
+      <li>• High-quality visuals</li>
+      <li>• Interactive & engaging presentation</li>
+    </motion.ul>
+  </div>
+
+  {/* RIGHT — IMAGE */}
+  <motion.img
+    initial={{ opacity: 0, x: 40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    src="/ben-kolde-bs2Ba7t69mM-unsplash.jpg"
+    alt="Portfolio"
+    className="md:w-1/2 w-full rounded-2xl shadow-lg object-cover h-80"
+  />
+</section>
+
 
       {/* -------- SECTION 3 : FEATURES GRID -------- */}
       <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-12">
@@ -80,18 +96,7 @@ export default function Portfolio() {
 
       {/* -------- SECTION 4 : SOCIALS + UNLEASH -------- */}
       <section className="h-screen flex flex-col justify-center items-center text-center space-y-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex gap-8 text-xl font-semibold"
-        >
-          <span>Instagram</span>
-          <span>TikTok</span>
-          <span>Facebook</span>
-          <span>YouTube</span>
-        </motion.div>
+       <Links/>
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}

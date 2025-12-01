@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Virtual() {
   return (
@@ -35,79 +36,97 @@ export default function Virtual() {
       {/* ========================= */}
       {/* SECTION 2 — EXPERTISE LIST */}
       {/* ========================= */}
-      <motion.div
-        initial={{ opacity: 0, y: 70 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9 }}
-        viewport={{ once: true }}
-        className="max-w-5xl mx-auto px-6 pb-24"
-      >
-        <h3 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-          Virtual Production Expertise
-        </h3>
+    <section className="w-full py-20 px-6">
+  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
 
-        <p className="text-neutral-300 max-w-3xl mx-auto text-center mb-10">
-          Real-time cinematic workflows designed for modern filmmaking.
-        </p>
+    {/* LEFT CONTENT */}
+    <motion.div
+      initial={{ opacity: 0, y: 70 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9 }}
+      viewport={{ once: true }}
+      className="max-w-5xl mx-auto"
+    >
+      <h3 className="text-3xl md:text-4xl font-bold mb-6 text-center lg:text-left">
+        Virtual Production Expertise
+      </h3>
 
-        <ul className="space-y-6 max-w-xl mx-auto">
-          <motion.li
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="flex items-start gap-3"
-          >
-            <span className="inline-block w-3 h-3 bg-amber-400 rounded-full mt-2" />
-            <span className="text-gray-300 text-lg">
-              Real-time LED stage environments
-            </span>
-          </motion.li>
+      <p className="text-neutral-300 max-w-3xl text-center lg:text-left mb-10">
+        Real-time cinematic workflows designed for modern filmmaking.
+      </p>
 
-          <motion.li
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55 }}
-            viewport={{ once: true }}
-            className="flex items-start gap-3"
-          >
-            <span className="inline-block w-3 h-3 bg-amber-400 rounded-full mt-2" />
-            <span className="text-gray-300 text-lg">
-              Interactive pre-visualization
-            </span>
-          </motion.li>
+      <ul className="space-y-6 max-w-xl mx-auto lg:mx-0">
+        <motion.li
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="flex items-start gap-3"
+        >
+          <span className="inline-block w-3 h-3 bg-amber-400 rounded-full mt-2" />
+          <span className="text-gray-300 text-lg">
+            Real-time LED stage environments
+          </span>
+        </motion.li>
 
-          <motion.li
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex items-start gap-3"
-          >
-            <span className="inline-block w-3 h-3 bg-amber-400 rounded-full mt-2" />
-            <span className="text-gray-300 text-lg">
-              Integration with VFX and CGI
-            </span>
-          </motion.li>
-        </ul>
+        <motion.li
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+          className="flex items-start gap-3"
+        >
+          <span className="inline-block w-3 h-3 bg-amber-400 rounded-full mt-2" />
+          <span className="text-gray-300 text-lg">
+            Interactive pre-visualization
+          </span>
+        </motion.li>
 
-        {/* Buttons */}
-        <div className="flex justify-center gap-4 mt-10">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-600 text-black font-semibold shadow-md"
-          >
-            Book a Demo
-          </a>
+        <motion.li
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex items-start gap-3"
+        >
+          <span className="inline-block w-3 h-3 bg-amber-400 rounded-full mt-2" />
+          <span className="text-gray-300 text-lg">
+            Integration with VFX and CGI
+          </span>
+        </motion.li>
+      </ul>
 
-          <a
-            href="#case-studies"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-neutral-700 hover:border-neutral-500 text-sm"
-          >
-            View Case Studies
-          </a>
-        </div>
-      </motion.div>
+      {/* Buttons */}
+      <div className="flex justify-center lg:justify-start gap-4 mt-10">
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-600 text-black font-semibold shadow-md"
+        >
+          Book a Demo
+        </a>
+
+        <a
+          href="#case-studies"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-neutral-700 hover:border-neutral-500 text-sm"
+        >
+          View Case Studies
+        </a>
+      </div>
+    </motion.div>
+
+    {/* RIGHT IMAGE */}
+    <motion.img
+      src="/jakob-owens-ZSSuEANDxM0-unsplash.jpg"  // ← change image here
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-full h-full max-h-[650px] object-cover rounded-2xl shadow-2xl"
+      alt="Virtual Production"
+    />
+  </div>
+</section>
+
 
       {/* ========================= */}
       {/* SECTION 3 — FEATURE CARDS */}
@@ -120,8 +139,8 @@ export default function Virtual() {
         className="max-w-6xl mx-auto px-6 pb-32 grid gap-10 lg:grid-cols-2 items-start"
       >
         {/* MAIN CARD */}
-        <div className="rounded-2xl bg-gradient-to-tr from-slate-800 to-slate-900 p-6 shadow-2xl border border-neutral-800">
-          <div className="h-72 rounded-xl bg-black/60 border border-neutral-800 flex items-center justify-center">
+        <div className=" ">
+          <div className="h-72  flex items-center justify-center">
             <div className="text-center px-6">
               <p className="text-sm text-neutral-400 mb-2">LED Stage Filming</p>
               <h4 className="text-2xl font-semibold mb-1">
@@ -147,15 +166,7 @@ export default function Virtual() {
 
           {/* Footer */}
           <div className="mt-6 flex items-center justify-between text-sm text-neutral-400">
-            <div className="flex items-center gap-3">
-              <span>Instagram</span>
-              <span>•</span>
-              <span>TikTok</span>
-              <span>•</span>
-              <span>Facebook</span>
-              <span>•</span>
-              <span>YouTube</span>
-            </div>
+            <Links/>
             <div className="text-xs">  TIME TO UNLEASH!</div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import Links from "../../../Layout/Links";
 
 export default function MarketingMaterials() {
   const cursorRef = useRef<HTMLDivElement | null>(null);
@@ -126,46 +127,63 @@ export default function MarketingMaterials() {
         whileInView={{ opacity: 1, x: 0 }}
         whileHover={{ scale: 1.05 }}
       >
-        <img
-          src="https://i.pinimg.com/736x/7e/0c/ed/7e0ced823e2cd5e9b2d7c0b9f90c6d3a.jpg"
-          className="w-64 rounded-2xl shadow-2xl border border-white/20"
-        />
+       
+
       </motion.div>
 
       {/* Expertise */}
-      <div className="mt-32 text-white max-w-3xl ml-auto pr-4">
-        <motion.h2
-          className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          Marketing Materials Expertise
-        </motion.h2>
+     {/* Expertise Section */}
+<div className="mt-32 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center text-white">
+  {/* Points */}
+  <div>
+    <motion.h2
+      className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
+      Marketing Materials Expertise
+    </motion.h2>
 
-        <motion.p
-          className="text-gray-300 mt-6 text-lg"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
-          We design impactful materials that strengthen your brand identity.
-        </motion.p>
+    <motion.p
+      className="text-gray-300 mt-6 text-lg"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+    >
+      We design impactful materials that strengthen your brand identity.
+    </motion.p>
 
-        <ul className="mt-8 space-y-4 text-gray-200 text-lg">
-          {[
-            "Custom designs for print & digital",
-            "Consistent branding across all assets",
-            "High-quality, conversion-focused visuals",
-          ].map((item, i) => (
-            <motion.li
-              key={i}
-              className="flex items-center gap-3 cursor-pointer"
-              whileHover={{ x: 8, color: "#67e8f9" }}
-            >
-              <div className="w-2 h-2 bg-cyan-400 rounded-full" /> {item}
-            </motion.li>
-          ))}
-        </ul>
-      </div>
+    <ul className="mt-8 space-y-4 text-gray-200 text-lg">
+      {[
+        "Custom designs for print & digital",
+        "Consistent branding across all assets",
+        "High-quality, conversion-focused visuals",
+      ].map((item, i) => (
+        <motion.li
+          key={i}
+          className="flex items-center gap-3 cursor-pointer"
+          whileHover={{ x: 8, color: "#67e8f9" }}
+        >
+          <div className="w-2 h-2 bg-cyan-400 rounded-full" /> {item}
+        </motion.li>
+      ))}
+    </ul>
+  </div>
+
+  {/* Image on the right */}
+  <motion.div
+    className="flex justify-center md:justify-end"
+    initial={{ opacity: 0, x: 100 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    whileHover={{ scale: 1.05 }}
+  >
+    <img
+      src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=500&q=80"
+      alt="Marketing Hero"
+      className="w-80 rounded-2xl shadow-2xl border border-white/20"
+    />
+  </motion.div>
+</div>
+
 
       {/* Description */}
       <motion.div
@@ -182,27 +200,28 @@ export default function MarketingMaterials() {
       {/* Services Grid */}
       <div className="grid md:grid-cols-2 gap-8 mt-24 max-w-6xl mx-auto">
         {[
-          {
-            title: "Print Collateral",
-            text: "Brochures, flyers, posters & catalogs designed to impress.",
-            img: "https://i.pinimg.com/736x/a8/51/94/a85194cbb44e0d3f8b9c5ca7a76412d4.jpg",
-          },
-          {
-            title: "Digital Marketing Assets",
-            text: "Ad creatives, social visuals & banners for conversions.",
-            img: "https://i.pinimg.com/736x/53/bc/e3/53bce3dfc356589d81e79e0ca3c14620.jpg",
-          },
-          {
-            title: "Presentation Design",
-            text: "Professional pitch decks for impact.",
-            img: "https://i.pinimg.com/736x/0b/7d/c0/0b7dc0b97b2f3f8ad1ef75621e0e581d.jpg",
-          },
-          {
-            title: "Event & Promotional Materials",
-            text: "Booths, merchandise & promotional branding.",
-            img: "https://i.pinimg.com/736x/ce/71/5a/ce715a998ab437f3ad8947d74fde1865.jpg",
-          },
-        ].map((item, index) => (
+  {
+    title: "Print Collateral",
+    text: "Brochures, flyers, posters & catalogs designed to impress.",
+    img: "/ekrem-osmanoglu-Z2VTn1XeTfM-unsplash.jpg",
+  },
+  {
+    title: "Digital Marketing Assets",
+    text: "Ad creatives, social visuals & banners for conversions.",
+    img: "/diggity-marketing-SB0WARG16HI-unsplash.jpg",
+  },
+  {
+    title: "Presentation Design",
+    text: "Professional pitch decks for impact.",
+    img: "/jakub-zerdzicki-B-YUUQIqFTQ-unsplash.jpg",
+  },
+  {
+    title: "Event & Promotional Materials",
+    text: "Booths, merchandise & promotional branding.",
+    img: "/walls-io-91EImU2bgMA-unsplash.jpg",
+  },
+]
+.map((item, index) => (
           <motion.div
             key={index}
             className="group relative bg-gray-900/80 p-6 rounded-2xl border border-white/10"
@@ -229,17 +248,7 @@ export default function MarketingMaterials() {
       </div>
 
       {/* Final Section */}
-      <div className="mt-32 text-center text-white">
-        <div className="text-gray-400 mb-10 flex justify-center gap-6 tracking-widest text-lg">
-          {["INSTAGRAM", "TIKTOK", "FACEBOOK", "YOUTUBE"].map((p) => (
-            <span
-              key={p}
-              className="cursor-pointer hover:text-cyan-400 transition"
-            >
-              {p}
-            </span>
-          ))}
-        </div>
+     <Links/>
 
         <motion.h1
           className="text-6xl sm:text-8xl font-bold bg-gradient-to-r from-cyan-200 via-white to-blue-200 bg-clip-text text-transparent"
@@ -248,7 +257,7 @@ export default function MarketingMaterials() {
           TIME TO UNLEASH!
         </motion.h1>
       </div>
-    </div>
+   
   );
 }
 

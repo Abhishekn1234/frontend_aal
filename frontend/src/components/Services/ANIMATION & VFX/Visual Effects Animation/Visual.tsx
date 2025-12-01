@@ -1,6 +1,7 @@
 import { motion, type Variants, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import Links from "../../../Layout/Links";
 
 const fadeUp: Variants = {
   hidden: { y: 20, opacity: 0 },
@@ -27,7 +28,7 @@ export default function Visual() {
   const [socialRef, socialInView] = useInView({ triggerOnce: true, threshold: 0.2 });
   const socialControls = useAnimation();
   useEffect(() => { if (socialInView) socialControls.start("visible"); }, [socialControls, socialInView]);
-
+ console.log(socialRef);
   const [bottomRef, bottomInView] = useInView({ triggerOnce: true, threshold: 0.2 });
   const bottomControls = useAnimation();
   useEffect(() => { if (bottomInView) bottomControls.start("visible"); }, [bottomControls, bottomInView]);
@@ -51,17 +52,37 @@ export default function Visual() {
       </motion.div>
 
       {/* Description Section */}
-      <motion.div
-        ref={descriptionRef}
-        initial="hidden"
-        animate={descriptionControls}
-        variants={fadeUp}
-        className="max-w-4xl mx-auto text-center text-neutral-300"
-      >
-        <p>
-          We create stunning animated visual effects for films, commercials, and digital content to enhance storytelling. Our VFX animation blends compositing, motion graphics, special effects, and seamless integration with live-action footage.
-        </p>
-      </motion.div>
+   <section className="w-full py-20 px-6">
+  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+    {/* LEFT — DESCRIPTION TEXT */}
+    <motion.div
+      ref={descriptionRef}
+      initial="hidden"
+      animate={descriptionControls}
+      variants={fadeUp}
+      className="max-w-4xl text-left text-neutral-300"
+    >
+      <p className="text-lg leading-relaxed">
+        We create stunning animated visual effects for films, commercials, and digital
+        content to enhance storytelling. Our VFX animation blends compositing, motion
+        graphics, special effects, and seamless integration with live-action footage.
+      </p>
+    </motion.div>
+
+    {/* RIGHT — IMAGE */}
+    <motion.img
+      src="/eyestetix-studio-l5r1JZNEyFQ-unsplash.jpg"   // ← replace with your image
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-full h-auto rounded-2xl shadow-2xl object-cover"
+      alt="VFX Animation"
+    />
+  </div>
+</section>
+
 
       {/* List Section */}
       <motion.ul
@@ -117,21 +138,7 @@ export default function Visual() {
       </motion.div>
 
       {/* Social Section */}
-      <motion.div
-        ref={socialRef}
-        initial="hidden"
-        animate={socialControls}
-        variants={fadeUp}
-        className="flex flex-wrap justify-center gap-3 text-sm text-neutral-400"
-      >
-        <span>Instagram</span>
-        <span>•</span>
-        <span>TikTok</span>
-        <span>•</span>
-        <span>Facebook</span>
-        <span>•</span>
-        <span>YouTube</span>
-      </motion.div>
+    <Links/>
 
       {/* Bottom Heading */}
       <motion.h3

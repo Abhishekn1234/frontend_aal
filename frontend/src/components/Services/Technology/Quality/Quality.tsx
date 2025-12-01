@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-
+import  Links from "../../../Layout/Links";
 export default function Quality() {
   const fadeUp: Variants = {
     hidden: { opacity: 0, y: 50 },
@@ -44,25 +44,41 @@ export default function Quality() {
       </motion.section>
 
       {/* Expertise Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={fadeUp}
-        className="py-20 px-4 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto"
-      >
-        <div className="space-y-4">
-          <h2 className="text-3xl font-semibold">QA & Testing Expertise</h2>
-          <p className="text-gray-300">
-            Our QA and testing services are designed to guarantee software quality and reliability. We conduct thorough manual and automated testing, covering functionality, usability, performance, and security.
-          </p>
-          <ul className="space-y-2 text-gray-300">
-            <li>✅ Manual & automated testing</li>
-            <li>✅ Performance & security testing</li>
-            <li>✅ Bug detection & issue resolution</li>
-          </ul>
-        </div>
-      </motion.section>
+     <motion.section
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.3 }}
+  variants={fadeUp}
+  className="py-20 px-4 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center"
+>
+  {/* Left Side Text */}
+  <div className="space-y-6">
+    <h2 className="text-3xl font-semibold">QA & Testing Expertise</h2>
+    <p className="text-gray-300">
+      Our QA and testing services are designed to guarantee software quality and reliability. We conduct thorough manual and automated testing, covering functionality, usability, performance, and security.
+    </p>
+    <ul className="space-y-2 text-gray-300">
+      <li>✅ Manual & automated testing</li>
+      <li>✅ Performance & security testing</li>
+      <li>✅ Bug detection & issue resolution</li>
+    </ul>
+  </div>
+
+  {/* Right Side Image */}
+  <motion.div
+    whileInView={{ opacity: 1, x: 0 }}
+    initial={{ opacity: 0, x: 50 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1 }}
+  >
+    <img
+      src="/istockphoto-2163506577-1024x1024.jpg"
+      alt="QA & Testing"
+      className="w-full rounded-2xl shadow-2xl border border-white/20 object-cover"
+    />
+  </motion.div>
+</motion.section>
+
 
       {/* Services Section */}
       <motion.section
@@ -82,26 +98,7 @@ export default function Quality() {
       </motion.section>
 
       {/* Social Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={fadeUp}
-        className="py-16 text-center space-y-6"
-      >
-        <h3 className="text-2xl font-semibold">Connect with us</h3>
-        <div className="flex justify-center space-x-6 flex-wrap">
-          {["Instagram", "TikTok", "Facebook", "YouTube"].map((platform) => (
-            <motion.div
-              key={platform}
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              className="cursor-pointer bg-gradient-to-r from-purple-500 to-blue-400 px-4 py-2 rounded-lg font-semibold"
-            >
-              {platform}
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
+   <Links/>
 
       {/* Bottom Section */}
       <motion.section

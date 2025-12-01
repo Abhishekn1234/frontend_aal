@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import  Links from "../../../Layout/Links";
 export default function WebDevelopment() {
   return (
     <div className="text-white overflow-x-hidden relative" style={{
@@ -31,57 +31,60 @@ export default function WebDevelopment() {
       </section>
 
       {/* Expertise Section */}
-      <section className="py-20 px-4 max-w-6xl mx-auto">
-        <motion.div
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -50 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="space-y-4 mb-12"
-        >
-          <h2 className="text-3xl font-semibold">Web Development Expertise</h2>
-          <p className="text-gray-300">
-            Our web development service is focused on building high-performance websites that not only look great but also deliver results. We ensure your site is optimized for speed, accessibility, and user experience. With a modern tech stack including React, Next.js, and Node.js, we guarantee scalability and long-term maintainability.
-          </p>
-          <ul className="space-y-2 text-gray-300">
-            <li>✅ Responsive & mobile-first design</li>
-            <li>✅ SEO optimized structure</li>
-            <li>✅ Scalable architecture</li>
-          </ul>
-        </motion.div>
+   <section className="py-20 px-4 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+  {/* Left Side Text */}
+  <motion.div
+    whileInView={{ opacity: 1, x: 0 }}
+    initial={{ opacity: 0, x: -50 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1 }}
+    className="md:w-1/2 space-y-6"
+  >
+    <div className="space-y-4">
+      <h2 className="text-3xl font-semibold">Web Development Expertise</h2>
+      <p className="text-gray-300">
+        Our web development service is focused on building high-performance websites that not only look great but also deliver results. We ensure your site is optimized for speed, accessibility, and user experience. With a modern tech stack including React, Next.js, and Node.js, we guarantee scalability and long-term maintainability.
+      </p>
+      <ul className="space-y-2 text-gray-300">
+        <li>✅ Responsive & mobile-first design</li>
+        <li>✅ SEO optimized structure</li>
+        <li>✅ Scalable architecture</li>
+      </ul>
+    </div>
 
-        <motion.div
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: 50 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="space-y-4"
-        >
-          <h2 className="text-3xl font-semibold">Our Approach</h2>
-          <ul className="space-y-3 text-gray-300">
-            <li>💡 Modern Technology Stack (React, Next.js, Node.js)</li>
-            <li>🚀 SEO & Performance Optimization</li>
-            <li>🎨 User Experience First</li>
-            <li>🔗 Custom Integrations & APIs</li>
-          </ul>
-        </motion.div>
-      </section>
+   
+  </motion.div>
+
+  {/* Right Side Image */}
+  <motion.div
+    className="md:w-1/2"
+    whileInView={{ opacity: 1, x: 0 }}
+    initial={{ opacity: 0, x: 50 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1 }}
+  >
+    <img
+      src="/ferenc-almasi-eYpcLDXHVb0-unsplash.jpg"
+      alt="Web Development"
+      className="w-full rounded-2xl shadow-2xl border border-white/20 object-cover"
+    />
+  </motion.div>
+</section>
+<section className="flex flex-col items-center justify-start text-left py-32 px-4 space-y-6">
+  <div className="space-y-4">
+      <h2 className="text-3xl font-semibold">Our Approach</h2>
+      <ul className="space-y-3 text-gray-300">
+        <li>💡 Modern Technology Stack (React, Next.js, Node.js)</li>
+        <li>🚀 SEO & Performance Optimization</li>
+        <li>🎨 User Experience First</li>
+        <li>🔗 Custom Integrations & APIs</li>
+      </ul>
+    </div>
+</section>
+ 
 
       {/* Social Section */}
-      <section className="py-16 text-center space-y-6">
-        <h3 className="text-2xl font-semibold">Connect with us</h3>
-        <div className="flex justify-center space-x-6">
-          {["Instagram", "TikTok", "Facebook", "YouTube"].map((platform) => (
-            <motion.div
-              key={platform}
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              className="cursor-pointer bg-gradient-to-r from-purple-500 to-blue-400 px-4 py-2 rounded-lg font-semibold"
-            >
-              {platform}
-            </motion.div>
-          ))}
-        </div>
-      </section>
+     <Links/>
 
       {/* CTA Section - Scroll Reveal */}
       <section className="w-full flex items-center justify-center py-32">

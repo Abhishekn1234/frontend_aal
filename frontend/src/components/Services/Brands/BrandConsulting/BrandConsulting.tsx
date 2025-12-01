@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 interface MousePosition {
   x: number;
   y: number;
@@ -222,12 +223,14 @@ export default function BrandConsulting() {
         >
           <motion.div className="relative group">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 transform perspective-1000">
-              <motion.img
-                src="https://via.placeholder.com/800x500.png?text=Brand+Consulting"
-                alt="Brand Consulting"
-                className="w-full h-[500px] object-cover transform group-hover:scale-110 transition-transform duration-700"
-                whileHover={{ scale: 1.1 }}
-              />
+             <motion.img
+  src="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=800&q=80"
+  alt="Brand Consulting"
+  className="w-full h-[500px] object-cover transform group-hover:scale-110 transition-transform duration-700"
+  whileHover={{ scale: 1.1 }}
+/>
+
+
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-purple-400/50 rounded-3xl transition-all duration-500" />
               <motion.div
@@ -265,16 +268,7 @@ export default function BrandConsulting() {
             </motion.button>
           </motion.div>
         </motion.div>
-         <section
-          ref={addToRefs}
-          className="h-screen flex flex-col items-center justify-center gap-6
-          opacity-0 translate-y-10 transition-all duration-700 text-center"
-        >
-          <span className="text-3xl text-pink-300">Instagram</span>
-          <span className="text-3xl text-pink-300">TikTok</span>
-          <span className="text-3xl text-pink-300">Facebook</span>
-          <span className="text-3xl text-pink-300">YouTube</span>
-        </section>
+        <Links/>
 
         {/* 6️⃣ FINAL CTA */}
         <section

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Instagram, Facebook, Youtube, Clapperboard } from "lucide-react";
+
+import Links from "../../../Layout/Links";
 
 export default function Vfxstory() {
   return (
@@ -41,47 +42,63 @@ export default function Vfxstory() {
       </section>
 
       {/* Expertise Section */}
-      <section className="w-full py-20 px-6">
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
-        >
-          VFX Storyboarding Expertise
-        </motion.h3>
+     <section className="w-full py-20 px-6">
+  <motion.h3
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="text-3xl md:text-4xl font-bold text-center mb-12"
+  >
+    VFX Storyboarding Expertise
+  </motion.h3>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[
-            {
-              title: "Shot Planning",
-              text: "Define each scene and shot with detailed sketches and notes for VFX integration.",
-            },
-            {
-              title: "Pre-Visualization",
-              text: "Create digital mock-ups and pre-visualization sequences for complex VFX shots.",
-            },
-            {
-              title: "Production Efficiency",
-              text: "Streamline VFX production by clearly communicating visual requirements to the team.",
-            },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.05 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: 20 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.2 }}
-              className="p-6 bg-white/10 rounded-2xl shadow-xl backdrop-blur-md border border-white/20 flex flex-col items-start text-left"
-            >
-              <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
-              <p className="text-gray-300 text-sm">{item.text}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+
+    {/* LEFT — ALL CARDS */}
+    <div className="grid sm:grid-cols-1 gap-8">
+      {[
+        {
+          title: "Shot Planning",
+          text: "Define each scene and shot with detailed sketches and notes for VFX integration.",
+        },
+        {
+          title: "Pre-Visualization",
+          text: "Create digital mock-ups and pre-visualization sequences for complex VFX shots.",
+        },
+        {
+          title: "Production Efficiency",
+          text: "Streamline VFX production by clearly communicating visual requirements to the team.",
+        },
+      ].map((item, idx) => (
+        <motion.div
+          key={idx}
+          whileHover={{ scale: 1.05 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: idx * 0.2 }}
+          className="p-6 bg-white/10 rounded-2xl shadow-xl backdrop-blur-md border border-white/20 flex flex-col items-start text-left"
+        >
+          <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
+          <p className="text-gray-300 text-sm">{item.text}</p>
+        </motion.div>
+      ))}
+    </div>
+
+    {/* RIGHT — IMAGE */}
+    <motion.img
+      src="/mw-FWp9yrgW658-unsplash.jpg"  // ← replace with your image
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-full h-full max-h-[700px] object-cover rounded-2xl shadow-2xl"
+      alt="Storyboarding"
+    />
+  </div>
+</section>
+
 
       {/* Description Section */}
       <section className="w-full py-16 px-6 max-w-4xl mx-auto text-center">
@@ -96,23 +113,7 @@ export default function Vfxstory() {
         </motion.p>
       </section>
 
-      {/* Social Section */}
-      <section className="w-full py-16 px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center gap-8"
-        >
-          {[Instagram, Clapperboard, Facebook, Youtube].map((Icon, idx) => (
-            <Icon
-              key={idx}
-              className="w-10 h-10 cursor-pointer text-white hover:text-blue-400 transition-all duration-300 transform hover:scale-125"
-            />
-          ))}
-        </motion.div>
-      </section>
+      <Links/>
 
       {/* CTA Section */}
       <section className="w-full py-32 text-center">

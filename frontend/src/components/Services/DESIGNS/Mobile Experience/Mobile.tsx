@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Mobile() {
   const fadeUp: Variants = {
@@ -26,23 +27,41 @@ export default function Mobile() {
         </motion.div>
 
         {/* Expertise Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-          className="space-y-6"
-        >
-          <h3 className="text-3xl md:text-4xl font-semibold">Mobile Experience Expertise</h3>
-          <p className="text-gray-300 max-w-3xl">
-            We design and optimize mobile experiences for apps and websites, focusing on usability, performance, and engagement.
-          </p>
-          <ul className="space-y-3 text-gray-200">
-            <li>• Optimized mobile interfaces</li>
-            <li>• High-performance mobile apps</li>
-            <li>• Seamless cross-device experience</li>
-          </ul>
-        </motion.div>
+      <section className="py-20 px-4">
+  <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
+
+    {/* LEFT TEXT SECTION */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeUp}
+      className="space-y-6"
+    >
+      <h3 className="text-3xl md:text-4xl font-semibold">Mobile Experience Expertise</h3>
+      <p className="text-gray-300 max-w-3xl">
+        We design and optimize mobile experiences for apps and websites, focusing on usability, performance, and engagement.
+      </p>
+      <ul className="space-y-3 text-gray-200">
+        <li>• Optimized mobile interfaces</li>
+        <li>• High-performance mobile apps</li>
+        <li>• Seamless cross-device experience</li>
+      </ul>
+    </motion.div>
+
+    {/* RIGHT IMAGE */}
+    <motion.img
+      src="/jakub-zerdzicki-jSQCLQA99Og-unsplash.jpg"
+      alt="Mobile experience design illustration"
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-full rounded-xl shadow-lg object-cover"
+    />
+  </div>
+</section>
+
 
         {/* Description Section */}
         <motion.div
@@ -84,23 +103,7 @@ export default function Mobile() {
         </motion.div>
 
         {/* Social Icons */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-          className="flex gap-6 text-gray-300 text-lg justify-center flex-wrap"
-        >
-          {["Instagram", "TikTok", "Facebook", "YouTube"].map((platform) => (
-            <motion.div
-              key={platform}
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              className="cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-2 rounded-lg font-semibold"
-            >
-              {platform}
-            </motion.div>
-          ))}
-        </motion.div>
+      <Links/>
 
         {/* CTA */}
         <motion.div

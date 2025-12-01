@@ -1,4 +1,5 @@
 import { motion,type  Variants } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Commerce() {
   const fadeUp: Variants = {
@@ -44,19 +45,40 @@ export default function Commerce() {
         </motion.p>
 
         {/* Expertise Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-        >
-          <h2 className="text-2xl font-bold mb-2">Commerce Experience Expertise</h2>
-          <ul className="space-y-2 text-gray-300">
-            <li>• Optimized checkout flows</li>
-            <li>• Personalized shopping journeys</li>
-            <li>• Seamless cross-platform experience</li>
-          </ul>
-        </motion.div>
+  <section className="py-20 px-4">
+  <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
+
+    {/* LEFT — TEXT */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeUp}
+      className="space-y-4"
+    >
+      <h2 className="text-2xl font-bold mb-2">Commerce Experience Expertise</h2>
+
+      <ul className="space-y-2 text-gray-300">
+        <li>• Optimized checkout flows</li>
+        <li>• Personalized shopping journeys</li>
+        <li>• Seamless cross-platform experience</li>
+      </ul>
+    </motion.div>
+
+    {/* RIGHT — IMAGE */}
+    <motion.img
+      src="/money-knack-Dl0ZuNo6wwA-unsplash.jpg"
+      alt="Commerce Experience"
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-full rounded-xl shadow-lg object-cover"
+    />
+    
+  </div>
+</section>
+
 
         {/* Description */}
         <motion.p
@@ -70,7 +92,7 @@ export default function Commerce() {
           that are intuitive, fast, and visually appealing, ensuring smooth navigation
           and increased conversion rates.
         </motion.p>
-
+      <Links/>
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}

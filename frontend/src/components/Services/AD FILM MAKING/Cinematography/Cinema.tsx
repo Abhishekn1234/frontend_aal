@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Cinematography() {
   return (
@@ -29,29 +30,51 @@ export default function Cinematography() {
       </section>
 
       {/* -------- SECTION 2 : EXPERTISE LIST -------- */}
-      <section className="h-screen flex flex-col justify-center px-10 md:px-40">
-        <motion.h2
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl font-bold mb-6"
-        >
-          Cinematography Expertise
-        </motion.h2>
+     <section className="w-full py-20 px-10 md:px-20 lg:px-40">
+  <div className="grid md:grid-cols-2 gap-12 items-center">
 
-        <motion.ul
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="space-y-4 text-xl"
-        >
-          <li>• Story-driven video production</li>
-          <li>• Professional lighting & camera work</li>
-          <li>• Post-production editing & color grading</li>
-        </motion.ul>
-      </section>
+    {/* LEFT — TEXT */}
+    <div>
+      <motion.h2
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl font-bold mb-6"
+      >
+        Cinematography Expertise
+      </motion.h2>
+
+      <motion.ul
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2, duration: 0.8 }}
+        className="space-y-4 text-xl text-gray-300"
+      >
+        <li>• Story-driven video production</li>
+        <li>• Professional lighting & camera work</li>
+        <li>• Post-production editing & color grading</li>
+      </motion.ul>
+    </div>
+
+    {/* RIGHT — IMAGE */}
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      <img
+        src="/kyle-loftus-FtQE89f3EXA-unsplash.jpg"
+        alt="Cinematography"
+        className="rounded-2xl w-full shadow-2xl border border-white/10 object-cover"
+      />
+    </motion.div>
+
+  </div>
+</section>
+
 
       {/* -------- SECTION 3 : FEATURE GRID -------- */}
       <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-12">
@@ -80,18 +103,7 @@ export default function Cinematography() {
 
       {/* -------- SECTION 4 : SOCIALS + UNLEASH -------- */}
       <section className="h-screen flex flex-col justify-center items-center text-center space-y-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex gap-8 text-xl font-semibold"
-        >
-          <span>Instagram</span>
-          <span>TikTok</span>
-          <span>Facebook</span>
-          <span>YouTube</span>
-        </motion.div>
+       <Links/>
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
