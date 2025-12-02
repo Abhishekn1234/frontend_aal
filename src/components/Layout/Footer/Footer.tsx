@@ -25,6 +25,7 @@ export default function Footer() {
 const [newsletterEmail, setNewsletterEmail] = useState("");
 const [isSendingNews, setIsSendingNews] = useState(false);
 
+const MotionLink = motion(Link);
 const handleNewsletterSubmit = async (e:any) => {
   e.preventDefault();
   if (!newsletterEmail) return alert("Please enter an email.");
@@ -160,26 +161,25 @@ const handleNewsletterSubmit = async (e:any) => {
                 Quick Links
               </h4>
 
-              <ul className="space-y-3">
-                {[
-                  // { name: "Home", href: "/" },
-                  { name: "About Us", href: "/about" },
-                  { name: "Services", href: "/services" },
-                  // { name: "Portfolio", href: "/portfolio" },
-                  { name: "Contact", href: "/contact" },
-                ].map((link, i) => (
-                  <li key={i}>
-                    <motion.a
-                      whileHover={{ x: 5 }}
-                      href={link.href}
-                      className="text-white/80 hover:text-cyan-300 transition-colors duration-300 flex items-center group"
-                    >
-                      <span className="w-2 h-2 bg-cyan-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      {link.name}
-                    </motion.a>
-                  </li>
-                ))}
-              </ul>
+             <ul className="space-y-3">
+  {[
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" },
+  ].map((link, i) => (
+    <li key={i}>
+      <MotionLink
+        whileHover={{ x: 5 }}
+        to={link.href}
+        className="text-white/80 hover:text-cyan-300 transition-colors duration-300 flex items-center group"
+      >
+        <span className="w-2 h-2 bg-cyan-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {link.name}
+      </MotionLink>
+    </li>
+  ))}
+</ul>
+
             </motion.div>
 
             {/* Contact Section */}
