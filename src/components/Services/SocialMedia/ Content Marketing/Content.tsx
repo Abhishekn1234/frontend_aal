@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Content() {
   const services = [
@@ -62,39 +63,60 @@ export default function Content() {
       </section>
 
       {/* Expertise Section */}
-      <section className="w-full px-6 py-16 max-w-6xl mx-auto">
-        <motion.h3
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-semibold mb-4"
-        >
-          Content Marketing Expertise
-        </motion.h3>
+  <section className="w-full px-6 py-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+  
+  {/* LEFT — TEXT */}
+  <div>
+    <motion.h3
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-3xl md:text-4xl font-semibold mb-4"
+    >
+      Content Marketing Expertise
+    </motion.h3>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-gray-300 max-w-3xl mb-8"
-        >
-          We create and distribute valuable, relevant content to attract, engage, and retain your target audience.
-        </motion.p>
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.3, duration: 0.6 }}
+      className="text-gray-300 max-w-3xl mb-8"
+    >
+      We create and distribute valuable, relevant content to attract, engage, and retain your target audience.
+    </motion.p>
 
-        <motion.ul
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="space-y-3 text-gray-200 mb-12"
-        >
-          <li>• Blog & article creation</li>
-          <li>• Social media content</li>
-          <li>• Content strategy & planning</li>
-        </motion.ul>
-      </section>
+    <motion.ul
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.6, duration: 0.6 }}
+      className="space-y-3 text-gray-200"
+    >
+      <li>• Blog & article creation</li>
+      <li>• Social media content</li>
+      <li>• Content strategy & planning</li>
+    </motion.ul>
+  </div>
+
+  {/* RIGHT — IMAGE */}
+  <motion.div
+    initial={{ opacity: 0, x: 20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className="flex justify-center"
+  >
+    <img
+      src="/will-francis-r02wxT3-PYw-unsplash.jpg"
+      alt="Content Marketing"
+      className="w-full rounded-2xl shadow-2xl border border-white/20 object-cover"
+    />
+  </motion.div>
+
+</section>
+
 
       {/* Detailed Services Section */}
       <section className="w-full px-6 py-16 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -114,19 +136,7 @@ export default function Content() {
       </section>
 
       {/* Social Section */}
-      <section className="w-full py-16 flex flex-col items-center gap-4 text-lg opacity-90">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <p>Instagram</p>
-          <p>TikTok</p>
-          <p>Facebook</p>
-          <p>YouTube</p>
-        </motion.div>
-      </section>
+     <Links/>
 
       {/* CTA Section */}
       <section className="w-full flex items-center justify-center py-20">

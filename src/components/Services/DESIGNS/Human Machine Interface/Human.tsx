@@ -1,4 +1,5 @@
 import { motion, type Variants } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Human() {
   const fadeUp: Variants = {
@@ -44,19 +45,40 @@ export default function Human() {
         </motion.p>
 
         {/* Expertise Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-        >
-          <h2 className="text-2xl font-bold mb-2">Human-Machine Interface Expertise</h2>
-          <ul className="space-y-2 text-gray-300">
-            <li>• Intuitive control panels</li>
-            <li>• Interactive dashboards</li>
-            <li>• User-centered design</li>
-          </ul>
-        </motion.div>
+        <section className="py-20 px-4">
+  <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
+
+    {/* LEFT — TEXT */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeUp}
+      className="space-y-4"
+    >
+      <h2 className="text-2xl font-bold mb-2">Human-Machine Interface Expertise</h2>
+
+      <ul className="space-y-2 text-gray-300">
+        <li>• Intuitive control panels</li>
+        <li>• Interactive dashboards</li>
+        <li>• User-centered design</li>
+      </ul>
+    </motion.div>
+
+    {/* RIGHT — IMAGE */}
+    <motion.img
+      src="/geraltyichen-g6uW0Pz_d8A-unsplash.jpg"
+      alt="Human-Machine Interface"
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-full rounded-xl shadow-lg object-cover"
+    />
+
+  </div>
+</section>
+
 
         {/* Description */}
         <motion.p
@@ -94,23 +116,7 @@ export default function Human() {
         ))}
 
         {/* Social Icons */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-          className="flex gap-4 text-lg font-semibold mt-8"
-        >
-          {["Instagram", "TikTok", "Facebook", "YouTube"].map((platform) => (
-            <motion.div
-              key={platform}
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              className="cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 px-4 py-2 rounded-lg"
-            >
-              {platform}
-            </motion.div>
-          ))}
-        </motion.div>
+       <Links/>
 
         {/* CTA */}
         <motion.div

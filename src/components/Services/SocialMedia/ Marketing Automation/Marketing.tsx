@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Marketing() {
   const services = [
@@ -62,58 +63,75 @@ export default function Marketing() {
       </section>
 
       {/* Expertise Section */}
-      <section className="w-full px-6 py-20 ">
-        <motion.h3
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+     <section className="w-full px-6 py-20">
+
+  <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
+
+    {/* LEFT — TEXT + IMAGE */}
+    <div className="space-y-8">
+
+      {/* Heading */}
+      <motion.h3
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl font-bold uppercase"
+      >
+        Marketing Automation Expertise
+      </motion.h3>
+
+      {/* Paragraph */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3, duration: 0.6 }}
+        className="text-gray-300 max-w-xl"
+      >
+        We implement automated workflows to nurture leads, engage customers, and drive conversions efficiently.
+      </motion.p>
+
+      {/* IMAGE */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <img
+          src="/melanie-deziel-fSWQPBxqClg-unsplash.jpg"
+          alt="Marketing Automation"
+          className="rounded-2xl w-full shadow-2xl border border-white/20 object-cover"
+        />
+      </motion.div>
+
+    </div>
+
+    {/* RIGHT — CARDS */}
+    <div className="grid grid-cols-1 gap-6">
+      {services.map((service, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-4 uppercase"
+          className="p-6 bg-white/10 rounded-2xl backdrop-blur shadow-xl"
         >
-          Marketing Automation Expertise
-        </motion.h3>
+          <h4 className="text-2xl font-semibold mb-2">{service.title}</h4>
+          <p className="text-gray-300 text-sm">{service.desc}</p>
+        </motion.div>
+      ))}
+    </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center text-gray-300 mb-12"
-        >
-          We implement automated workflows to nurture leads, engage customers, and drive conversions efficiently.
-        </motion.p>
+  </div>
+</section>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {services.map((service, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="p-6 bg-white/10 rounded-2xl backdrop-blur shadow-xl"
-            >
-              <h4 className="text-2xl font-semibold mb-2">{service.title}</h4>
-              <p className="text-gray-300 text-sm">{service.desc}</p>
-            </motion.div>
-          ))}
-        </section>
-      </section>
 
       {/* Platforms / Social Section */}
       <section className="w-full py-20 px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center gap-8 text-xl md:text-2xl font-semibold tracking-wider text-blue-300 mb-16"
-        >
-          <span>Instagram</span>
-          <span>TikTok</span>
-          <span>Facebook</span>
-          <span>YouTube</span>
-        </motion.div>
+       <Links/>
 
         {/* CTA Section */}
         <motion.h1

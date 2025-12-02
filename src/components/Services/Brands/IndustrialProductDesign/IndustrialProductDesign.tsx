@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Links from "../../../Layout/Links";
 
 interface MousePosition {
   x: number;
@@ -82,42 +83,45 @@ export default function IndustrialProductDesign() {
         </div>
 
         {/* SECTION 2 — Image and Intro */}
-        <div
-          ref={addToRefs}
-          className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center mb-28 
-                     opacity-0 translate-y-10 transition-all duration-700"
-        >
-          {/* left image */}
-          <div className="relative group">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-              <img
-                src="https://images.unsplash.com/photo-1581092334707-42e63a7e2cdd"
-                className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-            </div>
-          </div>
+       <div
+  ref={addToRefs}
+  className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center mb-28 
+             opacity-0 translate-y-10 transition-all duration-700"
+>
+  {/* left image */}
+  <div className="relative group">
+    <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+      <img
+  src="/isis-franca-hsPFuudRg5I-unsplash.jpg"
+  alt="Creative Studio"
+  className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-700"
+/>
 
-          {/* right text */}
-          <div className="space-y-8">
-            <h2 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
-              Creative Studio
-            </h2>
+    </div>
+  </div>
 
-            <p className="text-gray-300 text-xl leading-relaxed p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-              Our industrial and product design services bring ideas to life by merging
-              creativity with practicality.
-            </p>
+  {/* right text */}
+  <div className="space-y-8">
+    <h2 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
+      Creative Studio
+    </h2>
 
-            <p className="text-gray-300 text-xl leading-relaxed p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-              We focus on ergonomics, materials, and manufacturing feasibility to create
-              stunning and functional products.
-            </p>
+    <p className="text-gray-300 text-xl leading-relaxed p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+      Our industrial and product design services bring ideas to life by merging
+      creativity with practicality.
+    </p>
 
-            <button className="mt-6 px-12 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold text-lg rounded-2xl hover:scale-110 transition-all">
-              Start Your Project
-            </button>
-          </div>
-        </div>
+    <p className="text-gray-300 text-xl leading-relaxed p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
+      We focus on ergonomics, materials, and manufacturing feasibility to create
+      stunning and functional products.
+    </p>
+
+    <button className="mt-6 px-12 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold text-lg rounded-2xl hover:scale-110 transition-all">
+      Start Your Project
+    </button>
+  </div>
+</div>
+
 
         {/* SECTION 3 — Expertise */}
         <div
@@ -163,7 +167,7 @@ export default function IndustrialProductDesign() {
             {
               title: "3D Modeling & Prototyping",
               text: "We build accurate 3D models and prototypes for testing.",
-              img: "https://images.unsplash.com/photo-1581091012184-5c8b2c07eabf",
+              img: "/zmorph-all-in-one-3d-printers-p1m4B-lhS9Y-unsplash.jpg",
             },
             {
               title: "Ergonomics & Usability",
@@ -173,7 +177,7 @@ export default function IndustrialProductDesign() {
             {
               title: "Manufacturing Support",
               text: "Production-ready specs, materials, and manufacturer guidance.",
-              img: "https://images.unsplash.com/photo-1581090464777-1c7a9a3bc99b",
+              img: "/europeana-zyw3m6kheS8-unsplash.jpg",
             },
           ].map((item, idx) => (
             <div
@@ -198,18 +202,7 @@ export default function IndustrialProductDesign() {
              TIME TO UNLEASH!
           </h2>
 
-          <div className="flex justify-center gap-8 text-xl flex-wrap">
-            {["Instagram", "TikTok", "Facebook", "YouTube", "LinkedIn", "Behance"].map(
-              (item) => (
-                <a
-                  key={item}
-                  className="px-6 py-3 bg-white/5 rounded-2xl border border-white/10"
-                >
-                  {item}
-                </a>
-              )
-            )}
-          </div>
+          <Links/>
         </div>
       </div>
 

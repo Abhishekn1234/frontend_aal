@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Performance() {
   const services = [
@@ -80,6 +81,7 @@ export default function Performance() {
             <li>ROI tracking & reporting</li>
           </ul>
         </motion.div>
+          <img src="/luke-chesser-JKUTrJ4vK00-unsplash.jpg"/>
       </section>
 
       {/* Detailed Services Section */}
@@ -100,19 +102,7 @@ export default function Performance() {
       </section>
 
       {/* Social Section */}
-      <section className="w-full py-16 flex flex-col items-center gap-4 text-lg opacity-90">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <p>Instagram</p>
-          <p>TikTok</p>
-          <p>Facebook</p>
-          <p>YouTube</p>
-        </motion.div>
-      </section>
+    <Links/>
 
       {/* CTA Section */}
       <section className="w-full flex items-center justify-center py-20">

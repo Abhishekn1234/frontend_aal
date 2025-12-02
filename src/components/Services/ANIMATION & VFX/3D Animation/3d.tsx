@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function ThreeDAnimation() {
   return (
+    <>
     <section className="text-white w-full overflow-hidden">
 
       {/* HERO SECTION */}
@@ -31,66 +33,67 @@ export default function ThreeDAnimation() {
       {/* ============================= */}
       {/* SECTION 1 - EXPERTISE */}
       {/* ============================= */}
-      <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9 }}
-        viewport={{ once: true }}
-        className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center px-6 pb-36 relative"
-      >
-        {/* Floating Particles */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(30)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-white/40 rounded-full animate-pulse"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDuration: `${3 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
+    <motion.div
+  initial={{ opacity: 0, y: 80 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.9 }}
+  viewport={{ once: true }}
+  className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center px-6 pb-36 relative"
+>
+  {/* Floating Particles */}
+  <div className="absolute inset-0 pointer-events-none">
+    {[...Array(30)].map((_, i) => (
+      <div
+        key={i}
+        className="absolute w-1 h-1 bg-white/40 rounded-full animate-pulse"
+        style={{
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          animationDuration: `${3 + Math.random() * 3}s`,
+        }}
+      />
+    ))}
+  </div>
 
-        {/* LEFT: IMAGE */}
-        <div className="rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.6)]">
-          <img
-            src="/images/3d-anim-work.jpg"
-            alt="3D Artist Working"
-            className="w-full h-auto object-cover"
-          />
-        </div>
+  {/* LEFT: TEXT */}
+  <div>
+    <h3 className="text-3xl md:text-4xl font-bold mb-4">
+      3D Animation Expertise
+    </h3>
 
-        {/* RIGHT: TEXT */}
-        <div>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
-            3D Animation Expertise
-          </h3>
+    <p className="text-gray-300 leading-relaxed mb-8">
+      We create photorealistic 3D animations for films, advertisements,
+      product demos, and virtual experiences.
+    </p>
 
-          <p className="text-gray-300 leading-relaxed mb-8">
-            We create photorealistic 3D animations for films, advertisements,
-            product demos, and virtual experiences.
-          </p>
+    <ul className="space-y-6 text-lg">
+      <li className="flex gap-3 items-start">
+        <span className="text-purple-500 text-xl">✔</span>
+        <span className="text-gray-300">3D modeling & rendering</span>
+      </li>
 
-          <ul className="space-y-6 text-lg">
-            <li className="flex gap-3 items-start">
-              <span className="text-purple-500 text-xl">✔</span>
-              <span className="text-gray-300">3D modeling & rendering</span>
-            </li>
+      <li className="flex gap-3 items-start">
+        <span className="text-purple-500 text-xl">✔</span>
+        <span className="text-gray-300">Character & environment animation</span>
+      </li>
 
-            <li className="flex gap-3 items-start">
-              <span className="text-purple-500 text-xl">✔</span>
-              <span className="text-gray-300">Character & environment animation</span>
-            </li>
+      <li className="flex gap-3 items-start">
+        <span className="text-purple-500 text-xl">✔</span>
+        <span className="text-gray-300">Interactive & cinematic visualizations</span>
+      </li>
+    </ul>
+  </div>
 
-            <li className="flex gap-3 items-start">
-              <span className="text-purple-500 text-xl">✔</span>
-              <span className="text-gray-300">Interactive & cinematic visualizations</span>
-            </li>
-          </ul>
-        </div>
-      </motion.div>
+  {/* RIGHT: IMAGE */}
+  <div className="rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+    <img
+      src="/ion-ivan-sipilov-f5j-a8M1KEw-unsplash.jpg"
+      alt="3D Artist Working"
+      className="w-full h-auto object-cover"
+    />
+  </div>
+</motion.div>
+
 
       {/* ============================= */}
       {/* SECTION 2 - PROCESS */}
@@ -154,5 +157,7 @@ export default function ThreeDAnimation() {
         </div>
       </motion.div>
     </section>
+    <Links/>
+    </>
   );
 }

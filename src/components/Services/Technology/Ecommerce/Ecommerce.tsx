@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Ecommerce() {
   return (
@@ -34,27 +35,42 @@ export default function Ecommerce() {
       </section>
 
       {/* Expertise Section */}
-      <section className="py-20 px-4 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-        <motion.div
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -50 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="space-y-4"
-        >
-          <h2 className="text-3xl font-semibold">E-commerce Development Expertise</h2>
-          <p className="text-gray-300">
-            Our e-commerce development services focus on building scalable, fast, and intuitive online stores. From design to checkout, we ensure a seamless shopping experience that drives conversions and customer loyalty.
-          </p>
-          <ul className="space-y-2 text-gray-300">
-            <li>✅ Custom online store design</li>
-            <li>✅ Secure payment integration</li>
-            <li>✅ Optimized for speed & conversions</li>
-          </ul>
-        </motion.div>
+   <section className="py-20 px-4 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
+  {/* Left Side Text */}
+  <motion.div
+    whileInView={{ opacity: 1, x: 0 }}
+    initial={{ opacity: 0, x: -50 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1 }}
+    className="space-y-6"
+  >
+    <h2 className="text-3xl font-semibold">E-commerce Development Expertise</h2>
+    <p className="text-gray-300">
+      Our e-commerce development services focus on building scalable, fast, and intuitive online stores. From design to checkout, we ensure a seamless shopping experience that drives conversions and customer loyalty.
+    </p>
+    <ul className="space-y-2 text-gray-300">
+      <li>✅ Custom online store design</li>
+      <li>✅ Secure payment integration</li>
+      <li>✅ Optimized for speed & conversions</li>
+    </ul>
+  </motion.div>
 
-        
-      </section>
+  {/* Right Side Image */}
+  <motion.div
+    whileInView={{ opacity: 1, x: 0 }}
+    initial={{ opacity: 0, x: 50 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1 }}
+    className="w-full"
+  >
+    <img
+      src="/hookle-app-6Pa7l0unTAY-unsplash.jpg"
+      alt="E-commerce Development"
+      className="w-full rounded-2xl shadow-2xl border border-white/20 object-cover"
+    />
+  </motion.div>
+</section>
+
       <section className=" py-20 px-4 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <motion.div
           whileInView={{ opacity: 1, x: 0 }}
@@ -75,20 +91,7 @@ export default function Ecommerce() {
       
 
       {/* Social Section */}
-      <section className="py-16 text-center space-y-6">
-        <h3 className="text-2xl font-semibold">Connect with us</h3>
-        <div className="flex justify-center space-x-6">
-          {["Instagram", "TikTok", "Facebook", "YouTube"].map((platform) => (
-            <motion.div
-              key={platform}
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              className="cursor-pointer bg-gradient-to-r from-purple-500 to-blue-400 px-4 py-2 rounded-lg font-semibold"
-            >
-              {platform}
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      <Links/>
 
       {/* CTA Section - Scroll Reveal */}
       <section className="w-full flex items-center justify-center py-32">

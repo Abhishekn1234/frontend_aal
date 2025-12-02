@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function CyberSecurity() {
   return (
@@ -34,26 +35,43 @@ export default function CyberSecurity() {
       </section>
 
       {/* Expertise Section */}
-      <section className="py-20 px-4 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-        <motion.div
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -50 }}
-          transition={{ duration: 1 }}
-          className="space-y-4"
-        >
-          <h2 className="text-3xl font-semibold">Cyber Security Expertise</h2>
-          <p className="text-gray-300">
-            Our cyber security services protect businesses from evolving threats and ensure compliance with industry standards. We offer comprehensive security solutions, including vulnerability assessments, penetration testing, and monitoring.
-          </p>
-          <ul className="space-y-2 text-gray-300">
-            <li>✅ Threat analysis & vulnerability assessment</li>
-            <li>✅ Network & application security</li>
-            <li>✅ Compliance & risk management</li>
-          </ul>
-        </motion.div>
+  <section className="py-20 px-4 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
+  {/* LEFT — TEXT */}
+  <motion.div
+    whileInView={{ opacity: 1, x: 0 }}
+    initial={{ opacity: 0, x: -50 }}
+    transition={{ duration: 1 }}
+    className="space-y-4"
+  >
+    <h2 className="text-3xl font-semibold">Cyber Security Expertise</h2>
+    <p className="text-gray-300">
+      Our cyber security services protect businesses from evolving threats and ensure compliance with 
+      industry standards. We offer comprehensive security solutions, including vulnerability assessments, 
+      penetration testing, and monitoring.
+    </p>
 
-       
-      </section>
+    <ul className="space-y-2 text-gray-300">
+      <li>✅ Threat analysis & vulnerability assessment</li>
+      <li>✅ Network & application security</li>
+      <li>✅ Compliance & risk management</li>
+    </ul>
+  </motion.div>
+
+  {/* RIGHT — IMAGE */}
+  <motion.div
+    whileInView={{ opacity: 1, x: 0 }}
+    initial={{ opacity: 0, x: 50 }}
+    transition={{ duration: 1 }}
+    className="flex justify-center"
+  >
+    <img
+      src="/adi-goldstein-EUsVwEOsblE-unsplash.jpg"
+      alt="Cyber Security"
+      className="w-full rounded-2xl shadow-2xl border border-white/20 object-cover"
+    />
+  </motion.div>
+</section>
+
       <section className="py-20 px-4 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
          <motion.div
           whileInView={{ opacity: 1, x: 0 }}
@@ -72,20 +90,7 @@ export default function CyberSecurity() {
       </section>
 
       {/* Social Section */}
-      <section className="py-16 text-center space-y-6">
-        <h3 className="text-2xl font-semibold">Connect with us</h3>
-        <div className="flex justify-center space-x-6">
-          {["Instagram", "TikTok", "Facebook", "YouTube"].map((platform) => (
-            <motion.div
-              key={platform}
-              whileHover={{ scale: 1.2, rotate: 10 }}
-              className="cursor-pointer bg-gradient-to-r from-purple-500 to-blue-400 px-4 py-2 rounded-lg font-semibold"
-            >
-              {platform}
-            </motion.div>
-          ))}
-        </div>
-      </section>
+       <Links/>
         <section className="w-full flex items-center justify-center py-32">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

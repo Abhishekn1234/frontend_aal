@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Instagram, Facebook, Youtube, Ticket } from "lucide-react";
+
+import Links from "../../../Layout/Links";
 
 export default function MotionGraphics() {
   return (
@@ -36,46 +37,66 @@ export default function MotionGraphics() {
       </section>
 
       {/* Features Section */}
-      <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="p-6 bg-white/10 rounded-2xl shadow-lg backdrop-blur-md border border-white/10"
-        >
-          <h3 className="text-xl font-semibold mb-2">2D & 3D Animation</h3>
-          <p className="text-gray-300 text-sm">
-            Smooth animations that engage and bring your visuals to life.
-          </p>
-        </motion.div>
+   <section className="w-full py-20 px-6">
+  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="p-6 bg-white/10 rounded-2xl shadow-lg backdrop-blur-md border border-white/10"
-        >
-          <h3 className="text-xl font-semibold mb-2">Explainer Videos & Infographics</h3>
-          <p className="text-gray-300 text-sm">
-            Simplify complex ideas through animated storytelling.
-          </p>
-        </motion.div>
+    {/* LEFT SIDE — CARDS */}
+    <div className="grid md:grid-cols-2 gap-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="p-6 bg-white/10 rounded-2xl shadow-lg backdrop-blur-md border border-white/10"
+      >
+        <h3 className="text-xl font-semibold mb-2">2D & 3D Animation</h3>
+        <p className="text-gray-300 text-sm">
+          Smooth animations that engage and bring your visuals to life.
+        </p>
+      </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="p-6  backdrop-blur-md bg-white/10 rounded-2xl shadow-lg backdrop-blur-md border border-white/10"
-        >
-          <h3 className="text-xl font-semibold mb-2">Dynamic Branding Visuals</h3>
-          <p className="text-gray-300 text-sm">
-            Eye-catching visual elements for marketing, branding, and campaigns.
-          </p>
-        </motion.div>
-      </section>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="p-6 bg-white/10 rounded-2xl shadow-lg backdrop-blur-md border border-white/10"
+      >
+        <h3 className="text-xl font-semibold mb-2">
+          Explainer Videos & Infographics
+        </h3>
+        <p className="text-gray-300 text-sm">
+          Simplify complex ideas through animated storytelling.
+        </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="p-6 bg-white/10 rounded-2xl shadow-lg backdrop-blur-md border border-white/10"
+      >
+        <h3 className="text-xl font-semibold mb-2">Dynamic Branding Visuals</h3>
+        <p className="text-gray-300 text-sm">
+          Eye-catching visual elements for marketing, branding, and campaigns.
+        </p>
+      </motion.div>
+    </div>
+
+    {/* RIGHT SIDE — IMAGE */}
+    <motion.img
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      src="/shubham-dhage-Hatkch_piQM-unsplash.jpg"   // ← your image here
+      alt="Animation Visual"
+      className="w-full h-auto rounded-2xl shadow-2xl object-cover"
+    />
+  </div>
+</section>
+
 
       {/* Right Visual / Demo Section */}
      <div className="text-white overflow-x-hidden">
@@ -127,30 +148,7 @@ export default function MotionGraphics() {
         </motion.div>
       </section>
 
-      {/* Social + CTA Section */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center gap-6"
-        >
-          <div className="flex items-center justify-center gap-6">
-            <Instagram className="w-6 h-6 cursor-pointer hover:text-amber-400 transition" />
-            <Ticket className="w-6 h-6 cursor-pointer hover:text-amber-400 transition" />
-            <Facebook className="w-6 h-6 cursor-pointer hover:text-amber-400 transition" />
-            <Youtube className="w-6 h-6 cursor-pointer hover:text-amber-400 transition" />
-          </div>
-
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="mt-8 inline-block px-6 py-3 cursor-pointer text-black font-semibold  text-center"
-          >
-            TIME TO UNLEASH!
-          </motion.div>
-        </motion.div>
-      </section>
+      <Links/>
     </div>
     </div>
   );

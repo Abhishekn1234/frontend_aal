@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Instagram, Facebook, Youtube, Clapperboard } from "lucide-react";
+
+import Links from "../../../Layout/Links";
 
 export default function Cgi() {
   const expertise = [
@@ -56,52 +57,52 @@ export default function Cgi() {
       </section>
 
       {/* Expertise Section */}
-      <section className="w-full py-20 px-6">
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
-        >
-          CGI Expertise
-        </motion.h3>
+    <section className="w-full py-20 px-6">
+  <motion.h3
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="text-3xl md:text-4xl font-bold text-center mb-12"
+  >
+    CGI Expertise
+  </motion.h3>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {expertise.map((item, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.05 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: 20 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.2 }}
-              className="p-6 bg-white/10 rounded-2xl shadow-xl backdrop-blur-md border border-white/20 flex flex-col items-start text-left"
-            >
-              <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
-              <p className="text-gray-300 text-sm">{item.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
 
-      {/* Social Section */}
-      <section className="w-full py-16 px-6 text-center">
+    {/* LEFT SIDE — CARDS */}
+    <div className="grid md:grid-cols-2 gap-6">
+      {expertise.map((item, idx) => (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          key={idx}
+          whileHover={{ scale: 1.05 }}
           whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center gap-8"
+          transition={{ duration: 0.6, delay: idx * 0.2 }}
+          className="p-6 bg-white/10 rounded-2xl shadow-xl backdrop-blur-md border border-white/20 flex flex-col items-start text-left"
         >
-          {[Instagram, Clapperboard, Facebook, Youtube].map((Icon, idx) => (
-            <Icon
-              key={idx}
-              className="w-10 h-10 cursor-pointer text-white hover:text-blue-400 transition-all duration-300 transform hover:scale-125"
-            />
-          ))}
+          <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
+          <p className="text-gray-300 text-sm">{item.description}</p>
         </motion.div>
-      </section>
+      ))}
+    </div>
+
+    {/* RIGHT SIDE — IMAGE */}
+    <motion.img
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      src="/amr-taha-cgv5LkiBZ78-unsplash.jpg"   // ← replace with your image
+      alt="CGI Visual"
+      className="w-full h-auto rounded-2xl shadow-2xl object-cover"
+    />
+  </div>
+</section>
+
+
+     <Links/>
 
       {/* CTA Section */}
       <section className="w-full py-32 text-center">

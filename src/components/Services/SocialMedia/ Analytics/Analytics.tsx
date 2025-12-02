@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function Analytics() {
   const services = [
@@ -62,39 +63,60 @@ export default function Analytics() {
       </section>
 
       {/* Expertise Section */}
-      <section className="w-full px-6 py-16 max-w-6xl mx-auto">
-        <motion.h3
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-semibold mb-4"
-        >
-          Analytics & Data Insights Expertise
-        </motion.h3>
+      <section className="w-full px-6 py-16 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-gray-300 max-w-3xl mb-12"
-        >
-          We help businesses make data-driven decisions by collecting, analyzing, and interpreting key metrics to optimize performance.
-        </motion.p>
+  {/* LEFT — TEXT CONTENT */}
+  <div>
+    <motion.h3
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-3xl md:text-4xl font-semibold mb-4"
+    >
+      Analytics & Data Insights Expertise
+    </motion.h3>
 
-        <motion.ul
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="space-y-3 text-gray-200 mb-12"
-        >
-          <li>• Data collection & integration</li>
-          <li>• Custom dashboards & reporting</li>
-          <li>• Insights for growth & optimization</li>
-        </motion.ul>
-      </section>
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.3, duration: 0.6 }}
+      className="text-gray-300 max-w-3xl mb-8"
+    >
+      We help businesses make data-driven decisions by collecting, analyzing, 
+      and interpreting key metrics to optimize performance.
+    </motion.p>
+
+    <motion.ul
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.6, duration: 0.6 }}
+      className="space-y-3 text-gray-200"
+    >
+      <li>• Data collection & integration</li>
+      <li>• Custom dashboards & reporting</li>
+      <li>• Insights for growth & optimization</li>
+    </motion.ul>
+  </div>
+
+  {/* RIGHT — IMAGE */}
+  <motion.div
+    initial={{ opacity: 0, x: 20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+  >
+    <img
+      src="/carlos-muza-hpjSkU2UYSU-unsplash.jpg"
+      alt="Analytics Insights"
+      className="w-full rounded-2xl shadow-2xl border border-white/20 object-cover"
+    />
+  </motion.div>
+
+</section>
+
 
       {/* Subsections / Services */}
       <section className="w-full px-6 py-16 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -114,20 +136,7 @@ export default function Analytics() {
       </section>
 
       {/* Social Section */}
-      <section className="w-full py-16 flex flex-col items-center gap-4 text-lg opacity-90">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center gap-8 text-xl md:text-2xl font-semibold tracking-wider text-blue-300"
-        >
-          <span>Instagram</span>
-          <span>TikTok</span>
-          <span>Facebook</span>
-          <span>YouTube</span>
-        </motion.div>
-      </section>
+    <Links/>
 
       {/* CTA Section */}
       <section className="w-full flex items-center justify-center py-20">

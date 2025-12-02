@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import  Links from "../../../Layout/Links";
 
 const scrollVariant = {
   hidden: { opacity: 0, y: 50 },
@@ -57,51 +58,44 @@ export default function MobileApp() {
 
       {/* Mobile App Expertise Section */}
       <motion.section
-        className="py-20 px-4 md:px-8 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto w-full"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1 }}
-        variants={scrollVariant}
-      >
-        <div className="space-y-4">
-          <h2 className="text-3xl font-semibold">Mobile App Development Expertise</h2>
-          <p className="text-gray-300">
-            Our mobile app development services focus on creating engaging, intuitive, and high-performance applications. We build native and cross-platform apps using modern frameworks like React Native and Flutter to ensure consistency and speed.
-          </p>
-          <ul className="space-y-2 text-gray-300">
-            <li>✅ iOS & Android apps</li>
-            <li>✅ Cross-platform frameworks (React Native, Flutter)</li>
-            <li>✅ App Store & Play Store ready</li>
-          </ul>
-        </div>
-      </motion.section>
+  className="py-20 px-4 md:px-8 grid md:grid-cols-2 gap-12 max-w-6xl mx-auto w-full items-center"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 1 }}
+  variants={scrollVariant}
+>
+  {/* Left Side Text */}
+  <div className="space-y-6">
+    <h2 className="text-3xl font-semibold">Mobile App Development Expertise</h2>
+    <p className="text-gray-300">
+      Our mobile app development services focus on creating engaging, intuitive, and high-performance applications. We build native and cross-platform apps using modern frameworks like React Native and Flutter to ensure consistency and speed.
+    </p>
+    <ul className="space-y-2 text-gray-300">
+      <li>✅ iOS & Android apps</li>
+      <li>✅ Cross-platform frameworks (React Native, Flutter)</li>
+      <li>✅ App Store & Play Store ready</li>
+    </ul>
+  </div>
+
+  {/* Right Side Image */}
+  <motion.div
+    whileInView={{ opacity: 1, x: 0 }}
+    initial={{ opacity: 0, x: 50 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1 }}
+  >
+    <img
+      src="/olaf-val-UTk9cXzYWAg-unsplash.jpg"
+      alt="Mobile App Development"
+      className="w-full rounded-2xl shadow-2xl border border-white/20 object-cover"
+    />
+  </motion.div>
+</motion.section>
+
 
       {/* Social Section */}
-      <motion.section
-        className="py-16 text-center space-y-6 w-full"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1 }}
-        variants={scrollVariant}
-      >
-        <h3 className="text-2xl font-semibold">Connect with us</h3>
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-          {["Instagram", "TikTok", "Facebook", "YouTube"].map((platform) => (
-            <motion.div
-              key={platform}
-              className="cursor-pointer bg-gradient-to-r from-purple-500 to-blue-400 px-4 py-2 rounded-lg font-semibold"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              {platform}
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
+      <Links/>
 
       {/* CTA Section */}
       <motion.section

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Links from "../../../Layout/Links";
 
 export default function TwoDAnimation() {
   return (
@@ -29,29 +30,50 @@ export default function TwoDAnimation() {
       </section>
 
       {/* -------- SECTION 2 : EXPERTISE -------- */}
-      <section className="h-screen flex flex-col justify-center px-10 md:px-40">
-        <motion.h2
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl font-bold mb-6"
-        >
-          2D Animation Expertise
-        </motion.h2>
+     <section className="h-screen flex flex-col md:flex-row items-center justify-center px-10 md:px-40 gap-10">
+  
+  {/* LEFT — TEXT */}
+  <div className="flex-1">
+    <motion.h2
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="text-4xl font-bold mb-6"
+    >
+      2D Animation Expertise
+    </motion.h2>
 
-        <motion.ul
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="space-y-4 text-xl"
-        >
-          <li>• Character animation & storytelling</li>
-          <li>• Explainer & promotional videos</li>
-          <li>• Educational & training content</li>
-        </motion.ul>
-      </section>
+    <motion.ul
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.2, duration: 0.8 }}
+      className="space-y-4 text-xl"
+    >
+      <li>• Character animation & storytelling</li>
+      <li>• Explainer & promotional videos</li>
+      <li>• Educational & training content</li>
+    </motion.ul>
+  </div>
+
+  {/* RIGHT — IMAGE */}
+  <motion.div
+    initial={{ opacity: 0, x: 40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className="flex-1"
+  >
+    <img
+      src="/dominic-kurniawan-suryaputra-kMrKo0_QsII-unsplash.jpg"
+      alt="2D Animation"
+      className="rounded-2xl shadow-lg w-full object-cover"
+    />
+  </motion.div>
+
+</section>
+
 
       {/* -------- SECTION 3 : FEATURE GRID -------- */}
       <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-12">
@@ -103,7 +125,7 @@ export default function TwoDAnimation() {
           TIME TO UNLEASH!
         </motion.div>
       </section>
-
+<Links/>
     </div>
   );
 }

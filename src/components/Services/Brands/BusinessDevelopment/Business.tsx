@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import Links from "../../../Layout/Links";
 
 export default function Business() {
   const cursorRef = useRef<HTMLDivElement | null>(null);
@@ -115,54 +116,60 @@ export default function Business() {
       </motion.section>
 
       {/* LEFT SIDE IMAGE */}
-      <motion.div
-        className="hidden md:block absolute left-10 top-[500px]"
-        initial={{ opacity: 0, x: -120 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        whileHover={{ scale: 1.05 }}
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <img
-          src="https://i.pinimg.com/736x/d4/ce/47/d4ce47119eccf302d94af1aca85bbff1.jpg"
-          className="w-64 rounded-2xl shadow-2xl border border-white/20"
-          alt="business development"
-        />
-      </motion.div>
+     
 
       {/* EXPERTISE SECTION */}
-      <motion.section
-        className="mt-32 text-white max-w-3xl ml-auto pr-4"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <h2 className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent">
-          Business Development Expertise
-        </h2>
-        <p className="text-gray-300 mt-6 text-lg">
-          We help businesses identify opportunities, build partnerships, and scale sustainably.
-        </p>
+     <motion.section
+  className="mt-32 text-white max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+>
+  {/* Left Side Text */}
+  <div className="md:w-1/2">
+    <h2 className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent">
+      Business Development Expertise
+    </h2>
+    <p className="text-gray-300 mt-6 text-lg">
+      We help businesses identify opportunities, build partnerships, and scale sustainably.
+    </p>
 
-        <ul className="mt-8 space-y-4 text-gray-200 text-lg">
-          {[
-            "Growth-focused strategies",
-            "Partnerships & networking",
-            "Data-driven decision making",
-          ].map((item, i) => (
-            <motion.li
-              key={i}
-              className="flex items-center gap-3 cursor-pointer"
-              whileHover={{ x: 10, color: "#67e8f9" }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <div className="w-2 h-2 bg-cyan-400 rounded-full" /> {item}
-            </motion.li>
-          ))}
-        </ul>
-      </motion.section>
+    <ul className="mt-8 space-y-4 text-gray-200 text-lg">
+      {[
+        "Growth-focused strategies",
+        "Partnerships & networking",
+        "Data-driven decision making",
+      ].map((item, i) => (
+        <motion.li
+          key={i}
+          className="flex items-center gap-3 cursor-pointer"
+          whileHover={{ x: 10, color: "#67e8f9" }}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <div className="w-2 h-2 bg-cyan-400 rounded-full" /> {item}
+        </motion.li>
+      ))}
+    </ul>
+  </div>
+
+  {/* Right Side Image */}
+  <motion.div
+    className="md:w-1/2"
+    initial={{ opacity: 0, x: 100 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true, amount: 0.3 }}
+  >
+    <img
+      src="/imagine-buddy-vsLbaIdhwaU-unsplash.jpg"
+      alt="Business Development"
+      className="w-full rounded-2xl shadow-2xl border border-white/20"
+    />
+  </motion.div>
+</motion.section>
+
 
       {/* DESCRIPTION BLOCK */}
       <motion.section
@@ -195,22 +202,22 @@ export default function Business() {
           {
             title: "Market Research & Analysis",
             text: "Industry insights, competitor studies & customer behavior analysis.",
-            img: "https://i.pinimg.com/736x/9f/06/b2/9f06b21fcb45d70f22e77f3dbfcaba45.jpg",
+            img: "/adam-nowakowski-D4LDw5eXhgg-unsplash.jpg",
           },
           {
             title: "Growth Strategy",
             text: "Custom growth plans aligned with your goals and market conditions.",
-            img: "https://i.pinimg.com/736x/59/7c/48/597c4831d1bb157ccd44fcbb40f19a28.jpg",
+            img: "/isaac-smith-AT77Q0Njnt0-unsplash.jpg",
           },
           {
             title: "Partnership Development",
             text: "Connect with partners, investors & stakeholders for expansion.",
-            img: "https://i.pinimg.com/736x/98/66/9c/98669cfa4918a47254e5f2b2fce2a55f.jpg",
+            img: "/vitaly-gariev-gjJGhXJZSxk-unsplash.jpg",
           },
           {
             title: "Sales Enablement",
             text: "Improve conversions with optimized sales systems & powerful pitches.",
-            img: "https://i.pinimg.com/736x/db/5a/3d/db5a3dc0aae532a6b3d5d3df15f249b4.jpg",
+            img: "/chelaxy-designs-hRI4703rHOg-unsplash.jpg",
           },
         ].map((item, index) => (
           <motion.div
@@ -245,16 +252,7 @@ export default function Business() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="text-gray-400 mb-10 flex justify-center gap-6 tracking-widest text-lg">
-          {["Instagram", "TikTok", "Facebook", "YouTube"].map((p) => (
-            <span
-              key={p}
-              className="cursor-pointer hover:text-cyan-400 transition"
-            >
-              {p.toUpperCase()}
-            </span>
-          ))}
-        </div>
+      <Links/>
 
         <motion.h1
           className="text-6xl sm:text-8xl font-bold bg-gradient-to-r from-cyan-200 via-white to-blue-200 bg-clip-text text-transparent"
