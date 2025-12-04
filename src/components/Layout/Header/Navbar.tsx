@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { servicesData } from "../../Services/servicesData";
-import {  ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { slugify } from "../../Services/slug";
 
 export default function Navbar() {
@@ -37,14 +37,6 @@ export default function Navbar() {
       setServicesOpen(!servicesOpen);
     }
   };
-
-  // Navigate to category
-  // const handleCategoryClick = (categoryTitle: string) => {
-  //   const categorySlug = slugify(categoryTitle);
-  //   navigate(`/services/${categorySlug}`);
-  //   setOpen(false);
-  //   setServicesOpen(false);
-  // };
 
   // Navigate to item inside category
   const handleItemClick = (categoryTitle: string, itemName: string) => {
@@ -124,7 +116,7 @@ export default function Navbar() {
               onMouseLeave={() => window.innerWidth >= 768 && setServicesOpen(false)}
             >
               <button
-                className="flex items-center gap-1 px-6 py-3 text-lg hover:text-blue-300 transition-all"
+                className="flex items-center gap-1 px-6 py-3 text-lg hover:text-blue-300 transition-all w-full md:w-auto justify-between"
                 onClick={handleServicesClick}
               >
                 Services
@@ -150,7 +142,6 @@ export default function Navbar() {
                       <div key={idx} className="">
                         <h3
                           className="font-extrabold text-yellow-500 text-sm md:text-base mb-2 tracking-wide"
-                          // onClick={() => handleCategoryClick(category.title)}
                         >
                           {category.title}
                         </h3>
@@ -159,13 +150,13 @@ export default function Navbar() {
 
                         <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm leading-snug space-y-1">
                           {category.items.map((item, i) => (
-                            <div
+                            <li
                               key={i}
                               className="cursor-pointer hover:text-blue-600"
                               onClick={() => handleItemClick(category.title, item)}
                             >
                               {item}
-                            </div>
+                            </li>
                           ))}
                         </ul>
                       </div>
@@ -197,20 +188,6 @@ export default function Navbar() {
                 Contact
               </Link>
             </li>
-
-            {/* Speak Now */}
-            {/* <li className="px-4 py-2 md:py-0">
-              <a
-                href="https://wa.me/971502037669"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-green-500 text-white text-sm font-semibold shadow-md hover:bg-green-600"
-              >
-                <PhoneCallIcon size={16} />
-                Speak to Us
-              </a>
-            </li> */}
-
           </ul>
         </div>
       </div>
@@ -224,4 +201,4 @@ export default function Navbar() {
       )}
     </nav>
   );
-}  
+}
