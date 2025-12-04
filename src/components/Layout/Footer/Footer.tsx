@@ -194,15 +194,18 @@ const handleNewsletterSubmit = async (e:any) => {
                 <span>123 Tech Park, Innovation Road<br />Digital City, DC 12345</span>
               </motion.div> */}
 
-              <motion.a
-                whileHover={{ translateX: 5 }}
-                href="tel:+11234567890"
-                className="flex items-center space-x-3 text-white/80 hover:text-white"
-              >
-                <Phone size={10} className="text-cyan-400" />
-                <span>+971-502037669</span>
-                <span>+971-551084366</span>
-              </motion.a>
+             <div className="flex items-center space-x-4 text-white/80 hover:text-white whitespace-nowrap">
+  <Phone size={22} className="text-cyan-400 shrink-0" />
+
+  <motion.a whileHover={{ translateX: 5 }} href="tel:+971502037669">
+    +971-502037669
+  </motion.a>
+
+  <motion.a whileHover={{ translateX: 5 }} href="tel:+971551084366">
+    +971-551084366
+  </motion.a>
+</div>
+
 
               <motion.a
                 whileHover={{ translateX: 5 }}
@@ -214,35 +217,7 @@ const handleNewsletterSubmit = async (e:any) => {
               </motion.a>
 
               {/* Newsletter */}
-              <div className="mt-6">
-                <h5 className="text-lg font-semibold mb-3 text-cyan-300">
-                  Newsletter
-                </h5>
-
-                <div className="flex flex-col space-y-3">
-                  <form onSubmit={handleNewsletterSubmit} className="flex flex-col space-y-3">
-  <input
-    type="email"
-    value={newsletterEmail}
-    onChange={(e) => setNewsletterEmail(e.target.value)}
-    placeholder="Enter your email"
-    required
-    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 outline-none focus:border-cyan-400"
-  />
-
-  <motion.button
-    type="submit"
-    disabled={isSendingNews}
-    whileHover={{ scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
-    className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg hover:shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
-  >
-    {isSendingNews ? "Subscribing..." : "Subscribe"}
-  </motion.button>
-</form>
-
-                </div>
-              </div>
+            
             </motion.div>
           </motion.div>
 
