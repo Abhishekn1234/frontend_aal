@@ -206,11 +206,11 @@ const handleNewsletterSubmit = async (e:any) => {
 
               <motion.a
                 whileHover={{ translateX: 5 }}
-                href="mailto:info@aalizahtech.com"
+                href="mailto:info@aalizahtechnology.com"
                 className="flex items-center space-x-3 text-white/80 hover:text-white"
               >
                 <Mail size={20} className="text-cyan-400" />
-                <span>info@aalizahtech.com</span>
+                <span>info@aalizahtechnology.com</span>
               </motion.a>
 
               {/* Newsletter */}

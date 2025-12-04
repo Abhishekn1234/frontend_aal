@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { servicesData } from "../../Services/servicesData";
-import { PhoneCallIcon, ChevronDown } from "lucide-react";
+import {  ChevronDown } from "lucide-react";
 import { slugify } from "../../Services/slug";
 
 export default function Navbar() {
@@ -199,7 +199,7 @@ export default function Navbar() {
             </li>
 
             {/* Speak Now */}
-            <li className="px-4 py-2 md:py-0">
+            {/* <li className="px-4 py-2 md:py-0">
               <a
                 href="https://wa.me/971502037669"
                 target="_blank"
@@ -209,7 +209,7 @@ export default function Navbar() {
                 <PhoneCallIcon size={16} />
                 Speak to Us
               </a>
-            </li>
+            </li> */}
 
           </ul>
         </div>
