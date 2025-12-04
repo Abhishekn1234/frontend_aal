@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import {
-  // Facebook,
-  // Twitter,
-  // Instagram,
-  // Linkedin,
+ 
   Mail,
   Phone,
   // MapPin,
@@ -13,8 +10,8 @@ import {
 import { useEffect, useState } from "react";
 import { staggerContainer, fadeUp } from "./variant";
 import { Link } from "react-router-dom";
-import emailjs from "emailjs-com";
-// import { servicesData } from "../../Services/servicesData";
+
+
 
 
 
@@ -22,36 +19,9 @@ import emailjs from "emailjs-com";
 export default function Footer() {
   const [currentYear] = useState(new Date().getFullYear());
   const [isVisible, setIsVisible] = useState(false);
-const [newsletterEmail, setNewsletterEmail] = useState("");
-const [isSendingNews, setIsSendingNews] = useState(false);
 
 const MotionLink = motion(Link);
-const handleNewsletterSubmit = async (e:any) => {
-  e.preventDefault();
-  if (!newsletterEmail) return alert("Please enter an email.");
 
-  setIsSendingNews(true);
-
-  try {
-    await emailjs.send(
-      "service_2d7z5h9",       // your service ID
-      "template_xmfgpj8",      // create another template OR reuse the same
-      {
-        email: newsletterEmail,
-        message: `Thank you for subscribing to Aalizah Technology updates!`,
-      },
-      "nKlBaY7MMdZCDB8OX"       // your public key
-    );
-
-    alert("Subscription successful! A confirmation email has been sent.");
-    setNewsletterEmail("");
-  } catch (error) {
-    console.error(error);
-    alert("Failed to subscribe. Please try again.");
-  }
-
-  setIsSendingNews(false);
-};
 
   const scrollToTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
