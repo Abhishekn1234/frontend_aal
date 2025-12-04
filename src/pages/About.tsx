@@ -152,61 +152,100 @@ export default function About() {
 
       <div className="relative z-10 pt-32 px-6 md:px-12 lg:px-24">
         {/* ================= Header Section ================= */}
-       <motion.div
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
-  variants={staggerContainer}
-  className="mb-24 flex flex-col items-center text-center"
->
-  {/* Header Dots */}
-  <motion.div variants={fadeUp} className="inline-flex items-center gap-3 mb-6">
-    <div className="w-2 h-2 bg-blue-500 rounded-full" />
-    <div className="text-blue-600 font-semibold tracking-widest text-sm uppercase">
-      About Our Company
-    </div>
-    <div className="w-2 h-2 bg-blue-500 rounded-full" />
+    <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-12 mb-24">
+  
+  {/* LEFT SIDE - TEXT SECTION */}
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={staggerContainer}
+    className="flex-1 text-center md:text-left"
+  >
+    {/* Header Dots */}
+    <motion.div variants={fadeUp} className="inline-flex items-center gap-3 mb-6">
+      <div className="w-2 h-2 bg-blue-500 rounded-full" />
+      <div className="text-blue-600 font-semibold tracking-widest text-sm uppercase">
+        About Our Company
+      </div>
+      <div className="w-2 h-2 bg-blue-500 rounded-full" />
+    </motion.div>
+
+    {/* Title */}
+    <motion.h1
+      variants={fadeUp}
+      className="text-5xl md:text-6xl font-bold mb-6 text-blue-600 drop-shadow-md"
+    >
+      About Us
+    </motion.h1>
+
+    {/* Underline */}
+    <motion.div variants={fadeUp} className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mb-8" />
+
+    {/* Paragraph */}
+    <motion.p
+      variants={fadeUp}
+      className="text-lg md:text-xl text-white max-w-3xl leading-relaxed tracking-wide space-y-4"
+    >
+      <span className="block">
+        At <span className="font-semibold text-primary">Aalizah Technology</span>, we are passionate about transforming ideas into innovative digital solutions...
+      </span>
+      <span className="block">
+        Our team combines creativity, technical expertise, and strategic thinking to deliver exceptional results.
+      </span>
+      <span className="block">
+        We value quality, innovation, and customer satisfaction above all.
+      </span>
+    </motion.p>
+
+    {/* Button */}
+    <motion.button
+      onClick={() => setModalOpen(true)}
+      className="mt-6 px-6 py-3 rounded bg-primary text-white hover:bg-gray-500"
+      whileHover={{ scale: 1.05 }}
+    >
+      Speak to Us
+    </motion.button>
+
+    {/* Modal */}
+    <SpeakToUsModal 
+      isOpen={modalOpen} 
+      onClose={() => setModalOpen(false)} 
+      services={services} 
+    />
   </motion.div>
 
-  {/* Title */}
-  <motion.h1
-    variants={fadeUp}
-    className="text-5xl md:text-6xl font-bold mb-6 text-blue-600 drop-shadow-md"
+  {/* RIGHT SIDE - IMAGE */}
+  <motion.div
+    initial={{ opacity: 0, x: 50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6 }}
+    className="flex-1 flex justify-center md:justify-end"
   >
-    About Us
-  </motion.h1>
-
-  {/* Underline */}
-  <motion.div variants={fadeUp} className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mb-8" />
-
-  {/* Paragraph */}
-  <motion.p
-    variants={fadeUp}
-    className="text-lg md:text-xl text-white max-w-3xl leading-relaxed space-y-4 tracking-wide"
-  >
-    <span className="block">
-      At <span className="font-semibold text-primary">Aalizah Technology</span>, we are passionate about transforming ideas into innovative digital solutions. Founded with a vision to empower businesses with cutting-edge technology...
-    </span>
-    <span className="block">
-      Our team combines creativity, technical expertise, and strategic thinking to deliver solutions that not only look exceptional but also drive measurable results.
-    </span>
-    <span className="block">
-      We value quality, innovation, and customer satisfaction above all. We work closely with our clients to provide personalized solutions.
-    </span>
-  </motion.p>
-
-  {/* Speak to Us Button */}
-  <motion.button
-    onClick={() => setModalOpen(true)}
-    className="mt-6 px-6 py-3 rounded bg-primary text-white hover:bg-gray-500"
-    whileHover={{ scale: 1.05 }}
-  >
-    Speak to Us
-  </motion.button>
-
-  {/* Modal */}
-  <SpeakToUsModal isOpen={modalOpen} onClose={() => setModalOpen(false)} services={services} />
+    {/* RIGHT SIDE - IMAGE */}
+<motion.div
+  initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6 }}
+  className="flex-1 flex justify-center md:justify-end"
+>
+  <motion.img
+    src="/download.jpg"
+    alt="About Us"
+    className="w-full max-w-md rounded-xl shadow-lg border-4 border-transparent hover:border-blue-500"
+    whileHover={{
+      scale: 1.05,
+      rotate: 2,
+      boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.3)",
+    }}
+    transition={{ type: "spring", stiffness: 200, damping: 15 }}
+  />
 </motion.div>
+
+  </motion.div>
+
+</div>
+
 
 
         {/* ================= Who We Are Section ================= */}
