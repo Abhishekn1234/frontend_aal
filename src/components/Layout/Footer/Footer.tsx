@@ -201,16 +201,16 @@ const handleNewsletterSubmit = async (e:any) => {
               >
                 <Phone size={20} className="text-cyan-400" />
                 <span>+971-502037669</span>
-                <span>0551084366</span>
+                <span>+971-0551084366</span>
               </motion.a>
 
               <motion.a
                 whileHover={{ translateX: 5 }}
-                href="mailto:info@aalizahtechnology.com"
+                href="mailto:info@aalizahtechnologies.com"
                 className="flex items-center space-x-3 text-white/80 hover:text-white"
               >
                 <Mail size={20} className="text-cyan-400" />
-                <span>info@aalizahtechnology.com</span>
+                <span>info@aalizahtechnologies.com</span>
               </motion.a>
 
               {/* Newsletter */}
