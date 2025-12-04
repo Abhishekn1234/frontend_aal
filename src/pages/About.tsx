@@ -382,49 +382,57 @@ export default function About() {
         </motion.div>
 
         {/* ================= CTA Section ================= */}
-        <motion.div initial="hidden" whileInView="visible" variants={staggerContainer}>
-          <motion.div variants={scaleIn} className="w-full text-white rounded-3xl p-12 md:p-16 shadow-2xl relative overflow-hidden hover:scale-[1.02] cursor-pointer mb-12">
-            <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <div className="absolute -top-24 -right-24 w-40 h-40 rounded-full bg-white/10" />
-              <div className="absolute -bottom-24 -left-24 w-40 h-40 rounded-full bg-cyan-300/10" />
-            </div>
+       <motion.div initial="hidden" whileInView="visible" variants={staggerContainer}>
+  <motion.div
+    variants={scaleIn}
+    className="w-full text-white rounded-3xl p-12 md:p-16 shadow-2xl relative overflow-hidden hover:scale-[1.02] cursor-pointer mb-12"
+  >
+    <div className="absolute inset-0 opacity-10 pointer-events-none">
+      <div className="absolute -top-24 -right-24 w-40 h-40 rounded-full bg-white/10" />
+      <div className="absolute -bottom-24 -left-24 w-40 h-40 rounded-full bg-cyan-300/10" />
+    </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-              <motion.div variants={fadeUp} className="flex items-center">
-                <div className="p-4 bg-white/20 rounded-2xl">
-                  <Rocket className="w-12 h-12 md:w-14 md:h-14 text-white" />
-                </div>
-                <motion.h2 variants={fadeUp} className="ml-4 text-3xl md:text-4xl font-bold">
-                  We Are{" "}
-                  <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
-                    Aalizah Technology
-                  </span>
-                </motion.h2>
-              </motion.div>
+    <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+      <motion.div variants={fadeUp} className="flex items-center">
+        <div className="p-4 bg-white/20 rounded-2xl">
+          <Rocket className="w-12 h-12 md:w-14 md:h-14 text-white" />
+        </div>
+        <motion.h2 variants={fadeUp} className="ml-4 text-3xl md:text-4xl font-bold">
+          We Are{" "}
+          <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">
+            Aalizah Technology
+          </span>
+        </motion.h2>
+      </motion.div>
 
-              <motion.div variants={fadeUp} className="space-y-4 max-w-2xl text-left">
-                <p className="text-white text-lg opacity-95">
-                  A team of innovators, creators, and problem-solvers delivering exceptional digital experiences.
-                </p>
-                <p className="text-white text-lg opacity-95">
-                  We turn complex challenges into elegant, effective solutions.
-                </p>
-                <p className="text-white text-lg font-semibold opacity-95">
-                  Your vision becomes our mission.
-                </p>
+      <motion.div variants={fadeUp} className="space-y-4 max-w-2xl text-left">
+        <p className="text-white text-lg opacity-95">
+          A team of innovators, creators, and problem-solvers delivering exceptional digital experiences.
+        </p>
+        <p className="text-white text-lg opacity-95">
+          We turn complex challenges into elegant, effective solutions.
+        </p>
+        <p className="text-white text-lg font-semibold opacity-95">
+          Your vision becomes our mission.
+        </p>
 
-                <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                  <motion.button whileHover={{ scale: 1.05 }} className="px-10 py-4 bg-white/20 text-white rounded-2xl font-semibold shadow-lg">
-                    Start Your Project
-                  </motion.button>
-                  <motion.button whileHover={{ scale: 1.05 }} className="px-10 py-4 border-2 border-white/30 text-white rounded-2xl">
-                    Meet Our Team
-                  </motion.button>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </motion.div>
+        {/* WhatsApp Button */}
+        <div className="mt-6">
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            href="https://wa.me/971502037669"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-10 py-4 bg-green-500 text-white rounded-2xl font-semibold shadow-lg inline-block"
+          >
+            Contact Us on WhatsApp
+          </motion.a>
+        </div>
+      </motion.div>
+    </div>
+  </motion.div>
+</motion.div>
+
       </div>
     </div>
   );
