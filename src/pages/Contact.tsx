@@ -165,35 +165,28 @@ export default function Contact() {
 
   {/* Row 3: Phone Number with Country Code */}
 <motion.div variants={fadeUp} className="grid grid-cols-1 gap-6">
-  <div className="flex w-full">
+  <div className="flex flex-col sm:flex-row w-full gap-2">
+  <select
+    name="countryCode"
+    value={formData.countryCode || "+91"}
+    onChange={handleChange}
+    className="p-4 rounded-xl sm:rounded-l-xl sm:rounded-r-none border border-white/50 bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-400 w-full sm:w-32"
+  >
+    <option value="+91">+91 (India)</option>
+    <option value="+971">+971 (UAE)</option>
+  </select>
 
-    {/* Country Code Dropdown */}
-    <select
-      name="countryCode"
-      value={formData.countryCode || "+91"}
-      onChange={handleChange}
-      className="p-4 rounded-l-xl border border-white/50 bg-white text-black 
-                 focus:outline-none focus:ring-2 focus:ring-blue-400 
-                 transition-all duration-300 w-32"
-    >
-      <option value="+91">+91 (India)</option>
-      <option value="+971">+971 (UAE)</option>
-    </select>
+  <input
+    type="tel"
+    name="phone"
+    placeholder="Phone Number"
+    value={formData.phone || ""}
+    onChange={handleChange}
+    required
+    className="p-4 rounded-xl sm:rounded-r-xl sm:rounded-l-none border border-white/50 bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-400 w-full"
+  />
+</div>
 
-    {/* Phone Number Input */}
-    <input
-      type="tel"
-      name="phone"
-      placeholder="Phone Number"
-      value={formData.phone || ""}
-      onChange={handleChange}
-      required
-      className="flex-1 p-4 rounded-r-xl border border-white/50 bg-white text-black 
-                 border-l-0 focus:outline-none focus:ring-2 focus:ring-blue-400 
-                 transition-all duration-300"
-    />
-
-  </div>
 </motion.div>
 
 
