@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Mail, MessageCircle } from "lucide-react";
 import { staggerContainer, fadeUp } from "../components/About/aboutdata";
@@ -6,6 +6,9 @@ import type { FormData } from "../types/Contact/contactform";
 import emailjs from "emailjs-com";
 
 export default function Contact() {
+    useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",

@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { servicesData } from "../components/Services/servicesData";
+import { useEffect } from "react";
 
 export default function Services() {
+    useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div
       className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 font-sans min-h-screen"

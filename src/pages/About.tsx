@@ -22,7 +22,7 @@ const SpeakToUsModal: React.FC<SpeakToUsModalProps> = ({ isOpen, onClose, servic
   const [loading, setLoading] = useState(false);
 
   if (!isOpen) return null;
-
+  
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -119,7 +119,9 @@ export default function About() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const services=servicesData
-
+     useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   useEffect(() => {
     const moveCursor = (e: any) => setCursorPos({ x: e.clientX, y: e.clientY });
     window.addEventListener("mousemove", moveCursor);
