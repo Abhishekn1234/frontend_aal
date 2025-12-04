@@ -199,7 +199,7 @@ const handleNewsletterSubmit = async (e:any) => {
                 href="tel:+11234567890"
                 className="flex items-center space-x-3 text-white/80 hover:text-white"
               >
-                <Phone size={20} className="text-cyan-400" />
+                <Phone size={10} className="text-cyan-400" />
                 <span>+971-502037669</span>
                 <span>+971-0551084366</span>
               </motion.a>
