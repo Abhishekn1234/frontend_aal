@@ -1,25 +1,25 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { servicesData } from "../../Services/servicesData";
 import { ChevronDown } from "lucide-react";
 import { slugify } from "../../Services/slug";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // Mobile menu
+  const [servicesOpen, setServicesOpen] = useState(false); // Services dropdown
   const [scrolled, setScrolled] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const [logoHovered, setLogoHovered] = useState(false);
 
   const navigate = useNavigate();
 
-  // Handle scroll for navbar styling
+  // Scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menus on window resize
+  // Close mobile menu & dropdown on resize >= 768
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -31,32 +31,23 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Toggle services dropdown (mobile)
-  const handleServicesClick = () => {
-    if (window.innerWidth < 768) {
-      setServicesOpen(!servicesOpen);
-    }
-  };
-
-  // Navigate to item inside category
-  const handleItemClick = (categoryTitle: string, itemName: string) => {
-    const categorySlug = slugify(categoryTitle);
-    const itemSlug = slugify(itemName);
-    navigate(`/services/${categorySlug}/${itemSlug}`);
-    setOpen(false);
-    setServicesOpen(false);
-  };
-
   const logoStyle = {
     width: "58px",
     height: "58px",
     borderRadius: "12px",
     boxShadow: logoHovered
-      ? "0 6px 12px rgba(0, 0, 0, 0.2)"
-      : "0 4px 6px rgba(0, 0, 0, 0.1)",
+      ? "0 6px 12px rgba(0,0,0,0.2)"
+      : "0 4px 6px rgba(0,0,0,0.1)",
     transform: logoHovered ? "scale(1.1) rotate(5deg)" : "scale(1) rotate(0deg)",
     transition: "all 0.3s ease",
     cursor: "pointer",
+  };
+
+  // Unified link click handler
+  const handleLinkClick = (path: string) => {
+    navigate(path);
+    setOpen(false);
+    setServicesOpen(false);
   };
 
   return (
@@ -68,20 +59,18 @@ export default function Navbar() {
           backdrop-blur-xl`}
       >
         {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center gap-3"
+        <div
+          onClick={() => handleLinkClick("/")}
           onMouseEnter={() => setLogoHovered(true)}
           onMouseLeave={() => setLogoHovered(false)}
-          onClick={() => setOpen(false)}
         >
-          <img src="3.svg" style={logoStyle} alt="Aalizah Technology Logo" />
-        </Link>
+          <img src="3.svg" style={logoStyle} alt="Logo" />
+        </div>
 
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-2xl text-white hover:text-blue-300 transition-transform active:scale-90"
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpen((prev) => !prev)}
         >
           {open ? "✕" : "☰"}
         </button>
@@ -97,19 +86,17 @@ export default function Navbar() {
             rounded-b-2xl md:rounded-none`}
         >
           <ul className="flex flex-col md:flex-row md:items-center md:gap-2 font-semibold text-white py-4 md:py-0">
-
             {/* About */}
             <li>
-              <Link
-                to="/about"
-                className="block px-6 py-3 text-lg hover:text-blue-300 transition-all"
-                onClick={() => setOpen(false)}
+              <button
+                className="block px-6 py-3 text-lg hover:text-blue-300 w-full text-left md:text-center"
+                onClick={() => handleLinkClick("/about")}
               >
                 About
-              </Link>
+              </button>
             </li>
 
-            {/* SERVICES DROPDOWN */}
+            {/* Services Dropdown */}
             <li
               className="relative"
               onMouseEnter={() => window.innerWidth >= 768 && setServicesOpen(true)}
@@ -117,7 +104,7 @@ export default function Navbar() {
             >
               <button
                 className="flex items-center gap-1 px-6 py-3 text-lg hover:text-blue-300 transition-all w-full md:w-auto justify-between"
-                onClick={handleServicesClick}
+                onClick={() => setServicesOpen((prev) => !prev)}
               >
                 Services
                 <ChevronDown
@@ -126,7 +113,7 @@ export default function Navbar() {
                 />
               </button>
 
-              {/* DROPDOWN CONTENT */}
+              {/* Dropdown Content */}
               <div
                 className={`bg-white text-black rounded-2xl shadow-2xl 
                   transition-all duration-300 ease-in-out
@@ -137,23 +124,20 @@ export default function Navbar() {
               >
                 <div className="p-6 md:p-8 bg-gray-50">
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-
                     {servicesData.map((category, idx) => (
-                      <div key={idx} className="">
-                        <h3
-                          className="font-extrabold text-yellow-500 text-sm md:text-base mb-2 tracking-wide"
-                        >
+                      <div key={idx}>
+                        <h3 className="font-extrabold text-yellow-500 text-sm md:text-base mb-2 tracking-wide">
                           {category.title}
                         </h3>
-
                         <hr className="border-yellow-500 mb-3" />
-
                         <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm leading-snug space-y-1">
                           {category.items.map((item, i) => (
                             <li
                               key={i}
                               className="cursor-pointer hover:text-blue-600"
-                              onClick={() => handleItemClick(category.title, item)}
+                              onClick={() =>
+                                handleLinkClick(`/services/${slugify(category.title)}/${slugify(item)}`)
+                              }
                             >
                               {item}
                             </li>
@@ -161,7 +145,6 @@ export default function Navbar() {
                         </ul>
                       </div>
                     ))}
-
                   </div>
                 </div>
               </div>
@@ -169,36 +152,29 @@ export default function Navbar() {
 
             {/* Career */}
             <li>
-              <Link
-                to="/career"
-                className="block px-6 py-3 text-lg hover:text-blue-300 transition-all"
-                onClick={() => setOpen(false)}
+              <button
+                className="block px-6 py-3 text-lg hover:text-blue-300 w-full text-left md:text-center"
+                onClick={() => handleLinkClick("/career")}
               >
                 Career
-              </Link>
+              </button>
             </li>
 
             {/* Contact */}
             <li>
-              <Link
-                to="/contact"
-                className="block px-6 py-3 text-lg hover:text-blue-300 transition-all"
-                onClick={() => setOpen(false)}
+              <button
+                className="block px-6 py-3 text-lg hover:text-blue-300 w-full text-left md:text-center"
+                onClick={() => handleLinkClick("/contact")}
               >
                 Contact
-              </Link>
+              </button>
             </li>
           </ul>
         </div>
       </div>
 
-      {/* Mobile dim overlay */}
-      {open && (
-        <div
-          className="fixed inset-0 bg-black/20 z-40 md:hidden"
-          onClick={() => setOpen(false)}
-        />
-      )}
+    
     </nav>
   );
 }
+
