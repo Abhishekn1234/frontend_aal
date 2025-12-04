@@ -201,7 +201,7 @@ const handleNewsletterSubmit = async (e:any) => {
               >
                 <Phone size={10} className="text-cyan-400" />
                 <span>+971-502037669</span>
-                <span>+971-0551084366</span>
+                <span>+971-551084366</span>
               </motion.a>
 
               <motion.a

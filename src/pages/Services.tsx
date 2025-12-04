@@ -102,7 +102,7 @@ export default function Services() {
                     </ul>
 
                     {/* Button */}
-                    <motion.button
+                    {/* <motion.button
                       whileHover={{ 
                         scale: 1.05,
                         background: "linear-gradient(135deg, #3b82f6, #f59e0b)"
@@ -124,7 +124,7 @@ export default function Services() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </motion.svg>
                       </span>
-                    </motion.button>
+                    </motion.button> */}
                   </div>
                 </div>
               </motion.div>
