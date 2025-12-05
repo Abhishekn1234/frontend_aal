@@ -108,7 +108,9 @@ export const specialServicePages: Record<string, JSX.Element> = {
 export default function ServiceItemPage() {
   const { categorySlug, itemSlug } = useParams();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [categorySlug, itemSlug]);
   const category = servicesData.find(
     (cat) => slugify(cat.title) === categorySlug
   );
