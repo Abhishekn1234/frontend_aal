@@ -50,6 +50,8 @@ export default function Navbar() {
     setServicesOpen(false);
   };
 
+  const isDesktop = () => window.innerWidth >= 768;
+
   return (
     <nav className="fixed w-full z-50 top-0 flex justify-center transition-all duration-500">
       <div
@@ -86,10 +88,11 @@ export default function Navbar() {
             rounded-b-2xl md:rounded-none`}
         >
           <ul className="flex flex-col md:flex-row md:items-center md:gap-2 font-semibold text-white py-4 md:py-0">
+
             {/* About */}
             <li>
               <button
-                className="block px-6 py-3 text-lg hover:text-blue-300 w-full text-left md:text-center"
+                className="block px-6 py-3 text-lg hover:text-blue-300 w-full md:text-center"
                 onClick={() => handleLinkClick("/about")}
               >
                 About
@@ -99,12 +102,21 @@ export default function Navbar() {
             {/* Services Dropdown */}
             <li
               className="relative"
-              onMouseEnter={() => window.innerWidth >= 768 && setServicesOpen(true)}
-              onMouseLeave={() => window.innerWidth >= 768 && setServicesOpen(false)}
+              onMouseEnter={() => isDesktop() && setServicesOpen(true)}
+              onMouseLeave={() => isDesktop() && setServicesOpen(false)}
             >
               <button
-                className="flex items-center gap-1 px-6 py-3 text-lg hover:text-blue-300 transition-all w-full md:w-auto justify-between"
-                onClick={() => setServicesOpen((prev) => !prev)}
+                className="
+  flex items-center gap-1 px-6 py-3 text-lg hover:text-blue-300 transition-all 
+  w-full md:w-auto 
+  justify-center md:justify-between
+"
+
+                onClick={() => {
+                  if (!isDesktop()) {
+                    setServicesOpen((prev) => !prev); // Mobile toggle
+                  }
+                }}
               >
                 Services
                 <ChevronDown
@@ -117,35 +129,51 @@ export default function Navbar() {
               <div
                 className={`bg-white text-black rounded-2xl shadow-2xl 
                   transition-all duration-300 ease-in-out
-                  ${servicesOpen ? "opacity-100 visible scale-100 max-h-[1000px]" : "opacity-0 invisible scale-95 max-h-0"}
+                  ${servicesOpen ? "opacity-100 visible scale-100 max-h-[1200px]" : "opacity-0 invisible scale-95 max-h-0"}
                   md:absolute md:top-full md:left-1/2 md:-translate-x-1/2 md:mt-2
                   md:w-[95vw] md:max-w-6xl overflow-hidden`}
                 style={{ zIndex: 2000 }}
               >
                 <div className="p-6 md:p-8 bg-gray-50">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {servicesData.map((category, idx) => (
-                      <div key={idx}>
-                        <h3 className="font-extrabold text-yellow-500 text-sm md:text-base mb-2 tracking-wide">
-                          {category.title}
-                        </h3>
-                        <hr className="border-yellow-500 mb-3" />
-                        <ul className="list-disc list-inside text-gray-700 text-xs md:text-sm leading-snug space-y-1">
-                          {category.items.map((item, i) => (
-                            <li
-                              key={i}
-                              className="cursor-pointer hover:text-blue-600"
-                              onClick={() =>
-                                handleLinkClick(`/services/${slugify(category.title)}/${slugify(item)}`)
-                              }
-                            >
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
+                <div className="grid grid-cols-7 md:grid-cols-4 gap-4">
+
+  {servicesData.map((category, idx) => (
+    <div key={idx} className="mb-4"> 
+      {/* Category Title */}
+      <h3 className="font-extrabold text-yellow-500 
+                     text-[10px] md:text-base 
+                     mb-2 tracking-wide">
+        {category.title}
+      </h3>
+
+      <hr className="border-yellow-500 mb-3" />
+
+      {/* Services List */}
+      <ul className="
+        list-none 
+        md:list-disc md:list-inside 
+        text-gray-700 
+        text-[9px] md:text-sm 
+        leading-relaxed 
+        space-y-2
+      ">
+        {category.items.map((item, i) => (
+          <li
+            key={i}
+            className="cursor-pointer hover:text-blue-600"
+            onClick={() =>
+              handleLinkClick(`/services/${slugify(category.title)}/${slugify(item)}`)
+            }
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+
+</div>
+
                 </div>
               </div>
             </li>
@@ -153,7 +181,7 @@ export default function Navbar() {
             {/* Career */}
             <li>
               <button
-                className="block px-6 py-3 text-lg hover:text-blue-300 w-full text-left md:text-center"
+                className="block px-6 py-3 text-lg hover:text-blue-300 w-full md:text-center"
                 onClick={() => handleLinkClick("/career")}
               >
                 Career
@@ -163,18 +191,18 @@ export default function Navbar() {
             {/* Contact */}
             <li>
               <button
-                className="block px-6 py-3 text-lg hover:text-blue-300 w-full text-left md:text-center"
+                className="block px-6 py-3 text-lg hover:text-blue-300 w-full md:text-center"
                 onClick={() => handleLinkClick("/contact")}
               >
                 Contact
               </button>
             </li>
+
           </ul>
         </div>
       </div>
-
-    
     </nav>
   );
 }
+
 
