@@ -126,7 +126,7 @@ export default function Navbar() {
               </button>
 
               {/* Dropdown Content */}
-      <div
+    <div
   className={`bg-white text-black rounded-2xl shadow-2xl 
     transition-all duration-300 ease-in-out
     ${servicesOpen ? "opacity-100 visible scale-100 max-h-[1200px]" : "opacity-0 invisible scale-95 max-h-0"}
@@ -134,43 +134,40 @@ export default function Navbar() {
     md:w-[95vw] md:max-w-6xl overflow-hidden z-50`}
 >
   <div className="p-6 md:p-6 bg-gray-50">
-    {/* Always scrollable container */}
-    <div className="max-h-[90vh] overflow-y-auto">
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-8">
-        {servicesData.map((category, idx) => (
-          <div key={idx} className="dropdown-col">
-            <h6 className="text-yellow-500 font-bold text-sm md:text-base mb-2 tracking-wide uppercase">
-              {category.title}
-            </h6>
-            <hr className="border-yellow-500 mb-3" />
-            <ul className="space-y-2 text-gray-700 text-sm md:text-base">
-              {category.items.map((item, i) => (
-                <li
-                  key={i}
-                  className="cursor-pointer hover:text-blue-600 transition-colors duration-200"
-                  style={{
-                    animation: servicesOpen
-                      ? `slideInUp 0.4s forwards ${i * 0.05}s`
-                      : "none",
-                  }}
-                  onClick={() =>
-                    handleLinkClick(
-                      `/services/${slugify(category.title)}/${slugify(item)}`
-                    )
-                  }
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-8">
+      {servicesData.map((category, idx) => (
+        <div key={idx} className="dropdown-col flex flex-col">
+          <h6 className="text-yellow-500 font-bold text-sm md:text-base mb-2 tracking-wide uppercase">
+            {category.title}
+          </h6>
+          <hr className="border-yellow-500 mb-3" />
+          {/* Scrollable items container */}
+          <ul className="space-y-2 text-gray-700 text-sm md:text-base max-h-[40vh] overflow-y-auto">
+            {category.items.map((item, i) => (
+              <li
+                key={i}
+                className="cursor-pointer hover:text-blue-600 transition-colors duration-200"
+                style={{
+                  animation: servicesOpen
+                    ? `slideInUp 0.4s forwards ${i * 0.05}s`
+                    : "none",
+                }}
+                onClick={() =>
+                  handleLinkClick(
+                    `/services/${slugify(category.title)}/${slugify(item)}`
+                  )
+                }
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   </div>
 </div>
 
-{/* Animations (Tailwind + custom) */}
 <style>{`
   @keyframes slideInUp {
     from { opacity: 0; transform: translateY(10px); }
