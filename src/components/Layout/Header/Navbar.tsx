@@ -127,55 +127,42 @@ export default function Navbar() {
 
               {/* Dropdown Content */}
               <div
-                className={`bg-white text-black rounded-2xl shadow-2xl 
-                  transition-all duration-300 ease-in-out
-                  ${servicesOpen ? "opacity-100 visible scale-100 max-h-[1200px]" : "opacity-0 invisible scale-95 max-h-0"}
-                  md:absolute md:top-full md:left-1/2 md:-translate-x-1/2 md:mt-2
-                  md:w-[95vw] md:max-w-6xl overflow-hidden`}
-                style={{ zIndex: 2000 }}
+  className={`bg-white text-black rounded-2xl shadow-2xl 
+    transition-all duration-300 ease-in-out
+    ${servicesOpen ? "opacity-100 visible scale-100 max-h-[1200px]" : "opacity-0 invisible scale-95 max-h-0"}
+    md:absolute md:top-full md:left-1/2 md:-translate-x-1/2 md:mt-2
+    md:w-[95vw] md:max-w-6xl overflow-hidden`}
+  style={{ zIndex: 2000 }}
+>
+  <div className="p-6 md:p-8 bg-gray-50">
+    <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      {servicesData.map((category, idx) => (
+        <div key={idx} className="mb-4">
+          {/* Category Title */}
+          <h3 className="font-extrabold text-yellow-500 text-sm md:text-base mb-2 tracking-wide">
+            {category.title}
+          </h3>
+          <hr className="border-yellow-500 mb-3" />
+          {/* Services List */}
+          <ul className="space-y-2 text-gray-700 text-sm md:text-base">
+            {category.items.map((item, i) => (
+              <li
+                key={i}
+                className="cursor-pointer hover:text-blue-600 truncate"
+                onClick={() =>
+                  handleLinkClick(`/services/${slugify(category.title)}/${slugify(item)}`)
+                }
               >
-                <div className="p-6 md:p-8 bg-gray-50">
-                <div className="grid grid-cols-7 md:grid-cols-4 gap-4">
-
-  {servicesData.map((category, idx) => (
-    <div key={idx} className="mb-4"> 
-      {/* Category Title */}
-      <h3 className="font-extrabold text-yellow-500 
-                     text-[10px] md:text-base 
-                     mb-2 tracking-wide">
-        {category.title}
-      </h3>
-
-      <hr className="border-yellow-500 mb-3" />
-
-      {/* Services List */}
-      <ul className="
-        list-none 
-        md:list-disc md:list-inside 
-        text-gray-700 
-        text-[9px] md:text-sm 
-        leading-relaxed 
-        space-y-2
-      ">
-        {category.items.map((item, i) => (
-          <li
-            key={i}
-            className="cursor-pointer hover:text-blue-600"
-            onClick={() =>
-              handleLinkClick(`/services/${slugify(category.title)}/${slugify(item)}`)
-            }
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
-  ))}
-
+  </div>
 </div>
 
-                </div>
-              </div>
             </li>
 
             {/* Career */}
