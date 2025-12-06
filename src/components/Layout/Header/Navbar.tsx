@@ -136,7 +136,7 @@ export default function Navbar() {
   <div className="p-6 md:p-6 bg-gray-50">
     {/* Always scrollable container */}
     <div className="max-h-[90vh] overflow-y-auto">
-      <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-8">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-8">
         {servicesData.map((category, idx) => (
           <div key={idx} className="dropdown-col">
             <h6 className="text-yellow-500 font-bold text-sm md:text-base mb-2 tracking-wide uppercase">
