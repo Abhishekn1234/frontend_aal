@@ -92,7 +92,7 @@ export default function IndustrialProductDesign() {
   <div className="relative group">
     <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
       <img
-  src="/isis-franca-hsPFuudRg5I-unsplash.jpg"
+  src="/creative.jpg"
   alt="Creative Studio"
   className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-700"
 />

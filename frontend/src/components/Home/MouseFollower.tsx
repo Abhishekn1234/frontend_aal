@@ -1,6 +1,8 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useMotionValue, useSpring, motion } from "framer-motion";
+
+
 export function MouseFollower() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -8,84 +10,85 @@ export function MouseFollower() {
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
 
+  const [trailPositions, setTrailPositions] = useState<{ x: number; y: number }[]>([]);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-    };
 
+      // Add new trail point
+      setTrailPositions((prev) => [
+        ...prev.slice(-10), // keep last 10 points
+        { x: e.clientX, y: e.clientY },
+      ]);
+    };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
+  const rainbowColors = [
+    "rgba(255,0,0,0.3)",
+    "rgba(255,165,0,0.3)",
+    "rgba(255,255,0,0.3)",
+    "rgba(0,255,0,0.3)",
+    "rgba(0,0,255,0.3)",
+    "rgba(75,0,130,0.3)",
+    "rgba(238,130,238,0.3)",
+  ];
+
   return (
     <>
-      {/* Animated background dots */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-800 via-indigo-800 to-purple-900">
-          {/* Animated floating particles */}
-          {Array.from({ length: 30 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 md:w-2 md:h-2 bg-white/10 rounded-full"
-              initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-              }}
-              animate={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-              }}
-              transition={{
-                duration: 20 + Math.random() * 20,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            />
-          ))}
-        </div>
-      </div>
+      {/* Rainbow smoke trails */}
+      {trailPositions.map((pos, idx) => (
+        <motion.div
+          key={idx}
+          className="fixed w-8 h-8 rounded-full pointer-events-none z-40"
+          style={{
+            x: pos.x,
+            y: pos.y,
+            translateX: "-50%",
+            translateY: "-50%",
+            background: rainbowColors[idx % rainbowColors.length],
+            filter: "blur(40px)",
+          }}
+          animate={{
+            scale: [0.5, 1, 0],
+            opacity: [0, 0.5, 0],
+          }}
+          transition={{
+            duration: 0.8,
+            repeat: 0,
+          }}
+        />
+      ))}
 
-      {/* Mouse follower */}
+      {/* Mouse follower logo */}
       <motion.div
-        className="fixed w-4 h-4 md:w-6 md:h-6 pointer-events-none z-50 mix-blend-difference"
+        className="fixed w-12 h-12 md:w-16 md:h-16 pointer-events-none z-50"
         style={{
           x: cursorX,
           y: cursorY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+        animate={{
+          rotate: [0, 10, -10, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "loop",
         }}
       >
-        <motion.div
-          className="w-full h-full bg-cyan-400 rounded-full filter blur-sm"
-          animate={{
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-          }}
+        <img
+          src="/3.svg"
+          alt="Logo"
+          className="w-full h-full object-contain"
         />
       </motion.div>
-
-      {/* Mouse trail effect */}
-      <motion.div
-        className="fixed w-6 h-6 md:w-8 md:h-8 pointer-events-none z-40"
-        style={{
-          x: cursorX,
-          y: cursorY,
-        }}
-      >
-        <motion.div
-          className="w-full h-full border-2 border-cyan-300/50 rounded-full"
-          animate={{
-            scale: [0, 1, 0],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: 1,
-            repeat: Infinity,
-          }}
-        />
-      </motion.div>
+     
     </>
   );
 }

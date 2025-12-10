@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import {
-  // Facebook,
-  // Twitter,
-  // Instagram,
-  // Linkedin,
+ 
   Mail,
   Phone,
   // MapPin,
@@ -13,8 +10,8 @@ import {
 import { useEffect, useState } from "react";
 import { staggerContainer, fadeUp } from "./variant";
 import { Link } from "react-router-dom";
-import emailjs from "emailjs-com";
-// import { servicesData } from "../../Services/servicesData";
+
+
 
 
 
@@ -22,35 +19,9 @@ import emailjs from "emailjs-com";
 export default function Footer() {
   const [currentYear] = useState(new Date().getFullYear());
   const [isVisible, setIsVisible] = useState(false);
-const [newsletterEmail, setNewsletterEmail] = useState("");
-const [isSendingNews, setIsSendingNews] = useState(false);
 
-const handleNewsletterSubmit = async (e:any) => {
-  e.preventDefault();
-  if (!newsletterEmail) return alert("Please enter an email.");
+const MotionLink = motion(Link);
 
-  setIsSendingNews(true);
-
-  try {
-    await emailjs.send(
-      "service_2d7z5h9",       // your service ID
-      "template_xmfgpj8",      // create another template OR reuse the same
-      {
-        email: newsletterEmail,
-        message: `Thank you for subscribing to Aalizah Technology updates!`,
-      },
-      "nKlBaY7MMdZCDB8OX"       // your public key
-    );
-
-    alert("Subscription successful! A confirmation email has been sent.");
-    setNewsletterEmail("");
-  } catch (error) {
-    console.error(error);
-    alert("Failed to subscribe. Please try again.");
-  }
-
-  setIsSendingNews(false);
-};
 
   const scrollToTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -121,10 +92,10 @@ const handleNewsletterSubmit = async (e:any) => {
             {/* Company Info */}
             <motion.div variants={fadeUp} className="lg:col-span-2">
               <Link to="/" className="flex items-center gap-3 mb-3">
-  <img src="3.svg" style={logoStyle} alt="Aalizah Technology Logo" />
+  <img src="3.svg" style={logoStyle} alt="Aalizah Technologies Logo" />
 
   <h3 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-300 bg-clip-text text-transparent">
-    Aalizah Technology
+    Aalizah Technologies
   </h3>
 </Link>
 
@@ -160,26 +131,25 @@ const handleNewsletterSubmit = async (e:any) => {
                 Quick Links
               </h4>
 
-              <ul className="space-y-3">
-                {[
-                  // { name: "Home", href: "/" },
-                  { name: "About Us", href: "/about" },
-                  { name: "Services", href: "/services" },
-                  // { name: "Portfolio", href: "/portfolio" },
-                  { name: "Contact", href: "/contact" },
-                ].map((link, i) => (
-                  <li key={i}>
-                    <motion.a
-                      whileHover={{ x: 5 }}
-                      href={link.href}
-                      className="text-white/80 hover:text-cyan-300 transition-colors duration-300 flex items-center group"
-                    >
-                      <span className="w-2 h-2 bg-cyan-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      {link.name}
-                    </motion.a>
-                  </li>
-                ))}
-              </ul>
+             <ul className="space-y-3">
+  {[
+    { name: "About Us", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" },
+  ].map((link, i) => (
+    <li key={i}>
+      <MotionLink
+        whileHover={{ x: 5 }}
+        to={link.href}
+        className="text-white/80 hover:text-cyan-300 transition-colors duration-300 flex items-center group"
+      >
+        <span className="w-2 h-2 bg-cyan-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {link.name}
+      </MotionLink>
+    </li>
+  ))}
+</ul>
+
             </motion.div>
 
             {/* Contact Section */}
@@ -194,55 +164,30 @@ const handleNewsletterSubmit = async (e:any) => {
                 <span>123 Tech Park, Innovation Road<br />Digital City, DC 12345</span>
               </motion.div> */}
 
-              <motion.a
-                whileHover={{ translateX: 5 }}
-                href="tel:+11234567890"
-                className="flex items-center space-x-3 text-white/80 hover:text-white"
-              >
-                <Phone size={20} className="text-cyan-400" />
-                <span>+971-502037669</span>
-                <span>0551084366</span>
-              </motion.a>
+             <div className="flex items-center space-x-4 text-white/80 hover:text-white whitespace-nowrap">
+  <Phone size={22} className="text-cyan-400 shrink-0" />
+
+  <motion.a whileHover={{ translateX: 5 }} href="tel:+971502037669">
+    +971-502037669
+  </motion.a>
+
+  <motion.a whileHover={{ translateX: 5 }} href="tel:+971551084366">
+    +971-551084366
+  </motion.a>
+</div>
+
 
               <motion.a
                 whileHover={{ translateX: 5 }}
-                href="mailto:info@aalizahtech.com"
+                href="mailto:info@aalizahtechnologies.com"
                 className="flex items-center space-x-3 text-white/80 hover:text-white"
               >
                 <Mail size={20} className="text-cyan-400" />
-                <span>info@aalizahtech.com</span>
+                <span>info@aalizahtechnologies.com</span>
               </motion.a>
 
               {/* Newsletter */}
-              <div className="mt-6">
-                <h5 className="text-lg font-semibold mb-3 text-cyan-300">
-                  Newsletter
-                </h5>
-
-                <div className="flex flex-col space-y-3">
-                  <form onSubmit={handleNewsletterSubmit} className="flex flex-col space-y-3">
-  <input
-    type="email"
-    value={newsletterEmail}
-    onChange={(e) => setNewsletterEmail(e.target.value)}
-    placeholder="Enter your email"
-    required
-    className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 outline-none focus:border-cyan-400"
-  />
-
-  <motion.button
-    type="submit"
-    disabled={isSendingNews}
-    whileHover={{ scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
-    className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg hover:shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
-  >
-    {isSendingNews ? "Subscribing..." : "Subscribe"}
-  </motion.button>
-</form>
-
-                </div>
-              </div>
+            
             </motion.div>
           </motion.div>
 
@@ -283,7 +228,7 @@ const handleNewsletterSubmit = async (e:any) => {
             className="mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
           >
             <div className="text-white/60 text-sm text-center md:text-left">
-              © {currentYear} Aalizah Technology. All rights reserved.
+              © {currentYear} Aalizah Technologies. All rights reserved.
             </div>
 
             <div className="flex items-center space-x-6 text-sm text-white/60">

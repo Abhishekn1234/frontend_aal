@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import type { ServiceCardProps } from "../../types/Home/scroll";
 import { useState } from "react";
 
-export function ServiceCard({ title, icon, image, items, onSpeakClick }: ServiceCardProps) {
+export function ServiceCard({ title, icon, image, items, onSpeakClick,children }: ServiceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-
+console.log(children);
   return (
     <motion.div
       className="bg-gray-900 text-white rounded-2xl shadow-xl overflow-hidden cursor-pointer hover:shadow-2xl transition-shadow duration-300"
@@ -33,16 +33,20 @@ export function ServiceCard({ title, icon, image, items, onSpeakClick }: Service
 
         {/* Items List */}
         {items && (
-          <ul
-            className={`text-white text-sm space-y-1 transition-all duration-300 ${
-              !isExpanded ? "max-h-20 overflow-hidden" : ""
-            }`}
-          >
-            {items.map((item, idx) => (
-              <li key={idx}>• {item}</li>
-            ))}
-          </ul>
-        )}
+  <div
+    className={`grid grid-cols-3 gap-2 mt-4 text-white text-sm transition-all duration-300 ${
+      !isExpanded ? "max-h-20 overflow-hidden" : ""
+    }`}
+  >
+    {items.map((item, idx) => (
+      <div key={idx} className="flex items-center gap-1">
+        <span>•</span>
+        <span>{item}</span>
+      </div>
+    ))}
+  </div>
+)}
+
 
         {/* Show More / Less */}
         {items && items.length > 3 && (

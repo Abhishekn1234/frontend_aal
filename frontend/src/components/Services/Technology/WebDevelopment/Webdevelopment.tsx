@@ -64,7 +64,7 @@ export default function WebDevelopment() {
     transition={{ duration: 1 }}
   >
     <img
-      src="/ferenc-almasi-eYpcLDXHVb0-unsplash.jpg"
+      src="/web.jpg"
       alt="Web Development"
       className="w-full rounded-2xl shadow-2xl border border-white/20 object-cover"
     />

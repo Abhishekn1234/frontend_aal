@@ -177,7 +177,7 @@ export default function MarketingMaterials() {
     whileHover={{ scale: 1.05 }}
   >
     <img
-      src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=500&q=80"
+      src="/market.jpg"
       alt="Marketing Hero"
       className="w-80 rounded-2xl shadow-2xl border border-white/20"
     />

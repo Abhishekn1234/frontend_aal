@@ -13,4 +13,5 @@ export interface ServiceCardProps {
   items?: string[]; // optional list of service points
   description?: string; // optional, in case you want a short description
   onSpeakClick: () => void; // click handler
+   children?: React.ReactNode;  // ✅ Add this line
 }

@@ -2,7 +2,7 @@ export const servicesData = [
   {
     title: "Branding",
     icon: "🎨",
-    image: "https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?w=1080",
+    image: "/Untitled design (6).jpg",
     items: [
       "Brand Consulting",
       "Industrial / Product Design",
@@ -14,7 +14,7 @@ export const servicesData = [
   {
     title: "Technology",
     icon: "💻",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1080",
+    image: "/bcc962368fd5331c2493a71832bc5049.jpg",
     items: [
       "AI & Machine Learning",
       "Web Development",
@@ -28,7 +28,7 @@ export const servicesData = [
   {
     title: "Social Media",
     icon: "📱",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1080",
+    image: "/b722c89720076ae9271c7e50a141fa4c.jpg",
     items: [
       "Search Engine Optimisation",
       "Search Engine Marketing",
@@ -42,7 +42,7 @@ export const servicesData = [
   {
     title: "Designs",
     icon: "🖌️",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1080",
+    image: "/2218a0e21bc50020e83cfc5faa405ade.jpg",
     items: [
       "UI/UX Design",
       "Website Design",
@@ -55,7 +55,7 @@ export const servicesData = [
   {
     title: "Ad Film Making",
     icon: "🎬",
-    image: "https://images.unsplash.com/photo-1506765515384-028b60a970df?w=1080",
+    image: "/607b3622225ee4ef3eaf5fa52db7743c.jpg",
     items: [
       "Cinematography",
       "AD Film Shoot",
@@ -65,7 +65,7 @@ export const servicesData = [
   {
     title: "Photography",
     icon: "📸",
-    image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1080",
+    image: "/1b978dbaab62a500d6915617c0cc43bb.jpg",
     items: [
       "Personal Photography",
       "Business Photography",
@@ -74,7 +74,7 @@ export const servicesData = [
   {
     title: "Animation & VFX",
     icon: "✨",
-    image: "https://images.unsplash.com/photo-1508327101255-d9d22e69baa1?w=1080",
+    image: "/vfx.jpg",
     items: [
       "VFX",
       "CGI",

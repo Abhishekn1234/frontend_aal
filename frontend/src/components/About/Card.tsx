@@ -9,6 +9,7 @@ export interface CardProps {
 
 const Card = ({ icon, title, description }: CardProps) => {
   return (
+   
     <div
       className="
         group p-8 w-full max-w-sm rounded-xl transition-all duration-300 cursor-pointer 
