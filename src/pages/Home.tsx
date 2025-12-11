@@ -171,11 +171,12 @@ export default function Home() {
   variants={fadeUp}
   className="
     mt-6 
-    text-xl sm:text-2xl md:text-3xl
+   
     opacity-90 
     leading-relaxed 
     max-w-2xl mx-auto 
     text-white/90
+    text-[18px]
   "
 >
   Premium IT solutions that elevate your brand, optimize operations,
