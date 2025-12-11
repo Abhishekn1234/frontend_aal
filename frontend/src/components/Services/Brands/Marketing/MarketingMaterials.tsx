@@ -203,7 +203,7 @@ export default function MarketingMaterials() {
   {
     title: "Print Collateral",
     text: "Brochures, flyers, posters & catalogs designed to impress.",
-    img: "/ekrem-osmanoglu-Z2VTn1XeTfM-unsplash.jpg",
+    img: "/download.png",
   },
   {
     title: "Digital Marketing Assets",
