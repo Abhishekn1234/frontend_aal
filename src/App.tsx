@@ -11,6 +11,7 @@ import CategoryPage from "./pages/CategoryPage";
 import './App.css'
 import { useEffect, useRef } from "react";
 import SplashCursor from "./components/SplashCursor";
+import { MouseFollower } from "./components/Home/MouseFollower";
 
 
 
@@ -39,6 +40,7 @@ useEffect(() => {
         BACK_COLOR={{ r: 0, g: 0, b: 0 }} // background black
         COLOR_UPDATE_SPEED={10}
       />
+      <MouseFollower/>
     <Navbar />
      
      
