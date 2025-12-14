@@ -12,39 +12,54 @@ import './App.css'
 import { useEffect, useRef } from "react";
 import SplashCursor from "./components/SplashCursor";
 import { MouseFollower } from "./components/Home/MouseFollower";
-
-
-
-
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function App() {
+  const posRef = useRef({ x: 50, y: 50 });
 
-
-const posRef = useRef({ x: 50, y: 50 });
-
-useEffect(() => {
-  const handleMouseMove = (e: MouseEvent) => {
-    posRef.current = {
-      x: (e.clientX / window.innerWidth) * 100,
-      y: (e.clientY / window.innerHeight) * 100,
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      posRef.current = {
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      };
     };
-  };
-  window.addEventListener("mousemove", handleMouseMove);
-  return () => window.removeEventListener("mousemove", handleMouseMove);
-}, []);
-
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
-    <>
- <SplashCursor
-        BACK_COLOR={{ r: 0, g: 0, b: 0 }} // background black
-        COLOR_UPDATE_SPEED={10}
-      />
-      <MouseFollower/>
-    <Navbar />
-     
-     
- <div className="relative z-10">
+    <HelmetProvider>
+      <Helmet>
+        {/* Default meta tags for all pages */}
+        <title>Aalizah Technologies | Luxury Event Management</title>
+        <meta
+          name="description"
+          content="Aalizah Technologies specializes in luxury weddings, corporate events, private parties, and premium event management experiences."
+        />
+        <meta
+          name="keywords"
+          content="Event Management Dubai, Luxury Events, Corporate Events, Weddings, Aalizah Technologies"
+        />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Aalizah Technologies",
+              "url": "https://www.aalizahtechnologies.com",
+              "logo": "https://www.aalizahtechnologies.com/3.svg"
+            }
+          `}
+        </script>
+      </Helmet>
+
+      <SplashCursor BACK_COLOR={{ r: 0, g: 0, b: 0 }} COLOR_UPDATE_SPEED={10} />
+      <MouseFollower />
+
+      <Navbar />
+
+      <div className="relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services/:categorySlug" element={<CategoryPage />} />
@@ -55,10 +70,9 @@ useEffect(() => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
-  <Footer />
 
-     
-    </>
+      <Footer />
+    </HelmetProvider>
   );
 }
 

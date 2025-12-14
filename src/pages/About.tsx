@@ -6,7 +6,7 @@ import { Eye, Target, Users, Rocket } from "lucide-react";
 import { cardData } from "../components/About/carddata";
 import Card from "../components/About/Card";
 import { servicesData } from "../components/Services/servicesData";
-
+import { Helmet } from "react-helmet-async";
 // Modal Component
 interface Service {
   title: string;
