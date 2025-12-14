@@ -100,19 +100,10 @@ export default function TwoDAnimation() {
 
 
       {/* -------- SECTION 4 : SOCIALS + UNLEASH -------- */}
-      <section className="h-screen flex flex-col justify-center items-center text-center space-y-6">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex gap-8 text-xl font-semibold"
-        >
-          <span>Instagram</span>
-          <span>TikTok</span>
-          <span>Facebook</span>
-          <span>YouTube</span>
-        </motion.div>
+     
+<Links/>
+ <section className="h-screen flex flex-col justify-center items-center text-center space-y-6">
+       
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -124,7 +115,6 @@ export default function TwoDAnimation() {
           TIME TO UNLEASH!
         </motion.div>
       </section>
-<Links/>
     </div>
   );
 }

@@ -270,57 +270,55 @@ export default function Navbar() {
             </button>
 
             {/* Mobile Services Dropdown */}
-            <div className="space-y-2">
-              <button
-                onClick={toggleServices}
-                className="flex items-center justify-between w-full px-4 py-4 text-lg font-medium text-white hover:text-blue-300 hover:bg-white/5 rounded-lg transition-all duration-300"
-              >
-                <span>Services</span>
-                <ChevronDown
-                  size={20}
-                  className={`transition-transform duration-300 ${
-                    servicesOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+           <div className="space-y-2">
+  <button
+    onClick={() => {
+      handleLinkClick("/services"); // navigate to main /services page
+      toggleServices();             // also toggle dropdown
+    }}
+    className="flex items-center justify-between w-full px-4 py-4 text-lg font-medium text-white hover:text-blue-300 hover:bg-white/5 rounded-lg transition-all duration-300"
+  >
+    <span>Services</span>
+    <ChevronDown
+      size={20}
+      className={`transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`}
+    />
+  </button>
 
-              {/* Mobile Services Menu */}
-             {/* Mobile Services Menu */}
-<div
-  className={`overflow-hidden transition-all duration-500 ease-in-out ${
-    servicesOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
-  }`}
->
-  <div className="px-4 py-4 bg-black/50 rounded-lg border border-white/10">
-    <div className="grid grid-cols-7 gap-4 md:grid-cols-6"> {/* 7 columns */}
-      {servicesData.map((category, idx) => (
-        <div key={idx} className="space-y-2">
-          <h6 className="text-yellow-500 font-bold text-[10px] uppercase"> {/* smaller font */}
-            {category.title}
-          </h6>
-          <ul className="space-y-1">
-            {category.items.map((item, i) => (
-              <li key={i}>
-                <button
-                  onClick={() =>
-                    handleLinkClick(
-                      `/services/${slugify(category.title)}/${slugify(item)}`
-                    )
-                  }
-                  className="text-[10px] text-gray-300 hover:text-blue-300 transition-colors duration-200 text-left w-full"
-                >
-                  {item}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+  {/* Mobile Services Menu */}
+  <div
+    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+      servicesOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+    }`}
+  >
+    <div className="px-4 py-4 bg-black/50 rounded-lg border border-white/10">
+      <div className="grid grid-cols-7 gap-4 md:grid-cols-6">
+        {servicesData.map((category, idx) => (
+          <div key={idx} className="space-y-2">
+            <h6 className="text-yellow-500 font-bold text-[10px] uppercase">
+              {category.title}
+            </h6>
+            <ul className="space-y-1">
+              {category.items.map((item, i) => (
+                <li key={i}>
+                  <button
+                    onClick={() =>
+                      handleLinkClick(`/services/${slugify(category.title)}/${slugify(item)}`)
+                    }
+                    className="text-[10px] text-gray-300 hover:text-blue-300 transition-colors duration-200 text-left w-full"
+                  >
+                    {item}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </div>
 
-            </div>
 
             <button
               onClick={() => handleLinkClick("/career")}
