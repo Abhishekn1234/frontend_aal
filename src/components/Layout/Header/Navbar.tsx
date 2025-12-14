@@ -270,22 +270,29 @@ export default function Navbar() {
             </button>
 
             {/* Mobile Services Dropdown */}
-           <div className="space-y-2">
-  <button
-    onClick={() => {
-      handleLinkClick("/services"); // navigate to main /services page
-      toggleServices();             // also toggle dropdown
-    }}
-    className="flex items-center justify-between w-full px-4 py-4 text-lg font-medium text-white hover:text-blue-300 hover:bg-white/5 rounded-lg transition-all duration-300"
-  >
-    <span>Services</span>
-    <ChevronDown
-      size={20}
-      className={`transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`}
-    />
-  </button>
+       {/* Mobile Services Dropdown */}
+<div className="space-y-2 flex flex-col">
+  <div className="flex items-center justify-between w-full px-4 py-4 bg-transparent rounded-lg">
+    {/* Text — goes to /services */}
+    <span
+      onClick={() => handleLinkClick("/services")}
+      className="text-lg font-medium text-white hover:text-blue-300 cursor-pointer"
+    >
+      Services
+    </span>
 
-  {/* Mobile Services Menu */}
+    {/* Chevron — toggles dropdown */}
+    <button
+      onClick={toggleServices}
+      className={`transition-transform duration-300 ${
+        servicesOpen ? "rotate-180" : ""
+      }`}
+    >
+      <ChevronDown size={20} className="text-white" />
+    </button>
+  </div>
+
+  {/* Dropdown Menu */}
   <div
     className={`overflow-hidden transition-all duration-500 ease-in-out ${
       servicesOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
@@ -303,7 +310,9 @@ export default function Navbar() {
                 <li key={i}>
                   <button
                     onClick={() =>
-                      handleLinkClick(`/services/${slugify(category.title)}/${slugify(item)}`)
+                      handleLinkClick(
+                        `/services/${slugify(category.title)}/${slugify(item)}`
+                      )
                     }
                     className="text-[10px] text-gray-300 hover:text-blue-300 transition-colors duration-200 text-left w-full"
                   >
@@ -318,6 +327,7 @@ export default function Navbar() {
     </div>
   </div>
 </div>
+
 
 
             <button
