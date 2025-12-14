@@ -3,32 +3,29 @@ import Links from "../../../Layout/Links";
 
 export default function Virtual() {
   return (
-    <section className=" p-6 text-white w-full overflow-hidden">
+    <section className="w-full text-white overflow-hidden  px-6 sm:px-12 py-24">
 
       {/* ========================= */}
       {/* SECTION 1 — HERO */}
       {/* ========================= */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto text-center py-24 px-6"
+        className="max-w-6xl mx-auto text-center space-y-6"
       >
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-2">
           Virtual Production
         </h2>
 
-        <p className="text-sm uppercase tracking-widest text-amber-300 mb-6">
+        <p className="text-sm sm:text-base uppercase tracking-widest text-amber-400 mb-6">
           CREATIVE <span className="mx-2">•</span> STUDIO
         </p>
 
-        
-
-        <p className="text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-          We combine real-time technology and filmmaking techniques to create
-          immersive virtual environments for productions. With LED stages,
-          real-time rendering, motion capture, and dynamic lighting,
+        <p className="text-neutral-300 max-w-3xl mx-auto text-lg sm:text-xl leading-relaxed">
+          We combine real-time technology and filmmaking techniques to create immersive virtual
+          environments. With LED stages, real-time rendering, motion capture, and dynamic lighting,
           directors can visualize and shoot scenes with complete creative freedom.
         </p>
       </motion.div>
@@ -36,168 +33,152 @@ export default function Virtual() {
       {/* ========================= */}
       {/* SECTION 2 — EXPERTISE LIST */}
       {/* ========================= */}
-    <section className="w-full py-20 px-6">
-  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <section className="w-full py-20">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
 
-    {/* LEFT CONTENT */}
-    <motion.div
-      initial={{ opacity: 0, y: 70 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9 }}
-      viewport={{ once: true }}
-      className="max-w-5xl mx-auto"
-    >
-      <h3 className="text-3xl md:text-4xl font-bold mb-6 text-center lg:text-left">
-        Virtual Production Expertise
-      </h3>
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto lg:mx-0"
+          >
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-center lg:text-left">
+              Virtual Production Expertise
+            </h3>
 
-      <p className="text-neutral-300 max-w-3xl text-center lg:text-left mb-10">
-        Real-time cinematic workflows designed for modern filmmaking.
-      </p>
+            <p className="text-neutral-300 max-w-3xl text-center lg:text-left mb-10 text-lg sm:text-xl">
+              Real-time cinematic workflows designed for modern filmmaking.
+            </p>
 
-      <ul className="space-y-6 max-w-xl mx-auto lg:mx-0">
-        <motion.li
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="flex items-start gap-3"
-        >
-          <span className="inline-block w-3 h-3 bg-amber-400 rounded-full mt-2" />
-          <span className="text-gray-300 text-lg">
-            Real-time LED stage environments
-          </span>
-        </motion.li>
+            <ul className="space-y-6 max-w-xl mx-auto lg:mx-0">
+              {[
+                "Real-time LED stage environments",
+                "Interactive pre-visualization",
+                "Integration with VFX and CGI"
+              ].map((item, idx) => (
+                <motion.li
+                  key={idx}
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5 + idx * 0.05 }}
+                  viewport={{ once: true }}
+                  className="flex items-start gap-4 text-lg sm:text-xl font-medium"
+                >
+                  <span className="inline-block w-4 h-4 bg-amber-400 rounded-full mt-1" />
+                  {item}
+                </motion.li>
+              ))}
+            </ul>
 
-        <motion.li
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.55 }}
-          viewport={{ once: true }}
-          className="flex items-start gap-3"
-        >
-          <span className="inline-block w-3 h-3 bg-amber-400 rounded-full mt-2" />
-          <span className="text-gray-300 text-lg">
-            Interactive pre-visualization
-          </span>
-        </motion.li>
+            {/* Buttons */}
+            <div className="flex justify-center lg:justify-start gap-6 mt-12">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-amber-500 hover:bg-amber-600 text-black font-bold text-lg shadow-xl transition-transform hover:scale-105"
+              >
+                Book a Demo
+              </a>
 
-        <motion.li
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex items-start gap-3"
-        >
-          <span className="inline-block w-3 h-3 bg-amber-400 rounded-full mt-2" />
-          <span className="text-gray-300 text-lg">
-            Integration with VFX and CGI
-          </span>
-        </motion.li>
-      </ul>
+              <a
+                href="#case-studies"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-neutral-700 hover:border-neutral-500 text-white text-lg transition-all hover:bg-white/10"
+              >
+                View Case Studies
+              </a>
+            </div>
+          </motion.div>
 
-      {/* Buttons */}
-      <div className="flex justify-center lg:justify-start gap-4 mt-10">
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-600 text-black font-semibold shadow-md"
-        >
-          Book a Demo
-        </a>
-
-        <a
-          href="#case-studies"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-neutral-700 hover:border-neutral-500 text-sm"
-        >
-          View Case Studies
-        </a>
-      </div>
-    </motion.div>
-
-    {/* RIGHT IMAGE */}
-    <motion.img
-      src="/jakob-owens-ZSSuEANDxM0-unsplash.jpg"  // ← change image here
-      initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="w-full h-full max-h-[650px] object-cover rounded-2xl shadow-2xl"
-      alt="Virtual Production"
-    />
-  </div>
-</section>
-
+          {/* RIGHT IMAGE */}
+          <motion.img
+            src="/jakob-owens-ZSSuEANDxM0-unsplash.jpg"
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full h-full max-h-[700px] object-cover rounded-3xl shadow-2xl border border-white/20"
+            alt="Virtual Production"
+          />
+        </div>
+      </section>
 
       {/* ========================= */}
       {/* SECTION 3 — FEATURE CARDS */}
       {/* ========================= */}
       <motion.div
-        initial={{ opacity: 0, y: 80 }}
+        initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto px-6 pb-32 grid gap-10 lg:grid-cols-2 items-start"
+        className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-2 px-6 pb-32"
       >
         {/* MAIN CARD */}
-        <div className=" ">
-          <div className="h-72  flex items-center justify-center">
-            <div className="text-center px-6">
+        <div className="space-y-6">
+          <div className="h-80 flex items-center justify-center rounded-3xl shadow-2xl bg-gradient-to-br from-gray-900/70 to-black/50 border border-white/10 p-8">
+            <div className="text-center">
               <p className="text-sm text-neutral-400 mb-2">LED Stage Filming</p>
-              <h4 className="text-2xl font-semibold mb-1">
-                Real-time backgrounds & lighting
-              </h4>
-              <p className="text-xs text-neutral-400">
-                Film scenes on LED stages with live backgrounds, capture realistic
-                lighting, and reduce expensive post-production processes.
+              <h4 className="text-3xl font-semibold mb-2">Real-time backgrounds & lighting</h4>
+              <p className="text-base text-neutral-300 leading-relaxed">
+                Film scenes on LED stages with live backgrounds, capture realistic lighting, and
+                reduce expensive post-production processes.
               </p>
             </div>
           </div>
 
           {/* Two small cards */}
-          <div className="mt-6 grid grid-cols-2 gap-4">
-            <div className="p-4 rounded-lg bg-neutral-900/40 border border-neutral-800">
-              <p className="text-xs text-neutral-400">Real-Time Pre-Visualization</p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="p-4 rounded-2xl bg-neutral-900/40 border border-neutral-800 text-center">
+              <p className="text-sm sm:text-base text-neutral-400 font-medium">Real-Time Pre-Visualization</p>
             </div>
 
-            <div className="p-4 rounded-lg bg-neutral-900/40 border border-neutral-800">
-              <p className="text-xs text-neutral-400">VFX & CGI Integration</p>
+            <div className="p-4 rounded-2xl bg-neutral-900/40 border border-neutral-800 text-center">
+              <p className="text-sm sm:text-base text-neutral-400 font-medium">VFX & CGI Integration</p>
             </div>
           </div>
 
           {/* Footer */}
-          <div className="mt-6 flex items-center justify-between text-sm text-neutral-400">
-            <Links/>
-            <div className="text-xs">  TIME TO UNLEASH!</div>
-          </div>
-        </div>
+          {/* Footer */}
+{/* Footer */}
+{/* Footer */}
+<div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-6">
+  {/* Links */}
+  <Links />
+
+  {/* TIME TO UNLEASH text */}
+  <span className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-amber-400 tracking-wider drop-shadow-[0_0_15px_rgba(255,191,0,0.8)] text-center whitespace-nowrap">
+    TIME TO UNLEASH!
+  </span>
+</div>
+
+
+</div>
+
 
         {/* SIDE CONTENT */}
         <div className="flex flex-col gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur"
-          >
-            <h4 className="text-xl font-semibold mb-2">Real-Time Workflow</h4>
-            <p className="text-neutral-300 text-sm">
-              Directors can see the final scene while shooting — no guesswork, no waiting.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75 }}
-            viewport={{ once: true }}
-            className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur"
-          >
-            <h4 className="text-xl font-semibold mb-2">Cost-Efficient Production</h4>
-            <p className="text-neutral-300 text-sm">
-              Shoot multiple environments in a single studio — without expensive travel.
-            </p>
-          </motion.div>
+          {[
+            {
+              title: "Real-Time Workflow",
+              desc: "Directors can see the final scene while shooting — no guesswork, no waiting."
+            },
+            {
+              title: "Cost-Efficient Production",
+              desc: "Shoot multiple environments in a single studio — without expensive travel."
+            }
+          ].map((card, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 + idx * 0.05 }}
+              viewport={{ once: true }}
+              className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-lg"
+            >
+              <h4 className="text-2xl font-semibold mb-2">{card.title}</h4>
+              <p className="text-neutral-300 text-base">{card.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>

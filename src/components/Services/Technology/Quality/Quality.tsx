@@ -72,7 +72,7 @@ export default function Quality() {
     transition={{ duration: 1 }}
   >
     <img
-      src="/istockphoto-2163506577-1024x1024.jpg"
+      src="/QUALITY ASSURANCE & TESTING.jpg"
       alt="QA & Testing"
       className="w-full rounded-2xl shadow-2xl border border-white/20 object-cover"
     />

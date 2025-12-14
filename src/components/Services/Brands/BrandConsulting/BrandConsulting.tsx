@@ -20,6 +20,11 @@ export default function BrandConsulting() {
     y: 0,
   });
   console.log(mousePosition);
+  const whatsappNumber = "+971502037669";
+
+  const openWhatsApp = () => {
+    window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, "")}`, "_blank");
+  };
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -257,7 +262,7 @@ export default function BrandConsulting() {
               lasting impact in your market.
             </p>
 
-            <motion.button
+            {/* <motion.button
               className="mt-8 px-12 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-lg rounded-2xl hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2"
               whileHover={{
                 boxShadow: "0 20px 40px rgba(168, 85, 247, 0.4)",
@@ -265,10 +270,40 @@ export default function BrandConsulting() {
               whileTap={{ scale: 0.95 }}
             >
               Start Your Brand Journey
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </motion.div>
         <Links/>
+       <div className="flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto p-8 gap-8 mt-56">
+  {/* Left Image */}
+  <div className="flex-1 lg:flex-[0.45]">
+    <img
+      src="/brand cunsulting.jpg"
+      alt="Brand Consulting"
+      className="w-full h-64 lg:h-80 rounded-xl object-cover shadow-md"
+    />
+  </div>
+
+  {/* Right Content */}
+  <div className="flex-1 lg:flex-[0.55] flex flex-col justify-center text-center lg:text-left gap-4">
+    <h2 className="text-3xl lg:text-4xl font-extrabold text-white">
+      Looking for a digital marketing solution to accelerate your business growth?
+    </h2>
+    <p className="text-white text-lg lg:text-xl">
+      Enquire now and start your brand journey today!
+    </p>
+    <motion.button
+      onClick={openWhatsApp}
+      className="mt-6 px-12 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-lg rounded-2xl shadow-md hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-2"
+      whileHover={{
+        boxShadow: "0 20px 40px rgba(168, 85, 247, 0.4)",
+      }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Start Your Brand Journey
+    </motion.button>
+  </div>
+</div>
 
         {/* 6️⃣ FINAL CTA */}
         <section

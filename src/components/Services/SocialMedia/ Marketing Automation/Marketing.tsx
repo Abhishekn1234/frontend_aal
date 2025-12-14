@@ -100,7 +100,7 @@ export default function Marketing() {
         transition={{ duration: 0.8 }}
       >
         <img
-          src="/melanie-deziel-fSWQPBxqClg-unsplash.jpg"
+          src="/MARKETING AUTOMATION.jpg"
           alt="Marketing Automation"
           className="rounded-2xl w-full shadow-2xl border border-white/20 object-cover"
         />

@@ -109,9 +109,9 @@ export default function Content() {
     className="flex justify-center"
   >
     <img
-      src="/will-francis-r02wxT3-PYw-unsplash.jpg"
+      src="/CONTENT MARKETING.jpg"
       alt="Content Marketing"
-      className="w-full rounded-2xl shadow-2xl border border-white/20 object-cover"
+      className="w-87 h-87 rounded-2xl shadow-2xl border border-white/20 object-cover"
     />
   </motion.div>
 

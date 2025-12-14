@@ -177,9 +177,9 @@ export default function MarketingMaterials() {
     whileHover={{ scale: 1.05 }}
   >
     <img
-      src="/market.jpg"
+      src="/MARKETING MATERIAL EXPERTISE.jpg"
       alt="Marketing Hero"
-      className="w-80 rounded-2xl shadow-2xl border border-white/20"
+      className="w-80 h-80 rounded-2xl shadow-2xl border border-white/20"
     />
   </motion.div>
 </div>
@@ -213,7 +213,7 @@ export default function MarketingMaterials() {
   {
     title: "Presentation Design",
     text: "Professional pitch decks for impact.",
-    img: "/jakub-zerdzicki-B-YUUQIqFTQ-unsplash.jpg",
+    img: "/PRESENTATION.jpg",
   },
   {
     title: "Event & Promotional Materials",

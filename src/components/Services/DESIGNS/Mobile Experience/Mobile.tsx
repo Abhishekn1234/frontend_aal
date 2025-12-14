@@ -51,7 +51,7 @@ export default function Mobile() {
 
     {/* RIGHT IMAGE */}
     <motion.img
-      src="/jakub-zerdzicki-jSQCLQA99Og-unsplash.jpg"
+      src="/MOBILE EXPERIENCE EXPERIENCE.jpg"
       alt="Mobile experience design illustration"
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, x: 0 }}

@@ -4,8 +4,8 @@ import { useInView } from "react-intersection-observer";
 import Links from "../../../Layout/Links";
 
 const fadeUp: Variants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { y: 30, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 export default function Visual() {
@@ -25,72 +25,78 @@ export default function Visual() {
   const buttonsControls = useAnimation();
   useEffect(() => { if (buttonsInView) buttonsControls.start("visible"); }, [buttonsControls, buttonsInView]);
 
-  const [socialRef, socialInView] = useInView({ triggerOnce: true, threshold: 0.2 });
-  const socialControls = useAnimation();
-  useEffect(() => { if (socialInView) socialControls.start("visible"); }, [socialControls, socialInView]);
- console.log(socialRef);
   const [bottomRef, bottomInView] = useInView({ triggerOnce: true, threshold: 0.2 });
   const bottomControls = useAnimation();
   useEffect(() => { if (bottomInView) bottomControls.start("visible"); }, [bottomControls, bottomInView]);
 
   return (
-    <section className="text-white p-46 space-y-16 overflow-x-hidden">
+    <section className="text-white px-6 sm:px-12 py-24 space-y-32 overflow-x-hidden">
+      
       {/* Heading Section */}
       <motion.div
         ref={headingRef}
         initial="hidden"
         animate={headingControls}
         variants={fadeUp}
-        className="max-w-3xl mx-auto text-center"
+        className="max-w-3xl mx-auto text-center mt-20"
       >
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3">
+        <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">
           Visual Effects Animation
         </h2>
-        <p className="text-sm uppercase tracking-widest text-amber-300">
+        <p className="text-sm sm:text-base uppercase tracking-widest text-blue-300">
           CREATIVE <span className="mx-2">•</span> STUDIO
         </p>
       </motion.div>
 
-      {/* Description Section */}
-   <section className="w-full py-20 px-6">
-  <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      {/* Description + Video Section */}
+      <section className="w-full">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          
+          {/* LEFT — DESCRIPTION TEXT */}
+          <motion.div
+            ref={descriptionRef}
+            initial="hidden"
+            animate={descriptionControls}
+            variants={fadeUp}
+            className="max-w-4xl text-left text-blue-100 space-y-4"
+          >
+            <p className="text-lg sm:text-xl leading-relaxed">
+              We create stunning animated visual effects for films, commercials, and digital
+              content to elevate storytelling. Our VFX animation combines compositing, motion
+              graphics, special effects, and seamless integration with live-action footage.
+            </p>
+            <p className="text-blue-200 text-sm sm:text-base">
+              Transform your vision into cinematic experiences that captivate audiences.
+            </p>
+          </motion.div>
 
-    {/* LEFT — DESCRIPTION TEXT */}
-    <motion.div
-      ref={descriptionRef}
-      initial="hidden"
-      animate={descriptionControls}
-      variants={fadeUp}
-      className="max-w-4xl text-left text-neutral-300"
-    >
-      <p className="text-lg leading-relaxed">
-        We create stunning animated visual effects for films, commercials, and digital
-        content to enhance storytelling. Our VFX animation blends compositing, motion
-        graphics, special effects, and seamless integration with live-action footage.
-      </p>
-    </motion.div>
+          {/* RIGHT — VIDEO */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="rounded-3xl shadow-2xl overflow-hidden border border-white/20 hover:scale-105 transition-transform duration-500"
+          >
+            <video
+              src="/From KlickPin CF Starry Night Sky Wallpaper.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover rounded-3xl"
+            />
+          </motion.div>
+        </div>
+      </section>
 
-    {/* RIGHT — IMAGE */}
-    <motion.img
-      src="/eyestetix-studio-l5r1JZNEyFQ-unsplash.jpg"   // ← replace with your image
-      initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="w-full h-auto rounded-2xl shadow-2xl object-cover"
-      alt="VFX Animation"
-    />
-  </div>
-</section>
-
-
-      {/* List Section */}
+      {/* Features / List Section */}
       <motion.ul
         ref={listRef}
         initial="hidden"
         animate={listControls}
         variants={fadeUp}
-        className="max-w-2xl mx-auto space-y-3 text-center"
+        className="max-w-2xl mx-auto space-y-4 text-center"
       >
         {[
           "Compositing & motion graphics",
@@ -99,13 +105,13 @@ export default function Visual() {
         ].map((item, idx) => (
           <motion.li
             key={idx}
-            className="flex items-center justify-center gap-3"
+            className="flex items-center justify-center gap-3 text-sm sm:text-base font-medium"
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.1 * idx }}
           >
             <span className="inline-block w-3 h-3 bg-amber-400 rounded-full" />
-            <span className="text-sm">{item}</span>
+            {item}
           </motion.li>
         ))}
       </motion.ul>
@@ -116,11 +122,11 @@ export default function Visual() {
         initial="hidden"
         animate={buttonsControls}
         variants={fadeUp}
-        className="flex flex-col sm:flex-row gap-3 justify-center"
+        className="flex flex-col sm:flex-row gap-4 justify-center"
       >
         <motion.a
           href="#contact"
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-amber-500 hover:bg-amber-600 text-black font-semibold"
+          className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-amber-500 hover:bg-amber-600 text-black font-semibold text-lg shadow-lg hover:shadow-2xl transition-all"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -129,7 +135,7 @@ export default function Visual() {
 
         <motion.a
           href="#portfolio"
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl border border-neutral-700 text-sm"
+          className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border border-white/40 text-white text-lg hover:bg-white/10 transition-all"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -137,20 +143,19 @@ export default function Visual() {
         </motion.a>
       </motion.div>
 
-      {/* Social Section */}
-    <Links/>
+      {/* Social / Links Section */}
+      <Links />
 
       {/* Bottom Heading */}
       <motion.h3
         ref={bottomRef}
-        initial={{ y: 20, opacity: 0 }}
+        initial={{ y: 30, opacity: 0 }}
         animate={bottomControls}
         variants={fadeUp}
-        className="text-4xl sm:text-5xl font-bold leading-tight text-center text-white mt-12"
+        className="text-5xl sm:text-6xl font-bold leading-tight text-center text-amber-400 mt-16"
       >
         TIME TO UNLEASH!
       </motion.h3>
     </section>
   );
 }
-

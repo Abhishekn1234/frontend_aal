@@ -76,29 +76,28 @@ export default function TwoDAnimation() {
 
 
       {/* -------- SECTION 3 : FEATURE GRID -------- */}
-      <section className="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-12">
+  <section className="w-full flex justify-center py-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 sm:gap-3">
+    <FeatureBlock
+      title="Character Animation"
+      text="Expressive and emotional character-driven stories."
+    />
+    <FeatureBlock
+      title="Explainer & Promo Videos"
+      text="Clear, engaging animations designed to communicate ideas instantly."
+    />
+    <FeatureBlock
+      title="Educational Animation"
+      text="Simplified visuals that make learning fun and easy to understand."
+    />
+    <FeatureBlock
+      title="Digital & Social Media Formats"
+      text="Optimized animations for YouTube, Instagram, TikTok, and micro-content."
+    />
+  </div>
+</section>
 
-        <FeatureBlock
-          title="Character Animation"
-          text="Expressive and emotional character-driven stories brought to life with fluid motion."
-        />
 
-        <FeatureBlock
-          title="Explainer & Promo Videos"
-          text="Clear, engaging animations designed to communicate ideas instantly."
-        />
-
-        <FeatureBlock
-          title="Educational Animation"
-          text="Simplified visuals that make learning engaging, fun, and easy to understand."
-        />
-
-        <FeatureBlock
-          title="Digital & Social Media Formats"
-          text="Optimized animations for YouTube, Instagram, TikTok, and micro-content platforms."
-        />
-
-      </section>
 
       {/* -------- SECTION 4 : SOCIALS + UNLEASH -------- */}
       <section className="h-screen flex flex-col justify-center items-center text-center space-y-6">
@@ -131,9 +130,17 @@ export default function TwoDAnimation() {
 }
 
 /* -------- Reusable Block Component -------- */
+/* -------- Reusable FeatureBlock Component -------- */
+/* -------- Reusable FeatureBlock Component (Small Cards) -------- */
+/* -------- Reusable FeatureBlock Component (Compact Small Cards) -------- */
+/* -------- Reusable FeatureBlock Component (Centered Compact Small Cards) -------- */
 const FeatureBlock = ({ title, text }: { title: string; text: string }) => (
-  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300 shadow-lg">
-    <h3 className="text-2xl font-bold mb-2">{title}</h3>
-    <p className="text-base opacity-80">{text}</p>
+  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 hover:scale-102 transition-transform duration-200 shadow-md flex flex-col justify-center items-center text-center max-h-40 sm:max-h-48">
+    <h3 className="text-lg sm:text-xl font-bold mb-1 truncate">{title}</h3>
+    <p className="text-xs sm:text-sm text-neutral-300 leading-snug line-clamp-3">{text}</p>
   </div>
 );
+
+
+
+

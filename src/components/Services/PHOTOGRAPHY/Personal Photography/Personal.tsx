@@ -107,7 +107,7 @@ export default function Personal() {
 
   {/* RIGHT SIDE – SINGLE IMAGE */}
   <motion.img
-    src="/hector-falcon-obkwHqTCeWA-unsplash.jpg"
+    src="/PERSONAL PHOTOGRAPHY.jpg"
     initial={{ opacity: 0, x: 40 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true }}

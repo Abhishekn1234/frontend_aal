@@ -51,7 +51,7 @@ export default function Web() {
 
     {/* RIGHT IMAGE */}
     <motion.img
-      src="/amper-FvpVY7TpwNY-unsplash.jpg"
+      src="/WEBSITE DESIGN EXPERTISE.jpg"
       alt="Website design illustration"
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, x: 0 }}

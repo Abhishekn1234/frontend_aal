@@ -69,7 +69,7 @@ export default function IndustrialProductDesign() {
                        bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 
                        animate-gradient-shift uppercase tracking-tight"
           >
-            Industrial Design
+           INDUSTRIAL /PRODUCT DESIGN
           </motion.h1>
 
           <p
@@ -92,7 +92,7 @@ export default function IndustrialProductDesign() {
   <div className="relative group">
     <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
       <img
-  src="/creative.jpg"
+  src="/PRODUCT DESIGN.jpg"
   alt="Creative Studio"
   className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-700"
 />
@@ -177,7 +177,7 @@ export default function IndustrialProductDesign() {
             {
               title: "Manufacturing Support",
               text: "Production-ready specs, materials, and manufacturer guidance.",
-              img: "/europeana-zyw3m6kheS8-unsplash.jpg",
+              img: "/MANUFACTURING SUPPORT IMAGE.jpg",
             },
           ].map((item, idx) => (
             <div

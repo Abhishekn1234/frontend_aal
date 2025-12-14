@@ -217,7 +217,7 @@ export default function Business() {
           {
             title: "Sales Enablement",
             text: "Improve conversions with optimized sales systems & powerful pitches.",
-            img: "/chelaxy-designs-hRI4703rHOg-unsplash.jpg",
+            img: "/SALES ENABLEMENT.jpg",
           },
         ].map((item, index) => (
           <motion.div
