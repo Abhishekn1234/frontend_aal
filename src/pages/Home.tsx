@@ -9,7 +9,7 @@ import {
 import { fadeUp, fadeInLeft, fadeInRight, scaleIn, staggerContainer } from "../components/Home/variant";
 import { ScrollProgress } from "../components/Home/scrollprogress";
 import { ScrollDownIndicator } from "../components/Home/ScrollDownIndicator";
-import { MouseFollower } from "../components/Home/MouseFollower";
+// import { MouseFollower } from "../components/Home/MouseFollower";
 import { VideoPlayer } from "../components/Home/VideoPlayer";
 import { ScrollRevealSection } from "../components/Home/ScrollReveal";
 
@@ -110,7 +110,7 @@ export default function Home() {
       className="w-full min-h-screen overflow-hidden relative"
     >
       <ScrollProgress />
-     <MouseFollower/>
+     {/* <MouseFollower/> */}
       
       {/* Main content container with consistent background */}
       <div className="relative z-10"  style={{
