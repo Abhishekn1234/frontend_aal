@@ -75,6 +75,7 @@ export const servicesData = [
     title: "Animation & VFX",
     icon: "✨",
     image: "/vfx.jpg",
+    video:"/video.mp4",
     items: [
       "VFX",
       "CGI",

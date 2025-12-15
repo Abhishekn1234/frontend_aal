@@ -344,24 +344,35 @@ export default function Home() {
   className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16"
 >
   {servicesData.map((service, index) => {
-    const isLastSingleCard = index === servicesData.length - 1 && servicesData.length % 3 === 1;
+    const isLastSingleCard =
+      index === servicesData.length - 1 && servicesData.length % 3 === 1;
+
     return (
       <div
-  key={service.title.replace(/\s+/g, "-").toLowerCase()}
-  id={service.title.replace(/\s+/g, "-").toLowerCase()}
-  className={`w-full max-w-sm h-[450px] rounded-2xl shadow-lg overflow-hidden flex flex-col bg-gray-100
-    ${isLastSingleCard ? "lg:col-start-2 focus:ring-0 border-white" : ""}`}
->
-
-        {/* White background section for image + title */}
+        key={service.title.replace(/\s+/g, "-").toLowerCase()}
+        id={service.title.replace(/\s+/g, "-").toLowerCase()}
+        className={`w-full max-w-sm h-[450px] rounded-2xl shadow-lg overflow-hidden flex flex-col bg-gray-100
+          ${isLastSingleCard ? "lg:col-start-2 focus:ring-0 border-white" : ""}`}
+      >
+        {/* White background section for image/video + title */}
         <div className="bg-white flex flex-col items-center border-white">
-          {service.image && (
+          {isLastSingleCard && service.video ? (
+            <video
+              src={service.video}
+              className="w-full h-48 object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          ) : service.image ? (
             <img
               src={service.image}
               alt={service.title}
               className="w-full h-48 object-cover"
             />
-          )}
+          ) : null}
+
           <h3 className="text-lg font-bold text-gray-800 text-center py-2">
             {service.title}
           </h3>
@@ -379,6 +390,7 @@ export default function Home() {
     );
   })}
 </motion.div>
+
 
 
 
