@@ -83,7 +83,7 @@ export function MouseFollower() {
         }}
       >
         <img
-          src="/3.svg"
+          src="/Aaliza logo white.svg"
           alt="Logo"
           className="w-full h-full object-contain"
         />
