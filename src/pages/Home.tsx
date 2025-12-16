@@ -123,7 +123,7 @@ export default function Home() {
           initial="hidden"
           animate="show"
           variants={staggerContainer}
-          className="relative w-full min-h-screen flex items-center justify-center py-20 md:py-28 px-4 sm:px-6 text-center overflow-hidden"
+          className="relative w-full min-h-screen flex mt-10 items-center justify-center py-20 md:py-28 px-4 sm:px-6 text-center overflow-hidden"
           style={{
               backgroundColor: "#182C48",
               backgroundImage: "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
