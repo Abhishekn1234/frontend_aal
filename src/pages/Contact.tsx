@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, MessageCircle } from "lucide-react";
 import { staggerContainer, fadeUp } from "../components/About/aboutdata";
 import type { FormData } from "../types/Contact/contactform";
-import emailjs from "emailjs-com";
+
 
 export default function Contact() {
     useEffect(() => {
@@ -29,43 +29,44 @@ export default function Contact() {
 };
 
 
- const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+ 
+const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
   e.preventDefault(); // Prevent form reload
 
+  const form = e.target as HTMLFormElement;
+  const formData = new FormData(form);
+
   try {
-    // `e.target` is your <form> element
-    const form = e.target as HTMLFormElement;
+    const response = await fetch("https://formspree.io/f/mkgdloew", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json"
+      },
+      body: formData
+    });
 
-    const response = await emailjs.sendForm(
-      "service_xxrqodk",   // Your Service ID
-      "template_1kbshdd",  // Your Template ID
-      form,                 // Pass the form element directly
-      "wf4jaU4SPSH9YMtZU"   // Your Public Key
-    );
-
-    console.log("EmailJS response:", response);
-
-    if (response.status === 200) {
-      alert(`Thank you! Your message has been sent.`);
-      form.reset(); // Reset form fields
+    if (response.ok) {
+      alert("Thank you! Your message has been sent.");
+      setFormData({
+        firstName:"",
+        lastName:"",
+        company:"",
+        phone:"",
+        countryCode:"+971",
+        email:"",
+        subject:"",
+        message:"",
+      })
     } else {
-      console.warn("Unexpected response from EmailJS:", response);
+      const data = await response.json();
+      console.warn("Formspree response:", data);
       alert("Something went wrong. Please try again.");
     }
-
   } catch (error: any) {
-    console.error("EmailJS caught an error:", error);
-
-    if (error.status && error.text) {
-      alert(`EmailJS Error! Status: ${error.status}, Message: ${error.text}`);
-    } else if (error.message) {
-      alert(`EmailJS Error: ${error.message}`);
-    } else {
-      alert("Failed to send email. See console for full details.");
-    }
+    console.error("Formspree caught an error:", error);
+    alert("Failed to send message. See console for details.");
   }
 };
-
 
 
   return (
