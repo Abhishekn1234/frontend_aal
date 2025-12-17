@@ -217,35 +217,34 @@ export default function Home() {
 
 <div
   ref={ref}
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "1.5rem",
-    width: "100%",
-    margin: "2rem 0",
-  }}
+  className="
+    flex flex-col sm:flex-row
+    items-center justify-center
+    gap-4 sm:gap-6
+    w-full my-8
+  "
 >
-  {/* Logo */}
+  {/* First Logo */}
   <motion.img
     src="Aalizah Technology Logo.svg"
     alt="Logo"
+    className="rounded-full"
     initial={{
-      width: "80px",       // 👈 initial visible size
-      height: "90px",
-      borderRadius: "50%",
+      width: 72,
+      height: 80,
       opacity: 0.8,
       scale: 0.9,
     }}
     animate={controls}
   />
 
-  {/* Title */}
+  {/* Second Title Logo */}
   <motion.img
     src="Aalizah Technology title.svg"
     alt="Aalizah Technology"
+    className="max-w-full"
     initial={{
-      width: "140px",      // 👈 initial visible size
+      width: 160,
       opacity: 0.8,
       scale: 0.9,
     }}
