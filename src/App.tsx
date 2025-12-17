@@ -32,14 +32,14 @@ function App() {
     <HelmetProvider>
       <Helmet>
         {/* Default meta tags for all pages */}
-        <title>Aalizah Technologies | Luxury Event Management</title>
+        <title>Aalizah Technologies</title>
         <meta
           name="description"
-          content="Aalizah Technologies specializes in luxury weddings, corporate events, private parties, and premium event management experiences."
+          content="Aalizah Technologies"
         />
         <meta
           name="keywords"
-          content="Event Management Dubai, Luxury Events, Corporate Events, Weddings, Aalizah Technologies"
+          content="Aalizah Technologies"
         />
         <script type="application/ld+json">
           {`
@@ -59,7 +59,7 @@ function App() {
 
       <Navbar />
 
-      <div className="relative z-10">
+      <div className="relative">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services/:categorySlug" element={<CategoryPage />} />

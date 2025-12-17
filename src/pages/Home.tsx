@@ -16,33 +16,15 @@ import { ScrollRevealSection } from "../components/Home/ScrollReveal";
 import './global.css';
 
 import { servicesData } from "../components/Services/servicesData";
+import HeroLogo from "./HeroLogo";
 
 // import emailjs from "emailjs-com";
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const [isSubmitting, setIsSubmitting] = useState(false);
   
- const ref = useRef<HTMLDivElement>(null);
-  const controls = useAnimation();
-  const inView = useInView(ref, { margin: "-100px 0px", once: true }); // triggers slightly before fully in view
 
-  useEffect(() => {
-    if (inView) {
-      controls.start({
-        width: "750px",        // increase width
-        height: "720px",       // increase height
-        borderRadius: "12px",  // rectangle shape
-        transition: { duration: 0.6, ease: "easeOut" },
-      });
-    } else {
-      controls.start({
-        width: "100px",
-        height: "110px",
-        borderRadius: "50%",   // back to circle if needed
-        transition: { duration: 0.6, ease: "easeOut" },
-      });
-    }
-  }, [inView, controls]);
+
 
  console.log(isModalOpen);
   useEffect(() => {
@@ -149,100 +131,60 @@ export default function Home() {
           />
 
           {/* Content */}
-          <div className="relative z-10 max-w-6xl mx-auto px-4">
-           <motion.h1
-  variants={fadeUp}
-  className="
-    text-5xl sm:text-6xl md:text-7xl lg:text-8xl 
-    font-extrabold 
-    leading-tight 
-    mb-6 md:mb-8 
-    text-white 
-    drop-shadow-lg uppercase
-  "
->
-  Empowering Businesses with{" "}
-  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-300">
-    Digital Innovation
-  </span>
-</motion.h1>
+         {/* Inside the Hero section */}
+<div className="relative z-10 max-w-6xl mx-auto px-2">
+  <motion.h1
+    variants={fadeUp}
+    className="
+      text-5xl sm:text-6xl md:text-7xl lg:text-8xl 
+      font-extrabold 
+      leading-tight 
+      mb-4 md:mb-6  // Reduced from mb-6 md:mb-8
+      text-white 
+      drop-shadow-lg uppercase
+    "
+  >
+    Empowering Businesses with{" "}
+    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-300">
+      Digital Innovation
+    </span>
+  </motion.h1>
 
-<motion.p
-  variants={fadeUp}
-  className="
-    mt-6 
-   
-    opacity-90 
-    leading-relaxed 
-    max-w-2xl mx-auto 
-    text-white/90
-    text-[18px]
-  "
->
-  Premium IT solutions that elevate your brand, optimize operations,
-  and fast-track your digital growth.
-</motion.p>
+  <motion.p
+    variants={fadeUp}
+    className="
+      mt-4  // Reduced from mt-6
+      opacity-90 
+      leading-relaxed 
+      max-w-2xl mx-auto 
+      text-white/90
+      text-[18px]
+    "
+  >
+    Premium IT solutions that elevate your brand, optimize operations,
+    and fast-track your digital growth.
+  </motion.p>
 
-<motion.p
-  variants={fadeUp}
-  className="
-    mt-4 
-    text-lg sm:text-xl md:text-2xl 
-    font-semibold 
-    text-cyan-300
-    drop-shadow-lg
-  "
->
-  # Your Vision, Our Technology
-</motion.p>
+  <motion.p
+    variants={fadeUp}
+    className="
+      mt-2  // Reduced from mt-4
+      text-lg sm:text-xl md:text-2xl 
+      font-semibold 
+      text-cyan-300
+      drop-shadow-lg
+    "
+  >
+    # Your Vision, Our Technology
+  </motion.p>
 
-{/* <motion.p
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: 'easeOut' }}
-  className="
-    mt-6
-    text-3xl sm:text-4xl md:text-5xl 
-    font-bold 
-    bg-gradient-to-r 
-    from-blue-400 via-purple-500 to-pink-500 
-    bg-clip-text text-transparent uppercase
-  "
-  style={{
-    textShadow: "2px 2px 10px rgba(255, 255, 255, 0.6)",
-  }}
->
-  Aalizah Technologies
-</motion.p> */}
+  {/* Add minimal margin here */}
+  <div className="mt-6 md:mt-8">  
+    <HeroLogo/>
+  </div>
 
-<div
-      ref={ref}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        margin: "2rem 0",
-      }}
-    >
-      <motion.img
-        src="Aalizah Technology Logo.svg"
-        alt="Logo"
-        initial={{
-          width: "100px",
-          height: "110px",
-          borderRadius: "50%", // start as circle
-        }}
-        animate={controls}
-      />
-    </div>
-
-
-
-
-            {/* CTA Buttons */}
-            
-          </div>
+  {/* CTA Buttons - if you have them */}
+</div>
 
           <ScrollDownIndicator />
         </motion.section>
