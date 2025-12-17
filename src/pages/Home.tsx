@@ -216,30 +216,42 @@ export default function Home() {
 </motion.p> */}
 
 <div
-      ref={ref}
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        margin: "2rem 0",
-      }}
-    >
-      <motion.img
-        src="Aalizah Technology Logo.svg"
-        alt="Logo"
-        initial={{
-          width: "100px",
-          height: "110px",
-          borderRadius: "50%", // start as circle
-        }}
-        animate={controls}
-      />
-    </div>
+  ref={ref}
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "1.5rem",
+    width: "100%",
+    margin: "2rem 0",
+  }}
+>
+  {/* Logo */}
+  <motion.img
+    src="Aalizah Technology Logo.svg"
+    alt="Logo"
+    initial={{
+      width: "80px",       // 👈 initial visible size
+      height: "90px",
+      borderRadius: "50%",
+      opacity: 0.8,
+      scale: 0.9,
+    }}
+    animate={controls}
+  />
 
-
-
-
+  {/* Title */}
+  <motion.img
+    src="Aalizah Technology title.svg"
+    alt="Aalizah Technology"
+    initial={{
+      width: "140px",      // 👈 initial visible size
+      opacity: 0.8,
+      scale: 0.9,
+    }}
+    animate={controls}
+  />
+</div>
             {/* CTA Buttons */}
             
           </div>
