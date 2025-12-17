@@ -19,8 +19,8 @@ export default function Human() {
           variants={fadeUp}
           className="text-center"
         >
-          <h2 className="text-3xl lg:text-4xl font-extrabold mb-2">Human-Machine Interface</h2>
-          <p className="text-purple-400 uppercase tracking-widest text-sm lg:text-base mb-4">CREATIVE STUDIO</p>
+          <h2 className="text-4xl lg:text-6xl font-extrabold mb-2">Human-Machine Interface</h2>
+          <p className="text-purple-400 uppercase tracking-widest text-base lg:text-lg mb-4">CREATIVE STUDIO</p>
           <p className="text-gray-300 text-sm lg:text-base leading-relaxed max-w-3xl mx-auto">
             We design intuitive interfaces that allow seamless interaction between humans and machines, enhancing usability and efficiency.
           </p>
@@ -38,7 +38,7 @@ export default function Human() {
               variants={fadeUp}
               className="space-y-3"
             >
-              <h3 className="text-2xl lg:text-3xl font-bold text-white">Human-Machine Interface Expertise</h3>
+              <h3 className="text-3xl lg:text-5xl font-bold text-white">Human-Machine Interface Expertise</h3>
               <ul className="space-y-2 text-gray-400 text-sm lg:text-base">
                 <li>• Intuitive control panels</li>
                 <li>• Interactive dashboards</li>
@@ -87,7 +87,7 @@ export default function Human() {
               transition={{ duration: 0.7, ease: [0.43, 0.13, 0.23, 0.96] }}
               className="bg-gray-800 bg-opacity-30 p-5 rounded-xl shadow-md"
             >
-              <h4 className="text-lg lg:text-xl font-semibold text-white">{item.title}</h4>
+              <h4 className="text-xl lg:text-2xl font-semibold text-white">{item.title}</h4>
               <p className="text-gray-300 text-sm lg:text-base">{item.desc}</p>
             </motion.div>
           ))}
@@ -106,10 +106,11 @@ export default function Human() {
           transition={{ duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }}
           className="text-center mt-12"
         >
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-blue-400">TIME TO UNLEASH!</h2>
+          <h2 className="text-4xl lg:text-6xl font-extrabold text-blue-400">TIME TO UNLEASH!</h2>
         </motion.div>
 
       </div>
     </section>
   );
 }
+

@@ -7,7 +7,7 @@ export default function MarketingMaterials() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
-  // Cursor Logic
+  // Cursor Logic (only the main cursor, no small dot)
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -57,26 +57,16 @@ export default function MarketingMaterials() {
   return (
     <div
       className="min-h-screen px-6 sm:px-10 pt-32 pb-20 font-sans relative overflow-hidden"
-      style={{ backgroundColor: "#182C48",
-              backgroundImage: "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
-            }}
+      style={{
+        backgroundColor: "#182C48",
+        backgroundImage:
+          "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
+      }}
     >
       {/* Scroll Progress */}
       <motion.div
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-cyan-400 to-blue-600 z-50"
         style={{ width: `${scrollProgress}%` }}
-      />
-
-      {/* Glow Background Spheres */}
-      <motion.div
-        className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl"
-        animate={{ scale: [1.2, 1, 1.2], opacity: [0.4, 0.2, 0.4] }}
-        transition={{ duration: 10, repeat: Infinity }}
       />
 
       {/* Custom Cursor */}
@@ -89,14 +79,6 @@ export default function MarketingMaterials() {
           scale: isHovering ? 1.6 : 1,
         }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
-      />
-      <motion.div
-        className="w-2 h-2 rounded-full bg-white fixed pointer-events-none z-[100]"
-        animate={{
-          x: mousePosition.x - 4,
-          y: mousePosition.y - 4,
-        }}
-        transition={{ type: "spring", stiffness: 800, damping: 25 }}
       />
 
       {/* HERO */}
@@ -120,70 +102,57 @@ export default function MarketingMaterials() {
         </motion.p>
       </div>
 
-      {/* Left Side Image */}
-      <motion.div
-        className="hidden md:block absolute left-10 top-60"
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        whileHover={{ scale: 1.05 }}
-      >
-       
+      {/* Expertise Section */}
+      <div className="mt-32 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center text-white">
+        {/* Points */}
+        <div>
+          <motion.h2
+            className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+          >
+            Marketing Materials Expertise
+          </motion.h2>
 
-      </motion.div>
+          <motion.p
+            className="text-gray-300 mt-6 text-lg"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+          >
+            We design impactful materials that strengthen your brand identity.
+          </motion.p>
 
-      {/* Expertise */}
-     {/* Expertise Section */}
-<div className="mt-32 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center text-white">
-  {/* Points */}
-  <div>
-    <motion.h2
-      className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-    >
-      Marketing Materials Expertise
-    </motion.h2>
+          <ul className="mt-8 space-y-4 text-gray-200 text-lg">
+            {[
+              "Custom designs for print & digital",
+              "Consistent branding across all assets",
+              "High-quality, conversion-focused visuals",
+            ].map((item, i) => (
+              <motion.li
+                key={i}
+                className="flex items-center gap-3 cursor-pointer"
+                whileHover={{ x: 8, color: "#67e8f9" }}
+              >
+                <div className="w-2 h-2 bg-cyan-400 rounded-full" /> {item}
+              </motion.li>
+            ))}
+          </ul>
+        </div>
 
-    <motion.p
-      className="text-gray-300 mt-6 text-lg"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-    >
-      We design impactful materials that strengthen your brand identity.
-    </motion.p>
-
-    <ul className="mt-8 space-y-4 text-gray-200 text-lg">
-      {[
-        "Custom designs for print & digital",
-        "Consistent branding across all assets",
-        "High-quality, conversion-focused visuals",
-      ].map((item, i) => (
-        <motion.li
-          key={i}
-          className="flex items-center gap-3 cursor-pointer"
-          whileHover={{ x: 8, color: "#67e8f9" }}
+        {/* Image on the right */}
+        <motion.div
+          className="flex justify-center md:justify-end"
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          whileHover={{ scale: 1.05 }}
         >
-          <div className="w-2 h-2 bg-cyan-400 rounded-full" /> {item}
-        </motion.li>
-      ))}
-    </ul>
-  </div>
-
-  {/* Image on the right */}
-  <motion.div
-    className="flex justify-center md:justify-end"
-    initial={{ opacity: 0, x: 100 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    whileHover={{ scale: 1.05 }}
-  >
-    <img
-      src="/MARKETING MATERIAL EXPERTISE.jpg"
-      alt="Marketing Hero"
-      className="w-80 h-80 rounded-2xl shadow-2xl border border-white/20"
-    />
-  </motion.div>
-</div>
-
+          <img
+            src="/MARKETING MATERIAL EXPERTISE.jpg"
+            alt="Marketing Hero"
+            className="w-80 h-80 rounded-2xl shadow-2xl border border-white/20"
+          />
+        </motion.div>
+      </div>
 
       {/* Description */}
       <motion.div
@@ -200,28 +169,27 @@ export default function MarketingMaterials() {
       {/* Services Grid */}
       <div className="grid md:grid-cols-2 gap-8 mt-24 max-w-6xl mx-auto">
         {[
-  {
-    title: "Print Collateral",
-    text: "Brochures, flyers, posters & catalogs designed to impress.",
-    img: "/download.png",
-  },
-  {
-    title: "Digital Marketing Assets",
-    text: "Ad creatives, social visuals & banners for conversions.",
-    img: "/diggity-marketing-SB0WARG16HI-unsplash.jpg",
-  },
-  {
-    title: "Presentation Design",
-    text: "Professional pitch decks for impact.",
-    img: "/PRESENTATION.jpg",
-  },
-  {
-    title: "Event & Promotional Materials",
-    text: "Booths, merchandise & promotional branding.",
-    img: "/walls-io-91EImU2bgMA-unsplash.jpg",
-  },
-]
-.map((item, index) => (
+          {
+            title: "Print Collateral",
+            text: "Brochures, flyers, posters & catalogs designed to impress.",
+            img: "/download.png",
+          },
+          {
+            title: "Digital Marketing Assets",
+            text: "Ad creatives, social visuals & banners for conversions.",
+            img: "/diggity-marketing-SB0WARG16HI-unsplash.jpg",
+          },
+          {
+            title: "Presentation Design",
+            text: "Professional pitch decks for impact.",
+            img: "/PRESENTATION.jpg",
+          },
+          {
+            title: "Event & Promotional Materials",
+            text: "Booths, merchandise & promotional branding.",
+            img: "/walls-io-91EImU2bgMA-unsplash.jpg",
+          },
+        ].map((item, index) => (
           <motion.div
             key={index}
             className="group relative bg-gray-900/80 p-6 rounded-2xl border border-white/10"
@@ -247,17 +215,23 @@ export default function MarketingMaterials() {
         ))}
       </div>
 
-      {/* Final Section */}
-     <Links/>
+      {/* Links Section */}
+      <div className="mt-20">
+        <Links />
+      </div>
 
+      {/* TIME TO UNLEASH — Centered */}
+      <div className="mt-20 flex justify-center">
         <motion.h1
-          className="text-6xl sm:text-8xl font-bold bg-gradient-to-r from-cyan-200 via-white to-blue-200 bg-clip-text text-transparent"
+          className="text-6xl sm:text-8xl font-bold bg-gradient-to-r from-cyan-200 via-white to-blue-200 bg-clip-text text-transparent text-center"
           whileHover={{ scale: 1.05 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
           TIME TO UNLEASH!
         </motion.h1>
       </div>
-   
+    </div>
   );
 }
-

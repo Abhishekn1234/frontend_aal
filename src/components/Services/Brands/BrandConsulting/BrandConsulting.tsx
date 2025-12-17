@@ -229,7 +229,7 @@ export default function BrandConsulting() {
           <motion.div className="relative group">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 transform perspective-1000">
              <motion.img
-  src="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=800&q=80"
+  src="/brand cunsulting.jpg"
   alt="Brand Consulting"
   className="w-full h-[500px] object-cover transform group-hover:scale-110 transition-transform duration-700"
   whileHover={{ scale: 1.1 }}

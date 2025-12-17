@@ -141,15 +141,19 @@ export default function Virtual() {
           {/* Footer */}
 {/* Footer */}
 {/* Footer */}
-<div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-6">
+{/* Footer */}
+<div className="flex flex-col items-center justify-center space-y-6 mt-12 px-4">
   {/* Links */}
   <Links />
 
   {/* TIME TO UNLEASH text */}
-  <span className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-amber-400 tracking-wider drop-shadow-[0_0_15px_rgba(255,191,0,0.8)] text-center whitespace-nowrap">
+  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-amber-400 tracking-wider drop-shadow-[0_0_15px_rgba(255,191,0,0.8)] text-center whitespace-nowrap">
     TIME TO UNLEASH!
   </span>
 </div>
+
+
+
 
 
 </div>
