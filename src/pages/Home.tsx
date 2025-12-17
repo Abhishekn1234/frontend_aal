@@ -226,7 +226,7 @@ export default function Home() {
       }}
     >
       <motion.img
-        src="3.svg"
+        src="Aalizah Technology title.svg"
         alt="Logo"
         initial={{
           width: "100px",
