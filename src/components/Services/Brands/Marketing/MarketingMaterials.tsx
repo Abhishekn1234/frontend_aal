@@ -1,43 +1,7 @@
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
 import Links from "../../../Layout/Links";
-
+import { useEffect, useState } from "react";
 export default function MarketingMaterials() {
-  const cursorRef = useRef<HTMLDivElement | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-
-  // Cursor Logic (only the main cursor, no small dot)
-  useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
-
-    document.addEventListener("mousemove", moveCursor);
-
-    const interactive = Array.from(
-      document.querySelectorAll<HTMLElement>(
-        "button, a, [class*='hover'], li, img"
-      )
-    );
-
-    interactive.forEach((el) => {
-      el.addEventListener("mouseenter", handleMouseEnter);
-      el.addEventListener("mouseleave", handleMouseLeave);
-    });
-
-    return () => {
-      document.removeEventListener("mousemove", moveCursor);
-      interactive.forEach((el) => {
-        el.removeEventListener("mouseenter", handleMouseEnter);
-        el.removeEventListener("mouseleave", handleMouseLeave);
-      });
-    };
-  }, []);
-
   // Scroll Progress Bar
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -67,18 +31,6 @@ export default function MarketingMaterials() {
       <motion.div
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-cyan-400 to-blue-600 z-50"
         style={{ width: `${scrollProgress}%` }}
-      />
-
-      {/* Custom Cursor */}
-      <motion.div
-        ref={cursorRef}
-        className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 fixed pointer-events-none z-[100] mix-blend-difference"
-        animate={{
-          x: mousePosition.x - 12,
-          y: mousePosition.y - 12,
-          scale: isHovering ? 1.6 : 1,
-        }}
-        transition={{ type: "spring", stiffness: 500, damping: 30 }}
       />
 
       {/* HERO */}
