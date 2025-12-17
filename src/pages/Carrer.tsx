@@ -1,34 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
-
 export default function Career() {
-  // const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-    useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
   useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", moveCursor);
-    return () => window.removeEventListener("mousemove", moveCursor);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 text-white font-sans relative overflow-hidden"  style={{
-              backgroundColor: "#182C48",
-              backgroundImage: "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
-            }}>
-      
-      {/* Custom Cursor */}
-      <motion.div
-        className="fixed w-6 h-6 bg-blue-600 rounded-full pointer-events-none z-50 mix-blend-difference"
-        animate={{ x: cursorPos.x - 12, y: cursorPos.y - 12 }}
-        transition={{ type: "spring", stiffness: 500, damping: 28 }}
-      />
-
+    <div
+      className="w-full min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 text-white font-sans relative overflow-hidden"
+      style={{
+        backgroundColor: "#182C48",
+        backgroundImage:
+          "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
+      }}
+    >
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-32 w-80 h-80 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-full blur-3xl opacity-30 animate-pulse" />
@@ -51,8 +37,6 @@ export default function Career() {
             Join Aalizah Technologies and unleash your skills to create meaningful impact. We offer a dynamic work environment where you can challenge the status quo, learn and grow, and be part of building something great. Take your career to the next level and join us today.
           </p>
         </motion.div>
-
-        
 
         {/* How to Apply */}
         <motion.div
@@ -79,4 +63,5 @@ export default function Career() {
     </div>
   );
 }
+
 

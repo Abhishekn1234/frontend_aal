@@ -22,7 +22,7 @@ export default function Vfx() {
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-6xl font-extrabold tracking-wide"
         >
-          VFX & CGI
+          VFX
         </motion.h1>
         <motion.h2
           initial={{ opacity: 0 }}
@@ -51,7 +51,7 @@ export default function Vfx() {
     transition={{ duration: 0.6 }}
     className="text-3xl md:text-4xl font-bold text-center mb-12"
   >
-    VFX & CGI Expertise
+    VFX  Expertise
   </motion.h3>
 
   <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
