@@ -220,8 +220,8 @@ export default function Home() {
   className="
     flex flex-col sm:flex-row
     items-center justify-center
-    gap-4 sm:gap-6
-    w-full my-8
+    gap-0 sm:gap-4
+    w-full my-4 sm:my-8
   "
 >
   {/* First Logo */}
@@ -242,9 +242,10 @@ export default function Home() {
   <motion.img
     src="Aalizah Technology title.svg"
     alt="Aalizah Technology"
-    className="max-w-full"
+    className="max-w-full -mt-1 sm:mt-0"
     initial={{
-      width: 160,
+      width: 72,
+      height:80,
       opacity: 0.8,
       scale: 0.9,
     }}
