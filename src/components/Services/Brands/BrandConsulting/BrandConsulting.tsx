@@ -226,27 +226,18 @@ export default function BrandConsulting() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div className="relative group">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 transform perspective-1000">
-             <motion.img
-  src="/brand cunsulting.jpg"
-  alt="Brand Consulting"
-  className="w-full h-[500px] object-cover transform group-hover:scale-110 transition-transform duration-700"
-  whileHover={{ scale: 1.1 }}
-/>
+       <motion.div className="relative group">
+  <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 transform perspective-1000">
+    <motion.img
+      src="/brand cunsulting.jpg"
+      alt="Brand Consulting"
+      className="w-full h-[500px] object-cover transform group-hover:scale-110 transition-transform duration-700"
+      whileHover={{ scale: 1.1 }}
+    />
 
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-purple-400/50 rounded-3xl transition-all duration-500" />
-              <motion.div
-                className="absolute top-4 right-4 bg-purple-500/20 backdrop-blur-sm rounded-lg p-3 border border-purple-400/30"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                ✨ Brand Magic
-              </motion.div>
-            </div>
-          </motion.div>
+    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+  </div>
+</motion.div>
 
           <motion.div className="space-y-6">
             <h2 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
