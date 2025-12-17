@@ -126,7 +126,7 @@ export default function Vfx() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="mt-6 text-gray-300 text-lg md:text-xl"
         >
-          Bring your vision to life with premium VFX & CGI.
+          Bring your vision to life with premium VFX.
         </motion.p>
       </section>
     </div>
