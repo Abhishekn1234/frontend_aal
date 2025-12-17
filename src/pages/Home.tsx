@@ -196,7 +196,7 @@ export default function Home() {
   # Your Vision, Our Technology
 </motion.p>
 
-<motion.p
+{/* <motion.p
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -213,7 +213,7 @@ export default function Home() {
   }}
 >
   Aalizah Technologies
-</motion.p>
+</motion.p> */}
 
 <div
       ref={ref}
