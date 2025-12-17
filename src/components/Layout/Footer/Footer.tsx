@@ -92,7 +92,7 @@ const MotionLink = motion(Link);
             {/* Company Info */}
             <motion.div variants={fadeUp} className="lg:col-span-2">
               <Link to="/" className="flex items-center gap-3 mb-3">
-  <img src="3.svg" style={logoStyle} alt="Aalizah Technologies Logo" />
+  <img src="Aalizah Technology Logo.svg" style={logoStyle} alt="Aalizah Technologies Logo" />
 
   <h3 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-300 bg-clip-text text-transparent">
     Aalizah Technologies
