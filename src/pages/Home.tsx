@@ -215,20 +215,21 @@ export default function Home() {
   Aalizah Technologies
 </motion.p> */}
 
-<div
+
+    <div
   ref={ref}
   className="
-    flex flex-col sm:flex-row
+    flex flex-col
     items-center justify-center
-    gap-0 sm:gap-4
-    w-full my-4 sm:my-8
+    gap-0
+    w-full my-4
   "
 >
   {/* First Logo */}
   <motion.img
     src="Aalizah Technology Logo.svg"
     alt="Logo"
-    className="rounded-full"
+    className="rounded-full block"
     initial={{
       width: 72,
       height: 80,
@@ -242,17 +243,15 @@ export default function Home() {
   <motion.img
     src="Aalizah Technology title.svg"
     alt="Aalizah Technology"
-    className="max-w-full -mt-1 sm:mt-0"
+    className="max-w-full block -mt-1"
     initial={{
-      width: 72,
-      height:80,
+      width: 160,
       opacity: 0.8,
       scale: 0.9,
     }}
     animate={controls}
   />
-</div>
-            {/* CTA Buttons */}
+</div>        {/* CTA Buttons */}
             
           </div>
 
@@ -316,7 +315,7 @@ export default function Home() {
             <h3 className="font-semibold text-gray-900 mb-2 md:mb-3 text-lg hover:text-cyan-500 transition-colors duration-300">{item.title}</h3>
             <p className="text-gray-600 hover:text-gray-800 transition-colors duration-300">{item.desc}</p>
           </motion.div>
-        ))}
+     ))}
       </motion.div>
 
     </div>
