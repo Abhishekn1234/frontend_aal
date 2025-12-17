@@ -178,13 +178,53 @@ export default function Home() {
     # Your Vision, Our Technology
   </motion.p>
 
-  {/* Add minimal margin here */}
-  <div className="mt-6 md:mt-8">  
-    <HeroLogo/>
-  </div>
+{/* <motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: 'easeOut' }}
+  className="
+    mt-6
+    text-3xl sm:text-4xl md:text-5xl 
+    font-bold 
+    bg-gradient-to-r 
+    from-blue-400 via-purple-500 to-pink-500 
+    bg-clip-text text-transparent uppercase
+  "
+  style={{
+    textShadow: "2px 2px 10px rgba(255, 255, 255, 0.6)",
+  }}
+>
+  Aalizah Technologies
+</motion.p> */}
 
-  {/* CTA Buttons - if you have them */}
-</div>
+<div
+      ref={ref}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        margin: "2rem 0",
+      }}
+    >
+      <motion.img
+        src="Aalizah Technology Logo.svg"
+        alt="Logo"
+        initial={{
+          width: "100px",
+          height: "110px",
+          borderRadius: "50%", // start as circle
+        }}
+        animate={controls}
+      />
+    </div>
+
+
+
+
+            {/* CTA Buttons */}
+            
+          </div>
 
           <ScrollDownIndicator />
         </motion.section>
@@ -246,7 +286,7 @@ export default function Home() {
             <h3 className="font-semibold text-gray-900 mb-2 md:mb-3 text-lg hover:text-cyan-500 transition-colors duration-300">{item.title}</h3>
             <p className="text-gray-600 hover:text-gray-800 transition-colors duration-300">{item.desc}</p>
           </motion.div>
-        ))}
+     ))}
       </motion.div>
 
     </div>
