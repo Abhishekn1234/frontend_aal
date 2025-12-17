@@ -131,7 +131,7 @@ export default function Navbar() {
               onMouseLeave={() => setLogoHovered(false)}
             >
               <img 
-                src="3.svg" 
+                src="Aalizah Technology Logo.svg" 
                 style={logoStyle} 
                 alt="Logo" 
                 className="transition-all duration-300"
