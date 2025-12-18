@@ -13,6 +13,20 @@ const DARK_GRADIENT_BG = {
   backgroundImage:
     "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
 };
+// backgroundColor: "#020b1c",
+//   backgroundImage: `
+//     radial-gradient(
+//       circle at 70% 40%,
+//       rgba(59,130,246,0.25),
+//       rgba(2,11,28,0.9) 60%
+//     ),
+//     linear-gradient(
+//       135deg,
+//       #020b1c 0%,
+//       #061b3a 40%,
+//       #020b1c 100%
+//     )
+//   `,
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
