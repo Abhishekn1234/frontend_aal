@@ -26,7 +26,8 @@ export default function Home() {
         animate="show"
         variants={staggerContainer}
         className="relative w-full min-h-screen flex mt-10 items-center justify-center py-20 md:py-28 px-4 sm:px-6 text-center overflow-hidden"
-        style={{ backgroundColor: "#000" }}
+       style={{  backgroundColor: "#182C48" }}
+
       >
         <video
           src="/IMG_0593.MOV"
@@ -123,7 +124,7 @@ export default function Home() {
     <ScrollRevealSection id="services-section">
   <section
     className="w-full py-20 md:py-28 px-4 sm:px-6 relative"
-    style={{ backgroundColor: "#000" }} // black background
+    style={{  backgroundColor: "#182C48" }} // black background
   >
     <div className="relative z-10 max-w-7xl mx-auto">
       <motion.h2
@@ -225,7 +226,7 @@ export default function Home() {
 
       {/* VIDEO SECTION - BLACK */}
       <ScrollRevealSection id="video-section">
-        <section className="py-20 md:py-32 px-4 sm:px-6 relative" style={{ backgroundColor: "#000" }}>
+        <section className="py-20 md:py-32 px-4 sm:px-6 relative" style={{  backgroundColor: "#182C48" }}>
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.5)" }} />
           <div className="max-w-7xl mx-auto relative z-10">
             <motion.h2
