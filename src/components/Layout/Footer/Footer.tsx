@@ -60,10 +60,7 @@ const MotionLink = motion(Link);
         </motion.button>
       )}
 
-      <footer className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white overflow-hidden"  style={{
-              backgroundColor: "#182C48",
-              backgroundImage: "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
-            }}>
+       <footer className="relative bg-black text-white overflow-hidden">
 
         {/* Pattern Background */}
         <div className="absolute inset-0 opacity-10">
