@@ -60,7 +60,7 @@ const MotionLink = motion(Link);
         </motion.button>
       )}
 
-       <footer className="relative bg-black text-white overflow-hidden">
+       <footer className="relative text-white overflow-hidden" style={{backgroundColor: "#182C48"}}>
 
         {/* Pattern Background */}
         <div className="absolute inset-0 opacity-10">
