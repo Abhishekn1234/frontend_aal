@@ -60,7 +60,10 @@ const MotionLink = motion(Link);
         </motion.button>
       )}
 
-       <footer className="relative text-white overflow-hidden" style={{backgroundColor: "#182C48"}}>
+       <footer className="relative text-white overflow-hidden"  style={{
+        backgroundColor: "#182C48",
+        backgroundImage: "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
+      }}>
 
         {/* Pattern Background */}
         <div className="absolute inset-0 opacity-10">

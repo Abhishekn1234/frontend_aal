@@ -8,7 +8,11 @@ import { VideoPlayer } from "../components/Home/VideoPlayer";
 import { ScrollRevealSection } from "../components/Home/ScrollReveal";
 import { servicesData } from "../components/Services/servicesData";
 import HeroLogo from "./HeroLogo";
-
+const DARK_GRADIENT_BG = {
+  backgroundColor: "#182C48",
+  backgroundImage:
+    "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
+};
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -26,9 +30,9 @@ export default function Home() {
         animate="show"
         variants={staggerContainer}
         className="relative w-full min-h-screen flex mt-10 items-center justify-center py-20 md:py-28 px-4 sm:px-6 text-center overflow-hidden"
-       style={{  backgroundColor: "#182C48" }}
-
+        style={DARK_GRADIENT_BG}
       >
+        {/* Background Video */}
         <video
           src="/IMG_0593.MOV"
           autoPlay
@@ -37,17 +41,21 @@ export default function Home() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover object-center brightness-75"
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.5)" }} />
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-[#0a192f]/70 to-black/80" />
+
         <div className="relative z-10 max-w-6xl mx-auto px-2">
           <motion.h1
             variants={fadeUp}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-4 md:mb-6 text-white drop-shadow-lg uppercase"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 text-white drop-shadow-lg uppercase"
           >
             Empowering Businesses with{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-300">
               Digital Innovation
             </span>
           </motion.h1>
+
           <motion.p
             variants={fadeUp}
             className="mt-4 opacity-90 leading-relaxed max-w-2xl mx-auto text-white/90 text-[18px]"
@@ -55,16 +63,19 @@ export default function Home() {
             Premium IT solutions that elevate your brand, optimize operations,
             and fast-track your digital growth.
           </motion.p>
+
           <motion.p
             variants={fadeUp}
             className="mt-2 text-lg sm:text-xl md:text-2xl font-semibold text-cyan-300 drop-shadow-lg"
           >
             # Your Vision, Our Technology
           </motion.p>
+
           <div className="mt-6">
             <HeroLogo />
           </div>
         </div>
+
         <ScrollDownIndicator />
       </motion.section>
 
@@ -122,75 +133,50 @@ export default function Home() {
 
       {/* SERVICES - BLACK */}
     <ScrollRevealSection id="services-section">
-  <section
-    className="w-full py-20 md:py-28 px-4 sm:px-6 relative"
-    style={{  backgroundColor: "#182C48" }} // black background
-  >
-    <div className="relative z-10 max-w-7xl mx-auto">
-      <motion.h2
-        variants={fadeUp}
-        className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-14 md:mb-20 text-white"
-      >
-        What <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">We Provide</span>
-      </motion.h2>
+        <section
+          className="w-full py-20 md:py-28 px-4 sm:px-6 relative"
+          style={DARK_GRADIENT_BG}
+        >
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
 
-      {/* SERVICES GRID */}
-      <motion.div
-        variants={staggerContainer}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16"
-      >
-        {servicesData.map((service, index) => {
-          // Logic for centering last single card
-          const isLastSingleCard =
-            index === servicesData.length - 1 && servicesData.length % 3 === 1;
-
-          return (
-            <div
-              key={service.title.replace(/\s+/g, "-").toLowerCase()}
-              id={service.title.replace(/\s+/g, "-").toLowerCase()}
-              className={`w-full max-w-sm h-[450px] rounded-2xl shadow-lg overflow-hidden flex flex-col bg-gray-100 ${
-                isLastSingleCard ? "lg:col-start-2 focus:ring-0 border-white" : ""
-              }`}
+          <div className="relative z-10 max-w-7xl mx-auto">
+            <motion.h2
+              variants={fadeUp}
+              className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
             >
-              {/* White background section for image/video + title */}
-              <div className="bg-white flex flex-col items-center border-white">
-                {isLastSingleCard && service.video ? (
-                  <video
-                    src={service.video}
-                    className="w-full h-48 object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
-                ) : service.image ? (
+              What{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">
+                We Provide
+              </span>
+            </motion.h2>
+
+            <motion.div
+              variants={staggerContainer}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {servicesData.map((service, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col"
+                >
                   <img
                     src={service.image}
-                    alt={service.title}
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
-                ) : null}
-
-                <h3 className="text-lg font-bold text-gray-800 text-center py-2">
-                  {service.title}
-                </h3>
-              </div>
-
-              {/* Items section with bullet points */}
-              <div className="flex-1 p-4">
-                <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
-                  {service.items.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          );
-        })}
-      </motion.div>
-    </div>
-  </section>
-</ScrollRevealSection>
+                  <h3 className="text-lg font-bold text-center py-3">
+                    {service.title}
+                  </h3>
+                  <ul className="p-4 text-sm space-y-1">
+                    {service.items.map((item, i) => (
+                      <li key={i}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      </ScrollRevealSection>
 
 
       {/* WHY CHOOSE US - WHITE */}
@@ -226,30 +212,34 @@ export default function Home() {
 
       {/* VIDEO SECTION - BLACK */}
       <ScrollRevealSection id="video-section">
-        <section className="py-20 md:py-32 px-4 sm:px-6 relative" style={{  backgroundColor: "#182C48" }}>
-          <div className="absolute inset-0" style={{ backgroundColor: "rgba(0,0,0,0.5)" }} />
+        <section
+          className="py-20 md:py-32 px-4 sm:px-6 relative overflow-hidden"
+          style={DARK_GRADIENT_BG}
+        >
+          <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-[#0a192f]/70 to-black/80" />
+
           <div className="max-w-7xl mx-auto relative z-10">
             <motion.h2
               variants={fadeUp}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 text-white"
+              className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
             >
-              See Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">Digital Marketing</span> in Action
+              See Our{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">
+                Digital Marketing
+              </span>
             </motion.h2>
 
-            <motion.div variants={fadeUp} className="px-2">
-              <VideoPlayer />
-            </motion.div>
+            <VideoPlayer />
 
             <motion.p
               variants={fadeUp}
-              className="text-center mt-6 md:mt-8 text-base md:text-lg text-white/80 max-w-2xl mx-auto px-4"
+              className="text-center mt-8 text-white/80 max-w-2xl mx-auto"
             >
-              Watch how our digital marketing strategies transform businesses and drive measurable results.
+              Watch how our strategies transform businesses and drive results.
             </motion.p>
           </div>
         </section>
       </ScrollRevealSection>
-
       {/* CLIENTS - WHITE */}
       <motion.div variants={fadeUp} className="mt-16 md:mt-20 relative z-10" style={{ backgroundColor: "#fff" }}>
         <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-blue-800">
