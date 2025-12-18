@@ -113,7 +113,7 @@ export default function Home() {
         >
           {/* Background Video */}
           <video
-            src="/home page banner.mp4"
+            src="/IMG_0593.MOV"
             autoPlay
             loop
             muted
@@ -179,9 +179,11 @@ export default function Home() {
   </motion.p>
 
   {/* Add minimal margin here */}
-  <div className="mt-6 md:mt-8">  
-    <HeroLogo/>
-  </div>
+   <div>
+      <HeroLogo/>
+   </div>
+  
+
 
   {/* CTA Buttons - if you have them */}
 </div>
