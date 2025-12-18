@@ -147,50 +147,83 @@ export default function Home() {
 
       {/* SERVICES - BLACK */}
     <ScrollRevealSection id="services-section">
-        <section
-          className="w-full py-20 md:py-28 px-4 sm:px-6 relative"
-          style={DARK_GRADIENT_BG}
-        >
-          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
+  <section
+    className="w-full py-20 md:py-28 px-4 sm:px-6 relative"
+    style={DARK_GRADIENT_BG}
+  >
+    {/* Top gradient line */}
+    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
 
-          <div className="relative z-10 max-w-7xl mx-auto">
-            <motion.h2
-              variants={fadeUp}
-              className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
-            >
-              What{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">
-                We Provide
-              </span>
-            </motion.h2>
+    <div className="relative z-10 max-w-7xl mx-auto">
+      {/* Heading */}
+      <motion.h2
+        variants={fadeUp}
+        className="text-4xl md:text-5xl font-bold text-center mb-16 text-white"
+      >
+        What{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">
+          We Provide
+        </span>
+      </motion.h2>
 
-            <motion.div
-              variants={staggerContainer}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      {/* Cards */}
+      <motion.div
+        variants={staggerContainer}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16"
+      >
+        {servicesData.map((service, index) => {
+          // Center last single card when only 1 card in last row (lg)
+          const isLastSingleCard =
+            index === servicesData.length - 1 &&
+            servicesData.length % 3 === 1;
+
+          return (
+            <div
+              key={service.title.replace(/\s+/g, "-").toLowerCase()}
+              id={service.title.replace(/\s+/g, "-").toLowerCase()}
+              className={`w-full max-w-sm h-[450px] rounded-2xl shadow-lg overflow-hidden flex flex-col bg-gray-100 ${
+                isLastSingleCard ? "lg:col-start-2" : ""
+              }`}
             >
-              {servicesData.map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col"
-                >
+              {/* Image / Video section */}
+              <div className="bg-white flex flex-col items-center">
+                {isLastSingleCard && service.video ? (
+                  <video
+                    src={service.video}
+                    className="w-full h-48 object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                ) : service.image ? (
                   <img
                     src={service.image}
-                    className="h-48 w-full object-cover"
+                    alt={service.title}
+                    className="w-full h-48 object-cover"
                   />
-                  <h3 className="text-lg font-bold text-center py-3">
-                    {service.title}
-                  </h3>
-                  <ul className="p-4 text-sm space-y-1">
-                    {service.items.map((item, i) => (
-                      <li key={i}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-      </ScrollRevealSection>
+                ) : null}
+
+                <h3 className="text-lg font-bold text-gray-800 text-center py-3">
+                  {service.title}
+                </h3>
+              </div>
+
+              {/* Bullet points */}
+              <div className="flex-1 p-4">
+                <ul className="list-disc list-inside space-y-1 text-gray-700 text-sm">
+                  {service.items.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          );
+        })}
+      </motion.div>
+    </div>
+  </section>
+</ScrollRevealSection>
 
 
       {/* WHY CHOOSE US - WHITE */}

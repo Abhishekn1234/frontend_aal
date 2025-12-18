@@ -182,7 +182,7 @@ const MotionLink = motion(Link);
                 href="mailto:info@aalizahtechnologies.com"
                 className="flex items-center space-x-3 text-white/80 hover:text-white"
               >
-                <Mail size={20} className="text-cyan-400" />
+                <Mail size={40} className="text-cyan-400" />
                 <span>info@aalizahtechnologies.com , aalizahtechnologies@gmail.com</span>
               </motion.a>
 
