@@ -102,15 +102,12 @@ export default function Home() {
         
         {/* HERO SECTION */}
         <motion.section
-          initial="hidden"
-          animate="show"
-          variants={staggerContainer}
-          className="relative w-full min-h-screen flex mt-10 items-center justify-center py-20 md:py-28 px-4 sm:px-6 text-center overflow-hidden"
-          style={{
-              backgroundColor: "#182C48",
-              backgroundImage: "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
-            }}
-        >
+  initial="hidden"
+  animate="show"
+  variants={staggerContainer}
+  className="relative w-full min-h-screen flex mt-10 items-center justify-center py-20 md:py-28 px-4 sm:px-6 text-center overflow-hidden"
+  style={{ backgroundColor: "#000" }} // black
+>
           {/* Background Video */}
           <video
             src="/IMG_0593.MOV"
@@ -257,13 +254,10 @@ export default function Home() {
 
 
             <ScrollRevealSection id="services-section">
-          <section
-            className="w-full py-20 md:py-28 px-4 sm:px-6 relative"
-            style={{
-              backgroundColor: "#0a192f",
-              backgroundImage: "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
-            }}
-          >
+            <section
+    className="w-full py-20 md:py-28 px-4 sm:px-6 relative"
+    style={{ backgroundColor: "#000" }} // black
+  >
             {/* Gradient Overlay */}
             <div 
               className="absolute inset-0"
@@ -422,10 +416,7 @@ export default function Home() {
           <ScrollRevealSection id="video-section">
           <section 
             className="py-20 md:py-32 px-4 sm:px-6 relative"
-            style={{
-              backgroundColor: "#182C48",
-              backgroundImage: "linear-gradient(135deg, #0a192f 0%, #000428 50%, #0a192f 100%)",
-            }}
+            style={{ backgroundColor: "#000" }} // black
           >
             <div 
               className="absolute inset-0"
